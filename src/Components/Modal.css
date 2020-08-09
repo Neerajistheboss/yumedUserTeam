@@ -1,0 +1,7 @@
+.modalclass {
+	position: fixed;
+	top: 20vh;
+	left: 35vw;
+	width: 30vw !important;
+	z-index: 10000;
+}
