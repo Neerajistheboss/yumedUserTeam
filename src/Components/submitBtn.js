@@ -90,7 +90,7 @@ function SubmitBtn(props) {
 
 					//         //load payment gateway
 
-					window.location.href = `//yuver.herokuapp.com/api/v1/payment/${orderId}`
+					window.location.href = `//localhost:5000/api/v1/payment/${orderId}`
 				}
 			})
 	}
