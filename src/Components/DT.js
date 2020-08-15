@@ -41,7 +41,7 @@ const DT = (props) => {
 
 	useEffect(() => {
 		axios
-			.get(`http://localhost:5000/api/v1/doctors/${auth.docId}`)
+			.get(`https://yuver.herokuapp.com/api/v1/doctors/${auth.docId}`)
 			.then(function (response) {
 				setDs(response.data.data.ds)
 				console.log(`ds ${ds}`)

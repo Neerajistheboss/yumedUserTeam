@@ -20,7 +20,7 @@ const SearchPage = () => {
 
 	useEffect(() => {
 		console.log(`${auth.city}  ${auth.specialisation} ${auth.hospitalId}`)
-		let queryStr = 'http://localhost:5000/api/v1/doctors?'
+		let queryStr = 'https://yuver.herokuapp.com/api/v1/doctors?'
 		if (auth.specialisation)
 			queryStr = queryStr + `specailisation=${auth.specialisation}`
 		if (auth.city) queryStr = queryStr + `&city=${auth.city}`
