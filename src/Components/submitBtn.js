@@ -10,7 +10,7 @@ function SubmitBtn(props) {
 
 	function login() {
 		axios
-			.post('https://yuver.herokuapp.com/api/v1/auth/login', {
+			.post('http://localhost:5000/api/v1/auth/login', {
 				email: props.email,
 				password: props.password,
 			})
@@ -36,7 +36,7 @@ function SubmitBtn(props) {
 		// console.log("register")
 
 		axios
-			.post('https://yuver.herokuapp.com/api/v1/auth/register', {
+			.post('http://localhost:5000/api/v1/auth/register', {
 				name: props.name,
 				email: props.email,
 				password: props.password,
@@ -67,7 +67,7 @@ function SubmitBtn(props) {
 		}
 		axios
 			.post(
-				'https://yuver.herokuapp.com/api/v1/appointments',
+				'http://localhost:5000/api/v1/appointments',
 				{
 					appointment: {
 						user: auth.userId,
