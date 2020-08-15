@@ -9,7 +9,7 @@ const MyAccountPage = () => {
 	const [refId, setRefId] = useState(auth.referralId)
 	useEffect(() => {
 		axios
-			.get(`yuver.herokuapp.com/api/v1/users/${auth.userId}`)
+			.get(`http://localhost:5000/api/v1/users/${auth.userId}`)
 			.then(function (response) {
 				setRefId(response.data.data.referral.code)
 				auth.refferalID = response.data.data.referral.code
