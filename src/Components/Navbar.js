@@ -162,7 +162,7 @@ const Navbar = () => {
 				{auth.isLoggedIn && <Nodal />}
 			</ul>
 
-			{drawerIsOpen && <Menu onClick={openDrawer} drawer={openDrawer} />}
+			{drawerIsOpen && <Menu onLinkClick={closeDrawer} drawer={openDrawer} />}
 		</nav>
 	)
 

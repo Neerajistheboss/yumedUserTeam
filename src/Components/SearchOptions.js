@@ -100,7 +100,7 @@ const SearchOptions = () => {
 						</select>
 					</div>
 					<div className='mb-1 searchbtn  btn-info form-control-lg '>
-						<NavLink to='search' className='text-white'>
+						<NavLink to='search' className='text-white text-decoration-none'>
 							Search
 						</NavLink>
 					</div>

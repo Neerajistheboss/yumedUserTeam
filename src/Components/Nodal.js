@@ -4,7 +4,7 @@ import Modal from './Modal'
 import { AuthContext } from '../context/auth-context'
 import { useHistory } from 'react-router-dom'
 
-const Nodal = () => {
+const Nodal = (props) => {
 	const history = useHistory()
 	const auth = useContext(AuthContext)
 	const [show, setShow] = useState(false)

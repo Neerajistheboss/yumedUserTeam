@@ -1,8 +1,11 @@
 import React from 'react'
 import { Container, Col, Row, Button } from 'reactstrap'
 import MobileStoreButton from 'react-mobile-store-button'
-
+import moment from 'moment'
 const footer = () => {
+	console.log(moment(Date.now()).unix())
+	console.log(moment(Date.now()).valueOf())
+	console.log(moment(1597342135640).calendar())
 	const buttons = {
 		height: '50px',
 	}
@@ -14,6 +17,7 @@ const footer = () => {
 	const style = {
 		color: 'white',
 		backgroundColor: 'rgb(0,19,51)',
+		paddingTop: '30px',
 	}
 
 	const playstoreLink =
@@ -87,6 +91,11 @@ const footer = () => {
 					height: '52px',
 				}}>
 				Copyright YuMedic 2020
+			</div>
+			<div>
+				<a href='https://www.facebook.com/yumedic1/'>
+					<i class='fab fa-facebook'></i>
+				</a>
 			</div>
 		</div>
 	)

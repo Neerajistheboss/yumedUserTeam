@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Testimonials from '../Components/Carousel'
 import Specialities from '../Components/Specialities'
 import Hospitals from '../Components/Hospitals'
@@ -80,7 +80,7 @@ function HomePage(props) {
 					<div className='text-center' name='GeneralPhysician'>
 						<NavLink
 							className='text-decoration-none'
-							to='search'
+							to='/search'
 							onClick={setSpecialisation}
 							name='GeneralPhysician'>
 							<Specialities
@@ -93,7 +93,7 @@ function HomePage(props) {
 					<div className='text-center' name='Cardiology'>
 						<NavLink
 							className='text-decoration-none'
-							to='search'
+							to='/search'
 							onClick={setSpecialisation}
 							name='Cardiology'>
 							<Specialities
@@ -106,7 +106,7 @@ function HomePage(props) {
 					<div className='text-center' name='ChildSpecialist'>
 						<NavLink
 							className='text-decoration-none'
-							to='search'
+							to='/search'
 							onClick={setSpecialisation}
 							name='ChildSpecialist'>
 							<Specialities
@@ -119,7 +119,7 @@ function HomePage(props) {
 					<div className='text-center' name='Surgeon'>
 						<NavLink
 							className='text-decoration-none'
-							to='search'
+							to='/search'
 							onClick={setSpecialisation}
 							name='Surgeon'>
 							<Specialities name='Surgeon' spe='Surgeon' img={Surgeon} />
@@ -128,7 +128,7 @@ function HomePage(props) {
 					<div className='text-center' name='Dentist'>
 						<NavLink
 							className='text-decoration-none'
-							to='search'
+							to='/search'
 							onClick={setSpecialisation}
 							name='Dentist'>
 							<Specialities name='Dentist' spe='Dental' img={Dental} />
@@ -137,7 +137,7 @@ function HomePage(props) {
 					<div className='text-center' name='Neurologist'>
 						<NavLink
 							className='text-decoration-none'
-							to='search'
+							to='/search'
 							onClick={setSpecialisation}
 							name='Neurologist'>
 							<Specialities
@@ -150,7 +150,7 @@ function HomePage(props) {
 					<div className='text-center' name='Gynocologist'>
 						<NavLink
 							className='text-decoration-none'
-							to='search'
+							to='/search'
 							onClick={setSpecialisation}
 							name='Gynocologist'>
 							<Specialities
@@ -163,7 +163,7 @@ function HomePage(props) {
 					<div className='text-center' name='SkinAndHair'>
 						<NavLink
 							className='text-decoration-none'
-							to='search'
+							to='/search'
 							onClick={setSpecialisation}
 							name='SkinAndHair'>
 							<Specialities name='SkinAndHair' spe='Skin and Hair' img={Skin} />
@@ -172,7 +172,7 @@ function HomePage(props) {
 					<div className='text-center' name='Orthopedic'>
 						<NavLink
 							className='text-decoration-none'
-							to='search'
+							to='/search'
 							onClick={setSpecialisation}
 							name='Orthopedic'>
 							<Specialities
@@ -185,7 +185,7 @@ function HomePage(props) {
 					<div className='text-center' name='Eye'>
 						<NavLink
 							className='text-decoration-none'
-							to='search'
+							to='/search'
 							onClick={setSpecialisation}
 							name='Eye'>
 							<Specialities name='Eye' spe='Eye Specialist' img={Eye} />

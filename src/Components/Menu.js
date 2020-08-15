@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { NavLink } from 'react-router-dom'
 import { AuthContext } from '../context/auth-context'
 import { NavItem } from 'reactstrap'
+import Nodal from './Nodal'
 import './Menu.css'
 
 const Menu = (props) => {
@@ -13,37 +14,43 @@ const Menu = (props) => {
 			<ul className='navbar-nav ml-auto text-center'>
 				{auth.isLoggedIn && (
 					<NavItem>
-						<NavLink to='/account' style={{ fontWeight: 'bold' }}>
+						<NavLink
+							to='/account'
+							onClick={props.onLinkClick}
+							style={{ fontWeight: 'bold' }}>
 							My Account
 						</NavLink>
 					</NavItem>
 				)}
 				<NavItem>
-					<NavLink to='/contact' style={{ fontWeight: 'bold' }}>
+					<NavLink
+						to='/contact'
+						onClick={props.onLinkClick}
+						style={{ fontWeight: 'bold' }}>
 						ContactUs
 					</NavLink>
 				</NavItem>
 				{!auth.isLoggedIn && (
 					<NavItem>
-						<NavLink to='/login' style={{ fontWeight: 'bold' }}>
+						<NavLink
+							to='/login'
+							onClick={props.onLinkClick}
+							style={{ fontWeight: 'bold' }}>
 							Login
 						</NavLink>
 					</NavItem>
 				)}
 				{!auth.isLoggedIn && (
 					<NavItem>
-						<NavLink to='/register' style={{ fontWeight: 'bold' }}>
+						<NavLink
+							to='/register'
+							onClick={props.onLinkClick}
+							style={{ fontWeight: 'bold' }}>
 							SignUp
 						</NavLink>
 					</NavItem>
 				)}
-				{auth.isLoggedIn && (
-					<NavItem>
-						<NavLink to='/logout' style={{ fontWeight: 'bold' }}>
-							Logout
-						</NavLink>
-					</NavItem>
-				)}
+				{auth.isLoggedIn && <Nodal onLinkClick={props.onLinkClick} />}
 			</ul>
 		</div>
 	)

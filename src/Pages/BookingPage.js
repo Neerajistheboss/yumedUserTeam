@@ -2,14 +2,14 @@ import React, { useState, useContext } from 'react'
 // import DocCard from '../components/DocCard'
 import { AuthContext } from '../context/auth-context'
 import SubmitBtn from '../Components/submitBtn'
-
+import DT from '../Components/DT'
 const BookingPage = () => {
 	const auth = useContext(AuthContext)
-	const [formCompleted, setFormCompleted] = useState(false)
+	const [formCompleted, setFormCompleted] = useState(true)
 	const [btnStyle, setBtnStyle] = useState('btn-light disabled border m-3')
 	const [btnText, setBtnText] = useState('Fill Details to Proceed')
 	const [fields, setFields] = useState({
-		name: '',
+		patientName: '',
 		age: '',
 		gender: '',
 		address: '',
@@ -26,19 +26,21 @@ const BookingPage = () => {
 
 	const textChangeHandler = (event) => {
 		const value = event.target.value
+
 		setFields({
 			...fields,
 			[event.target.name]: value,
 		})
 
 		if (
-			fields.name.length > 1 &&
+			fields.patientName.length > 1 &&
 			fields.age.length > 1 &&
 			fields.gender.length > 1 &&
 			fields.address.length > 1 &&
 			fields.phone.length > 1
 		) {
 			setFormCompleted(true)
+			auth.patientName = fields.patientName
 			setBtnStyle('btn-primary m-3 ')
 			setBtnText('Make Payment')
 		} else {
@@ -47,22 +49,24 @@ const BookingPage = () => {
 			setBtnText('Fill Details to Proceed')
 		}
 	}
+
 	return (
 		<div className='container-fluid'>
+			<DT />
 			{/* <DocCard doc={doctor} bookbtn={false}/> */}
 			<h3 className='text-center'>Bookin Details</h3>
 
 			<div className='mt-3 pl-1'>
 				<div className='form-group row'>
 					<label className='col-2' htmlFor='name'>
-						Name
+						Patient Name
 					</label>
 					<div className='col-8'>
 						<input
 							value={fields.name}
 							onChange={textChangeHandler}
 							type='text'
-							name='name'
+							name='patientName'
 							className='form-control'
 							id='name'
 							aria-describedby='emailHelp'></input>
@@ -148,7 +152,7 @@ const BookingPage = () => {
 			<div>
 				<h5>Payement Details</h5>
 				<div class='justify-content-between d-flex my-1'>
-					<span>Appointment Fee</span> <span>300></span>
+					<span>Appointment Fee</span> <span>300</span>
 				</div>
 				<div class='justify-content-between d-flex my-1'>
 					<span>Service Charge</span>
@@ -161,6 +165,10 @@ const BookingPage = () => {
 				<div class='justify-content-between d-flex my-1'>
 					<span>GST on Service Charge</span>
 					<span>18%</span>
+				</div>
+				<div class='justify-content-between d-flex my-1'>
+					<span>Total </span>
+					<span>350</span>
 				</div>
 			</div>
 			<hr class='my-4' />

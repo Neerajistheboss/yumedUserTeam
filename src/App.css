@@ -1,23 +1,33 @@
 .specialities {
-  display: flex;
-  align-items: space-around;
+	display: flex;
+	align-items: space-around;
 }
+
+body {
+	overflow-x: hidden;
+}
+
 @media screen and (max-width: 540px) {
-  .inputField {
-    display: none;
-  }
-  .inputButton {
-    visibility: hidden;
-  }
-  .search {
-    width: '30%'
-  }
-} 
+	.inputField {
+		display: none;
+	}
+	.inputButton {
+		visibility: hidden;
+	}
+	.search {
+		width: '30%';
+	}
+}
 
+.anotherAppointment {
+	background-color: #1b1b30 !important;
+	color: #fff;
+}
 
+.activeDate {
+	background-color: chartreuse;
+}
 
-.anotherAppointment{
-  background-color: #1B1B30 !important;
-  color: #FFF;
-  
+.activeTime {
+	background-color: cornflowerblue;
 }

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 import { AuthContext } from '../context/auth-context'
-
+import moment from 'moment'
 const axios = require('axios')
 
 function SubmitBtn(props) {
@@ -36,7 +36,7 @@ function SubmitBtn(props) {
 		// console.log("register")
 
 		axios
-			.post('http://localhost:8080/api/v1/auth/register', {
+			.post('http://localhost:5000/api/v1/auth/register', {
 				name: props.name,
 				email: props.email,
 				password: props.password,
@@ -62,7 +62,6 @@ function SubmitBtn(props) {
 	}
 
 	function payment() {
-		console.log('payment started')
 		const config = {
 			headers: { Authorization: `Bearer ${auth.token}` },
 		}
@@ -72,9 +71,12 @@ function SubmitBtn(props) {
 				{
 					appointment: {
 						user: auth.userId,
-						doctor: '5ed4d26c7004f434b8f8d34e',
-						hospital: '5ed4d26c7004f434b8f8d34e',
-						cost: 300,
+						patientName: auth.patientName,
+						doctor: auth.docId,
+						hospital: auth.hospitalId,
+						cost: auth.cost,
+						dateTime: { date: auth.date, time: auth.time },
+						time: Date.parse(`${moment(auth.date).format('ll')} ${auth.time}`),
 					},
 				},
 				config

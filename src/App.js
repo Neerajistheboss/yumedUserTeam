@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react'
+import React, { useEffect, useState, useCallback, useRef } from 'react'
 import {
 	BrowserRouter as Router,
 	Route,
@@ -16,6 +16,8 @@ import Footer from './Components/Footer'
 import FailedPage from './Pages/FailedPage'
 import SuccessPage from './Pages/SuccessPage'
 import MyAccountPage from './Pages/MyAccountPage'
+import lottie from 'lottie-web'
+
 // import Path2 from './images/path2.png';
 
 function App() {
@@ -41,6 +43,18 @@ function App() {
 		setUserId(uid)
 		login(uid, token)
 	}, [])
+
+	const container = useRef(null)
+
+	useEffect(() => {
+		lottie.loadAnimation({
+			container: document.getElementById('lottieContainer'),
+			renderer: 'svg',
+			loop: true,
+			autoplay: true,
+			animationData: require('./images/preloader.json'),
+		})
+	})
 
 	let routes
 	if (token) {
@@ -107,6 +121,7 @@ function App() {
 				logout: logout,
 			}}>
 			<Router>
+				<div></div>
 				<Header />
 				<Switch> {routes} </Switch> <Footer />
 			</Router>

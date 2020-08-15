@@ -1,0 +1,78 @@
+import React, { useContext, useEffect, useState } from 'react'
+import Appointment from '../Components/Appointment'
+import axios from 'axios'
+import { AuthContext } from '../context/auth-context'
+import google from '../images/google.png'
+import moment from 'moment'
+const AppointmentGroup = (props) => {
+	const auth = useContext(AuthContext)
+	const [appointments, setAppointments] = useState([])
+
+	useEffect(() => {
+		if (props.type === 'Upcoming') {
+			console.log('Upcoming')
+			const config = {
+				headers: { Authorization: `Bearer ${auth.token}` },
+			}
+			axios
+				.get(
+					`http://localhost:5000/api/v1/appointments`,
+					{
+						params: {
+							user: auth.userId,
+
+							maxD: Date.parse(
+								moment(Date.now()).add(10, 'days').format('MM-DD-YYYY')
+							),
+							minD: Date.now(),
+						},
+					},
+					config
+				)
+				.then(function (response) {
+					setAppointments(response.data.data)
+					console.log(response.data.data)
+				})
+		} else if (props.type === 'Past') {
+			console.log('Past')
+			const config = {
+				headers: { Authorization: `Bearer ${auth.token}` },
+			}
+			axios
+				.get(
+					`http://localhost:5000/api/v1/appointments`,
+					{
+						params: {
+							user: auth.userId,
+
+							minD: moment(Date.now())
+								.subtract(180, 'days')
+								.format('MM-DD-YYYY'),
+							maxD: moment(Date.now()).format('MM-DD-YYYY'),
+						},
+					},
+					config
+				)
+				.then(function (response) {
+					setAppointments(response.data.data)
+					console.log(response.data.data)
+				})
+		}
+	}, [])
+
+	return (
+		<div>
+			{appointments.length > 0 ? (
+				appointments.map((appointment) => (
+					<Appointment appointment={appointment} />
+				))
+			) : (
+				<div className='m-1 p-3 bg-light  text-center'>
+					<p>None</p>
+				</div>
+			)}
+		</div>
+	)
+}
+
+export default AppointmentGroup
