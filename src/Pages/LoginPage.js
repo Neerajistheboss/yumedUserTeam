@@ -20,26 +20,26 @@ const LoginPage = (props) => {
 		setPassword(event.target.value)
 	}
 
-	function googleLogin() {
-		axios
-			.get('http://localhost:5000/api/v1/auth/oauth/google')
-			.then(function (response) {
-				console.log(response.data.success)
-				if (!response.data.success) {
-					//do nothing
-				} else {
-					//save token in local storage
-					let token = response.data.token
-					let uid = response.data.userId
-					localStorage.setItem('token', token)
-					localStorage.setItem('uid', uid)
+	// function googleLogin() {
+	// 	axios
+	// 		.get('https://yuver.herokuapp.com/api/v1/auth/oauth/google')
+	// 		.then(function (response) {
+	// 			console.log(response.data.success)
+	// 			if (!response.data.success) {
+	// 				//do nothing
+	// 			} else {
+	// 				//save token in local storage
+	// 				let token = response.data.token
+	// 				let uid = response.data.userId
+	// 				localStorage.setItem('token', token)
+	// 				localStorage.setItem('uid', uid)
 
-					//         //load homepage
-					auth.login(uid, token)
-					window.history.push('/')
-				}
-			})
-	}
+	// 				//         //load homepage
+	// 				auth.login(uid, token)
+	// 				window.history.push('/')
+	// 			}
+	// 		})
+	// }
 
 	return (
 		<div>
@@ -113,7 +113,7 @@ const LoginPage = (props) => {
 												</p>
 											</a>
 											<a
-												href='http://localhost:5000/api/v1/auth/oauth/google'
+												href='https://yuver.herokuapp.com/api/v1/auth/oauth/google'
 												className='p-1 rounded-lg d-flex  my-2 text-light'
 												style={{
 													backgroundColor: '#1976D2',
