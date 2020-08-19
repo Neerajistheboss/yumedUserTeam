@@ -14,14 +14,21 @@ const Appointment = (props) => {
 				<h6 className='d-inline-block m-0'>
 					{props.appointment.hospital.name}
 				</h6>
+				<h6 className='bg-warning'>Status:{props.appointment.status}</h6>
 				<h6 className='my-1 m-0'>
 					{moment(props.appointment.time).calendar()}
 				</h6>
 				{/* <h6 className=''>{moment(props.appointment.time).format('LT')}</h6> */}
 			</div>
 			<div className='d-flex flex-column justify-content-around '>
-				<button className='btn rounded btn-primary m-0'>Reschedule</button>
-				<button className='btn rounded btn-danger m-0'>Cancel</button>
+				{props.appointment.status === 'confirmed' ? (
+					<React.Fragment>
+						<button className='btn rounded btn-danger m-0'>Cancel</button>
+						<button className='btn rounded btn-primary m-0'>Reschedule</button>
+					</React.Fragment>
+				) : (
+					<button className='btn rounded btn-danger m-0'>Failed</button>
+				)}
 			</div>
 		</div>
 	)
