@@ -14,10 +14,19 @@ const Appointment = (props) => {
 				<h6 className='d-inline-block m-0'>
 					{props.appointment.hospital.name}
 				</h6>
-				<h6 className='bg-warning'>Status:{props.appointment.status}</h6>
-				<h6 className='my-1 m-0'>
-					{moment(props.appointment.time).calendar()}
-				</h6>
+				{props.appointment.status != 'awaitingPayment' ? (
+					<React.Fragment>
+						<h6 className='bg-warning p-1 rounded'>
+							Status:{props.appointment.status}
+						</h6>
+						<h6 className='my-1 m-0'>
+							{moment(props.appointment.time).calendar()}
+						</h6>
+					</React.Fragment>
+				) : (
+					<h6 className='bg-danger p-1 rounded'>Status:{'Payment Declined'}</h6>
+				)}
+
 				{/* <h6 className=''>{moment(props.appointment.time).format('LT')}</h6> */}
 			</div>
 			<div className='d-flex flex-column justify-content-around '>

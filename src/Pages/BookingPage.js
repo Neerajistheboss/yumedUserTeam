@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 // import DocCard from '../components/DocCard'
 import { AuthContext } from '../context/auth-context'
 import SubmitBtn from '../Components/submitBtn'
@@ -16,6 +16,10 @@ const BookingPage = () => {
 		phone: '',
 		time: auth.timeSlot,
 	})
+	useEffect(() => {
+		if (!auth.isLoggedIn) setBtnText('Log In First')
+		setBtnStyle('btn-warning disabled border m-3 text-white')
+	}, [auth.isLoggedIn])
 
 	const doctor = {
 		specailisation: 'Medicine',
