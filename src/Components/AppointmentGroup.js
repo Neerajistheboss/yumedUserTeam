@@ -16,7 +16,7 @@ const AppointmentGroup = (props) => {
 			}
 			axios
 				.get(
-					`http://localhost:5000/api/v1/appointments`,
+					`http://13.233.58.33:5000/api/v1/appointments`,
 					{
 						params: {
 							user: auth.userId,
@@ -40,7 +40,7 @@ const AppointmentGroup = (props) => {
 			}
 			axios
 				.get(
-					`http://localhost:5000/api/v1/appointments`,
+					`http://13.233.58.33:5000/api/v1/appointments`,
 					{
 						params: {
 							user: auth.userId,

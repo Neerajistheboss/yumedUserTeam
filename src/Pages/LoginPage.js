@@ -99,7 +99,7 @@ const LoginPage = (props) => {
 											{/* Login with facebook and google */}
 
 											<a
-												href='http://localhost:5000/api/v1/auth/oauth/google'
+												href='http://13.233.58.33:5000/api/v1/auth/oauth/google'
 												className='p-1 rounded-lg d-flex my-2 text-light'
 												style={{
 													backgroundColor: '#4267B2',
@@ -113,7 +113,7 @@ const LoginPage = (props) => {
 												</p>
 											</a>
 											<a
-												href='http://localhost:5000/api/v1/auth/oauth/google'
+												href='http://13.233.58.33:5000/api/v1/auth/oauth/google'
 												className='p-1 rounded-lg d-flex  my-2 text-light'
 												style={{
 													backgroundColor: '#1976D2',
