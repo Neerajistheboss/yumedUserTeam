@@ -10,8 +10,12 @@ const Menu = (props) => {
 	const auth = useContext(AuthContext)
 	console.log(props)
 	const menu = (
-		<div id='navbarMenu' className='p-3 bg-light'>
-			<ul className='navbar-nav ml-auto text-center'>
+		<div
+			id='navbarMenu'
+			className='p-3 text-light d-flex align-items-stretch justify-content-between'>
+			<ul
+				className='navbar-nav ml-auto mr-auto justify-content-between text-center align-items-stretch'
+				style={{ minHeight: '100%' }}>
 				{auth.isLoggedIn && (
 					<NavItem>
 						<NavLink
@@ -50,6 +54,31 @@ const Menu = (props) => {
 						</NavLink>
 					</NavItem>
 				)}
+				<NavItem>
+					<NavLink
+						to='/about'
+						onClick={props.onLinkClick}
+						style={{ fontWeight: 'bold' }}>
+						AboutUs and ContactUs
+					</NavLink>
+				</NavItem>
+				<NavItem>
+					<NavLink
+						to='/faqs'
+						onClick={props.onLinkClick}
+						style={{ fontWeight: 'bold' }}>
+						FAQs
+					</NavLink>
+				</NavItem>
+				<NavItem>
+					<NavLink
+						to='/refunds'
+						onClick={props.onLinkClick}
+						style={{ fontWeight: 'bold' }}>
+						Refunds & Cancellations
+					</NavLink>
+				</NavItem>
+
 				{auth.isLoggedIn && <Nodal onLinkClick={props.onLinkClick} />}
 			</ul>
 		</div>

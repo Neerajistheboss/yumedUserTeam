@@ -3,6 +3,7 @@ import axios from 'axios'
 // import DocCard from '../components/DocCard'
 import { AuthContext } from '../context/auth-context'
 import Booking from '../Components/Booking'
+
 const SearchPage = () => {
 	const auth = useContext(AuthContext)
 
@@ -20,7 +21,8 @@ const SearchPage = () => {
 
 	useEffect(() => {
 		console.log(`${auth.city}  ${auth.specialisation} ${auth.hospitalId}`)
-		let queryStr = 'http://13.233.58.33:5000/api/v1/doctors?'
+		console.log(process.env.REACT_APP_YUVER_IP)
+		let queryStr = `http://${process.env.REACT_APP_YUVER_IP}/api/v1/doctors?`
 		if (auth.specialisation)
 			queryStr = queryStr + `specailisation=${auth.specialisation}`
 		if (auth.city) queryStr = queryStr + `&city=${auth.city}`

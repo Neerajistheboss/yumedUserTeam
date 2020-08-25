@@ -27,7 +27,7 @@ const Nodal = (props) => {
 	return (
 		<li>
 			<NavLink
-				className='border-0 bg-light'
+				className='border-0 '
 				style={{ fontWeight: 'bold' }}
 				onClick={handleShow}>
 				Logout

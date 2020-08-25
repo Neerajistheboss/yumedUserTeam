@@ -115,9 +115,9 @@ const Navbar = () => {
 
 	const content = (
 		<nav
-			className='fixed navbar navbar-expand-md navbar-light bg-light p-1 d-flex align-items-center justify-content-between'
+			className='fixed navbar navbar-expand-md navbar-light bg-light text-dark p-1 d-flex align-items-center justify-content-between'
 			style={{ height: '65px' }}>
-			<NavLink className='navbar-brand' to='/'>
+			<NavLink className='navbar-brand' to='/' onClick={closeDrawer}>
 				<img src={Logo} style={{ width: '150px' }} alt='Logo' />
 			</NavLink>
 			<button className='navbar-toggler' onClick={openDrawer}>

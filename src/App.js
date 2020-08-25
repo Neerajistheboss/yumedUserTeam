@@ -16,7 +16,7 @@ import Footer from './Components/Footer'
 import FailedPage from './Pages/FailedPage'
 import SuccessPage from './Pages/SuccessPage'
 import MyAccountPage from './Pages/MyAccountPage'
-import lottie from 'lottie-web'
+import AboutPage from './Pages/AboutPage'
 
 // import Path2 from './images/path2.png';
 
@@ -46,16 +46,6 @@ function App() {
 
 	const container = useRef(null)
 
-	useEffect(() => {
-		lottie.loadAnimation({
-			container: document.getElementById('lottieContainer'),
-			renderer: 'svg',
-			loop: true,
-			autoplay: true,
-			animationData: require('./images/preloader.json'),
-		})
-	})
-
 	let routes
 	if (token) {
 		console.log('has token')
@@ -74,6 +64,15 @@ function App() {
 					<FailedPage />
 				</Route>
 				<Route path='/success'>
+					<SuccessPage />
+				</Route>
+				<Route path='/about'>
+					<AboutPage />
+				</Route>
+				<Route path='/faqs'>
+					<SuccessPage />
+				</Route>
+				<Route path='/refunds'>
 					<SuccessPage />
 				</Route>
 				<Route path='/'>
@@ -102,6 +101,19 @@ function App() {
 				</Route>
 				<Route path='/search'>
 					<SearchPage />
+				</Route>
+
+				<Route path='/about'>
+					<AboutPage />
+				</Route>
+				<Route path='/faqs'>
+					<SuccessPage />
+				</Route>
+				<Route path='/success'>
+					<SuccessPage />
+				</Route>
+				<Route path='/refunds'>
+					<SuccessPage />
 				</Route>
 				<Route exact path='/'>
 					<HomePage />

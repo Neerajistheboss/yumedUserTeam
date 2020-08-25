@@ -7,7 +7,6 @@
 	z-index: 1000;
 	position: fixed !important;
 	height: 53px;
-	
 }
 
 .navbar-brand {
@@ -21,7 +20,7 @@
 
 li a {
 	font-weight: 700;
-	color: rgb(104, 122, 117) !important;
+	color: white !important;
 }
 
 .nav-item :hover {

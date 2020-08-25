@@ -1,6 +1,7 @@
-#navbarMenu{
-    background: #343A40;
-    width: 100%;
-    position: fixed;
-    z-index: 100;
+#navbarMenu {
+	background-color: #50cec5;
+	width: 100%;
+	position: fixed;
+	z-index: 100;
+	min-height: 30vh;
 }
