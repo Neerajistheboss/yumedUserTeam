@@ -18,6 +18,14 @@ const Booking = (props) => {
 		auth.docId = props.docId
 		auth.hospitalId = props.hospitalId
 		console.log(`docId${auth.docId} hospitalId${auth.hospitalId}`)
+		auth.cost = props.fee
+		const doctorSelected = {
+			docId: props.docId,
+			hospitalId: props.hospitalId,
+			cost: props.fee,
+			docName: props.dName,
+		}
+		localStorage.setItem('docSelected', JSON.stringify(doctorSelected))
 	}
 
 	console.log(props)

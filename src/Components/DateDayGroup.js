@@ -5,7 +5,7 @@ const DateDayGroup = (props) => {
 	const dateDays = []
 	for (var i = 0; i < 7; i++) {
 		dateDays[i] = {
-			mdy: moment().add(i, 'days').format('MM/DD/YYYY'),
+			mdy: moment().add(i, 'days').format('YYYY/MM/DD'),
 			date: moment().add(i, 'days').format('Do MMM'),
 			day: moment().add(i, 'days').format('ddd'),
 		}

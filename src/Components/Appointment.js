@@ -13,10 +13,19 @@ const Appointment = (props) => {
 		color = 'bg-danger'
 	}
 
+	const isAfter = moment(
+		`${props.appointment.dateTime.date} ${props.appointment.dateTime.time}`
+	).isAfter(moment())
+
+	let bg = '#C4FFF8'
+	if (!isAfter) {
+		bg = '#d3d3d3'
+	}
+
 	return (
 		<div
 			className=' rounded d-flex  justify-content-around m-3'
-			style={{ backgroundColor: '#C4FFF8', minHeight: '100px' }}>
+			style={{ backgroundColor: bg, minHeight: '100px' }}>
 			<div className='rounded-circle bg-dark align-self-center '>
 				<img style={{ height: '100px' }} src={props.appointment.doctor.photo} />
 			</div>
@@ -28,7 +37,9 @@ const Appointment = (props) => {
 				</h6>
 
 				<React.Fragment>
-					<h6 className={`${color} p-1 rounded`}>Status:{status}</h6>
+					{isAfter && (
+						<h6 className={`${color} p-1 rounded`}>Status:{status}</h6>
+					)}
 					<h6 className='my-1 m-0'>
 						{moment(
 							`${props.appointment.dateTime.date} ${props.appointment.dateTime.time}`

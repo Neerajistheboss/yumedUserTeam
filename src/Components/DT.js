@@ -46,7 +46,7 @@ const DT = (props) => {
 	useEffect(() => {
 		axios
 			.get(
-				`http://${process.env.REACT_APP_YUVER_IP}/api/v1/doctors/${auth.docId}`
+				`http://${process.env.REACT_APP_YUVER_IP}/api/v1/doctors/${props.docId}`
 			)
 			.then(function (response) {
 				setDs(response.data.data.ds)

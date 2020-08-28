@@ -22,6 +22,8 @@ const BookingPage = () => {
 	let history = useHistory()
 	const auth = useContext(AuthContext)
 
+	const doctorSelected = JSON.parse(localStorage.getItem('docSelected'))
+
 	const [formCompleted, setFormCompleted] = useState(false)
 	const [btnStyle, setBtnStyle] = useState('btn-light disabled border m-3')
 	const [btnText, setBtnText] = useState('Fill Details to Proceed')
@@ -120,9 +122,9 @@ const BookingPage = () => {
 					//not sending shortid here //add it in the server side
 					user: auth.userId,
 					patientName: fields.patientName,
-					doctor: auth.docId,
-					hospital: auth.hospitalId,
-					cost: auth.cost,
+					doctor: doctorSelected.docId,
+					hospital: doctorSelected.hospitalId,
+					cost: doctorSelected.cost,
 					dateTime: { date: auth.date, time: auth.time },
 				}),
 
@@ -158,9 +160,11 @@ const BookingPage = () => {
 
 	return (
 		<div className='container-fluid'>
-			<DT timeFunction={timeSelected} />
+			<DT timeFunction={timeSelected} docId={doctorSelected.docId} />
 			{/* <DocCard doc={doctor} bookbtn={false}/> */}
-			<h3 className='text-center'>Bookin Details</h3>
+			<h3 className='text-center'>
+				{`Bookin Details For ${doctorSelected.docName}`}
+			</h3>
 
 			<div className='mt-3 pl-1'>
 				<div className='form-group row'>
@@ -261,7 +265,7 @@ const BookingPage = () => {
 			<div>
 				<h5>Payement Details</h5>
 				<div class='justify-content-between d-flex my-1'>
-					<span>Appointment Fee</span> <span>300</span>
+					<span>Appointment Fee</span> <span>₹{doctorSelected.cost}</span>
 				</div>
 				<div class='justify-content-between d-flex my-1'>
 					<span>Service Charge</span>
@@ -272,12 +276,12 @@ const BookingPage = () => {
 					<span>0</span>{' '}
 				</div>
 				<div class='justify-content-between d-flex my-1'>
-					<span>GST on Service Charge</span>
-					<span>18%</span>
+					<span>Internet Handling Charge</span>
+					<span>₹25</span>
 				</div>
 				<div class='justify-content-between d-flex my-1'>
 					<span>Total </span>
-					<span>350</span>
+					<span>{`₹${doctorSelected.cost + 25}`}</span>
 				</div>
 			</div>
 			<hr class='my-4' />

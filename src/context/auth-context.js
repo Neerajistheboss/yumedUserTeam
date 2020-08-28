@@ -11,7 +11,7 @@ export const AuthContext = createContext({
 	specialisation: null,
 	city: null,
 	showNodal: false,
-	date: moment().format('MM-DD-YYYY'),
+	date: moment().format('YYYY/MM/DD'),
 	time: null,
 	docName: null,
 	docId: null,

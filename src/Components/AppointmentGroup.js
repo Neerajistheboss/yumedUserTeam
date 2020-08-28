@@ -21,9 +21,9 @@ const AppointmentGroup = (props) => {
 						params: {
 							user: auth.userId,
 
-							maxD: moment(Date.now()).add(10, 'days').format('MM-DD-YYYY'),
+							maxD: moment(Date.now()).add(10, 'days').format('YYYY/MM/DD'),
 
-							minD: moment(Date.now()).format('MM-DD-YYYY'),
+							minD: moment(Date.now()).format('YYYY/MM/DD'),
 						},
 					},
 					config
@@ -46,8 +46,8 @@ const AppointmentGroup = (props) => {
 
 							minD: moment(Date.now())
 								.subtract(180, 'days')
-								.format('MM-DD-YYYY'),
-							maxD: moment(Date.now()).format('MM-DD-YYYY'),
+								.format('YYYY/MM/DD'),
+							maxD: moment(Date.now()).format('YYYY/MM/DD'),
 						},
 					},
 					config
