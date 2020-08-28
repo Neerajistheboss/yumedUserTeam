@@ -9,6 +9,10 @@ import './Menu.css'
 const Menu = (props) => {
 	const auth = useContext(AuthContext)
 	console.log(props)
+	window.onscroll = () => {
+		props.onLinkClick()
+	}
+
 	const menu = (
 		<div
 			id='navbarMenu'

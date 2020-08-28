@@ -18,6 +18,7 @@ import { AuthContext } from '../context/auth-context'
 import './SearchOptions.css'
 
 const SearchOptions = () => {
+	let searchFilter = JSON.parse(localStorage.getItem('filter'))
 	const auth = useContext(AuthContext)
 	const [isOpen] = useState(false)
 	const [dropdownOpen, setOpen] = useState(false)
@@ -37,8 +38,10 @@ const SearchOptions = () => {
 		// auth.city = fields.city
 		// auth.docName = fields.docName
 		// auth.specialisation = fields.specialisation
-
-		auth[event.target.name] = value
+		const name = event.target.name
+		auth[name] = value
+		searchFilter[name] = value
+		localStorage.setItem('filter', JSON.stringify(searchFilter))
 	}
 
 	return (
@@ -69,15 +72,15 @@ const SearchOptions = () => {
 							name='city'
 							onChange={textChangeHandler}
 							class='form-control form-control-lg'>
-							<option> Location </option>
-							<option> Ranchi </option>
-							<option> Dhanbad </option>
-							<option> Jamshedpur </option>
-							<option> Bokaro </option>
-							<option> Deogarh </option>
-							<option> Ramgarh </option>
-							<option> Giridih </option>
-							<option> Hazaribagh </option>
+							<option value=''> Location </option>
+							<option value='ranchi'> Ranchi </option>
+							<option value='dhanbad'> Dhanbad </option>
+							<option value='jamshedpur'> Jamshedpur </option>
+							<option value='bokaro'> Bokaro </option>
+							<option value='deogarh'> Deogarh </option>
+							<option value='ramgarh'> Ramgarh </option>
+							<option value='giridih'> Giridih </option>
+							<option value='hazaribagh'> Hazaribagh </option>
 						</select>
 					</div>
 					<div className=' mb-1 searchLocName'>
@@ -86,7 +89,7 @@ const SearchOptions = () => {
 							onChange={textChangeHandler}
 							type='text'
 							class='form-control form-control-lg'
-							placeholder='Search Doctor,Clinic,Hospital...'
+							placeholder='Doctor Name'
 						/>
 					</div>
 					<div className=' mb-1 searchSpe'>
@@ -94,9 +97,17 @@ const SearchOptions = () => {
 							name='specialisation'
 							onChange={textChangeHandler}
 							class='form-control form-control-lg'>
-							<option> Specialist </option> <option> Medicine </option>
-							<option> option </option> <option> option </option>
-							<option> option </option>
+							<option value=''>Specialist</option>
+							<option value='General Physician'>General Physician</option>
+							<option value='Cardiology'>Cardiology</option>
+							<option value='Child Specialist'>Child Specialist</option>
+							<option value='General Surgeon'>General Surgeon</option>
+							<option value='Dental'>Dental</option>
+							<option value='Nephrology'>Nephrology</option>
+							<option value='Gynaecologist'>Gynaecologist</option>
+							<option value='Skin and Hair'>Skin and Hair</option>
+							<option value='Bones and Joints'>Bones and Joints</option>
+							<option value='Eye Specialist'>Eye Specialist</option>
 						</select>
 					</div>
 					<div className='mb-1 searchbtn  btn-info form-control-lg '>

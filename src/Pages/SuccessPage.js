@@ -1,15 +1,17 @@
 import React from 'react'
 import '../App.css'
+import { NavLink } from 'react-router-dom'
 
 const SuccessPage = () => {
 	return (
 		<div className='text-center'>
 			<h2> Thank you for Choosing Us! </h2>
-			<button
+			<NavLink
+				to='/account'
 				className='border rounded m-3 '
 				style={{ backgroundColor: '#1B1B30', color: 'white' }}>
 				See Appointment Details
-			</button>
+			</NavLink>
 			<h3> YuMedic </h3>
 			<p className='m-1'> Wishes You and Your Family Good Health </p>
 			<p className='m-1'> Get Well Soon! </p>

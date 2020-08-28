@@ -13,9 +13,15 @@ const Hospitals = (props) => {
 	}
 
 	return (
-		<div style={style}>
-			<img src={props.img} alt={props.name} className style={images} />
-			<div>{props.name}</div>
+		<div style={style} id={props.id}>
+			<img
+				src={props.img}
+				alt={props.name}
+				id={props.id}
+				className
+				style={images}
+			/>
+			<div id={props.id}>{props.name}</div>
 		</div>
 	)
 }

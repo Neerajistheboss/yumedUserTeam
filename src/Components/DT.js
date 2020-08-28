@@ -6,6 +6,7 @@ import { AuthContext } from '../context/auth-context'
 const DT = () => {
 	const auth = useContext(AuthContext)
 	const [day, setDay] = useState(new Date().getDay())
+	console.log(new Date().getDay())
 	const [time, setTime] = useState(null)
 	const [ds, setDs] = useState(new Array())
 

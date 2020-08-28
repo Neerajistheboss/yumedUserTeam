@@ -44,31 +44,28 @@ const SearchPage = () => {
 	// const doctorList //use axios to search for list of doctors base in parameters in auth context
 
 	return (
-		doctors.length > 0 && (
-			<div style={{ backgroundColor: '#eee' }}>
-				{' '}
-				{doctors.map((doctor) => (
-					<Booking
-						photo={'https://i.ibb.co/hFJnBtL/download.jpg'}
-						dName={doctor.name}
-						speciality={doctor.specailisation}
-						hospitalName={doctor.hospital.name}
-						city={doctor.city}
-						docId={doctor._id}
-						hospitalId={doctor.hospital._id}
-						avgReviews='2.5'
-						numberReviews='Number of Reviews'
-						description='Description'
-						fee={doctor.normalFee}
-					/>
-				))}{' '}
-				{/* <Appointment dName="Name Surname" speciality="Speciality" locality="Locality" city="City" zCode="Zip Code" avgReviews="2.5" numberReviews="Number of Reviews" description="Description" />
+		<div style={{ backgroundColor: '#eee', minHeight: '85vh' }}>
+			{doctors.map((doctor) => (
+				<Booking
+					photo={'https://i.ibb.co/hFJnBtL/download.jpg'}
+					dName={doctor.name}
+					speciality={doctor.specailisation}
+					hospitalName={doctor.hospital.name}
+					city={doctor.city}
+					docId={doctor._id}
+					hospitalId={doctor.hospital._id}
+					avgReviews='2.5'
+					numberReviews='Number of Reviews'
+					description='Description'
+					fee={doctor.normalFee}
+				/>
+			))}
+			{/* <Appointment dName="Name Surname" speciality="Speciality" locality="Locality" city="City" zCode="Zip Code" avgReviews="2.5" numberReviews="Number of Reviews" description="Description" />
                       <Appointment dName="Name Surname" speciality="Speciality" locality="Locality" city="City" zCode="Zip Code" avgReviews="2.5" numberReviews="Number of Reviews" description="Description" />
                       <Appointment dName="Name Surname" speciality="Speciality" locality="Locality" city="City" zCode="Zip Code" avgReviews="2.5" numberReviews="Number of Reviews" description="Description" />
                       <Appointment dName="Name Surname" speciality="Speciality" locality="Locality" city="City" zCode="Zip Code" avgReviews="2.5" numberReviews="Number of Reviews" description="Description" />
                       <Appointment dName="Name Surname" speciality="Speciality" locality="Locality" city="City" zCode="Zip Code" avgReviews="2.5" numberReviews="Number of Reviews" description="Description" /> */}
-			</div>
-		)
+		</div>
 	)
 }
 

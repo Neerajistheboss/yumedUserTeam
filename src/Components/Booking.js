@@ -32,7 +32,7 @@ const Booking = (props) => {
 					/>
 				</div>
 				<div>
-					<p className='m-0'> Dr. {props.dName} </p>
+					<p className='m-0'>{props.dName} </p>
 					<p className='d-block m-0'> {props.speciality} </p>
 					<p
 						className='d-inline-block rounded m-0 '
@@ -55,7 +55,8 @@ const Booking = (props) => {
 				<NavLink
 					to='/booking'
 					onClick={onBookingSelect}
-					className='bg-primary btn align-self-end m-0 text-light'>
+					className='bg-primary btn align-self-end m-0 text-light'
+					style={{ position: 'absolute', right: '15px' }}>
 					Next
 				</NavLink>
 				{/* <DT /> */}

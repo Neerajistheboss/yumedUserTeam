@@ -41,6 +41,7 @@ function HomePage(props) {
 		hospitalId: null,
 		city: null,
 		specailisation: null,
+		name: null,
 	}
 	localStorage.setItem('filter', JSON.stringify(searchFilter))
 
@@ -56,11 +57,11 @@ function HomePage(props) {
 	}
 
 	const setHospital = (event) => {
-		auth.hospitalId = event.target.id
+		auth.hospitalId = event.target.name
 		console.log(auth.hospitalId)
 		auth.specialisation = null
 		searchFilter.specailisation = null
-		searchFilter.hospitalId = event.target.name
+		searchFilter.hospitalId = event.target.id
 		localStorage.setItem('filter', JSON.stringify(searchFilter))
 	}
 
@@ -132,15 +133,15 @@ function HomePage(props) {
 							/>
 						</NavLink>
 					</div>
-					<div className='text-center' name='GENERAL SURGEON'>
+					<div className='text-center' name='General Surgeon'>
 						<NavLink
 							className='text-decoration-none'
 							to='/search'
 							onClick={setSpecialisation}
-							name='GENERAL SURGEON'>
+							name='General Surgeon'>
 							<Specialities
-								name='PLASTIC GENERAL SURGEON'
-								spe='GENERAL SURGEON'
+								name='General Surgeon'
+								spe='General Surgeon'
 								img={Surgeon}
 							/>
 						</NavLink>
@@ -228,25 +229,25 @@ function HomePage(props) {
 				</h3>
 			</Container>
 			<div style={styleHospitals}>
-				<div className='text-center' name=''>
+				<div className='text-center' id='5f43f5a86e2fc1623cda5cf0'>
 					<NavLink
 						className='text-decoration-none'
 						to='/search'
 						onClick={setHospital}
-						id='5ed4d26c7004f434b8f8d34e'>
+						id='5f43f5a86e2fc1623cda5cf0'>
 						<Hospitals
-							id='5ed4d26c7004f434b8f8d34e'
+							id='5f43f5a86e2fc1623cda5cf0'
 							name='Asarfi Hospital'
 							img={Physician}
 						/>
 					</NavLink>
 				</div>
-				<div className='text-center' name=''>
+				<div className='text-center' id='5f43f5a86e2fc1623cda5cf1'>
 					<NavLink
 						className='text-decoration-none'
 						to='/search'
 						onClick={setHospital}
-						name=''>
+						id='5f43f5a86e2fc1623cda5cf1'>
 						<Hospitals
 							id='5f43f5a86e2fc1623cda5cf1'
 							name='PatliPutra Hospital'
