@@ -1,5 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AuthContext } from '../context/auth-context'
 const AboutPage = () => {
+	const auth = useContext(AuthContext)
+	auth.time = null
 	return (
 		<div>
 			<h2>About Us</h2>
@@ -12,8 +15,9 @@ const AboutPage = () => {
 				The Health Care community also harness our platform to establish and
 				increase their presence among the patients.
 			</p>
-			<p>Your Health Our Priority</p>
 			<p>
+				Your Health Our Priority
+				<br />
 				<b>Care for loved ones</b>
 			</p>
 		</div>

@@ -20,7 +20,7 @@ import Neurology from '../images/Neurology.png'
 import Skin from '../images/Skin and Hair.png'
 import Surgeon from '../images/Surgeon.png'
 import { NavLink } from 'react-router-dom'
-
+import moment from 'moment'
 import { AuthContext } from '../context/auth-context'
 
 function HomePage(props) {
@@ -35,6 +35,14 @@ function HomePage(props) {
 	} catch (error) {
 		console.log(error)
 	}
+
+	auth.docId = null
+	auth.city = null
+	auth.hospitalId = null
+	auth.specialisation = null
+	auth.name = null
+	auth.date = moment().format('MM/DD/YYYY')
+	auth.time = null
 
 	let searchFilter = {
 		docId: null,

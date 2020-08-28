@@ -17,6 +17,10 @@ import FailedPage from './Pages/FailedPage'
 import SuccessPage from './Pages/SuccessPage'
 import MyAccountPage from './Pages/MyAccountPage'
 import AboutPage from './Pages/AboutPage'
+import ContactPage from './Pages/ContactPage'
+import FaqPage from './Pages/FAQPage'
+import RefundPage from './Pages/RefundPage'
+import TermsPage from './Pages/TermsPage'
 
 // import Path2 from './images/path2.png';
 
@@ -70,10 +74,16 @@ function App() {
 					<AboutPage />
 				</Route>
 				<Route path='/faqs'>
-					<SuccessPage />
+					<FaqPage />
 				</Route>
 				<Route path='/refunds'>
-					<SuccessPage />
+					<RefundPage />
+				</Route>
+				<Route path='/contact'>
+					<ContactPage />
+				</Route>
+				<Route path='/terms'>
+					<TermsPage />
 				</Route>
 				<Route path='/'>
 					<HomePage />
@@ -107,14 +117,21 @@ function App() {
 					<AboutPage />
 				</Route>
 				<Route path='/faqs'>
-					<SuccessPage />
+					<FaqPage />
+				</Route>
+				<Route path='/refunds'>
+					<RefundPage />
+				</Route>
+				<Route path='/contact'>
+					<ContactPage />
+				</Route>
+				<Route path='/terms'>
+					<TermsPage />
 				</Route>
 				<Route path='/success'>
 					<SuccessPage />
 				</Route>
-				<Route path='/refunds'>
-					<SuccessPage />
-				</Route>
+
 				<Route exact path='/'>
 					<HomePage />
 				</Route>

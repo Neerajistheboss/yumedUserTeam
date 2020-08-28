@@ -6,6 +6,7 @@ import axios from 'axios'
 import { AuthContext } from '../context/auth-context'
 const MyAccountPage = () => {
 	const auth = useContext(AuthContext)
+	auth.time = null
 	const [refId, setRefId] = useState(auth.referralId)
 	useEffect(() => {
 		axios

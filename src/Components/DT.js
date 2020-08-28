@@ -3,10 +3,10 @@ import DateDayGroup from '../Components/DateDayGroup'
 import axios from 'axios'
 import TimeSlot from '../Components/TimeSlot'
 import { AuthContext } from '../context/auth-context'
-const DT = () => {
+const DT = (props) => {
 	const auth = useContext(AuthContext)
 	const [day, setDay] = useState(new Date().getDay())
-	console.log(new Date().getDay())
+	console.log(`todays date ${new Date().getDay()}`)
 	const [time, setTime] = useState(null)
 	const [ds, setDs] = useState(new Array())
 
@@ -31,6 +31,7 @@ const DT = () => {
 	const onTimeChangeHandler = (event) => {
 		setTime(event.target.getAttribute('value'))
 		auth.time = event.target.getAttribute('value')
+		props.timeFunction(event.target.getAttribute('value'))
 		console.log(`time ${auth.time}`)
 		console.log('timechanged' + event.target.getAttribute('value'))
 		const pre = document.getElementsByClassName('activeTime')

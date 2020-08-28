@@ -21,6 +21,7 @@ function loadScript(src) {
 const BookingPage = () => {
 	let history = useHistory()
 	const auth = useContext(AuthContext)
+
 	const [formCompleted, setFormCompleted] = useState(false)
 	const [btnStyle, setBtnStyle] = useState('btn-light disabled border m-3')
 	const [btnText, setBtnText] = useState('Fill Details to Proceed')
@@ -32,6 +33,7 @@ const BookingPage = () => {
 		phone: '',
 		time: auth.timeSlot,
 	})
+
 	useEffect(() => {
 		// if (!auth.isLoggedIn) setBtnText('Log In First')
 		if (!auth.isLoggedIn) console.log('NOT LOGGED IN')
@@ -45,6 +47,16 @@ const BookingPage = () => {
 		normalFee: 300,
 	}
 
+	const timeSelected = (timeValue) => {
+		console.log('function ran')
+		fields.time = timeValue
+		setFields({
+			...fields,
+			time: timeValue,
+		})
+		console.log(fields.time)
+	}
+
 	const textChangeHandler = (event) => {
 		const value = event.target.value
 
@@ -52,7 +64,13 @@ const BookingPage = () => {
 			...fields,
 			[event.target.name]: value,
 		})
+	}
 
+	console.log(
+		`rerendering||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||`
+	)
+
+	useEffect(() => {
 		if (
 			fields.patientName.length > 1 &&
 			fields.age.length > 1 &&
@@ -70,11 +88,16 @@ const BookingPage = () => {
 			setBtnText('Fill Details to Proceed')
 		}
 
-		// if (!auth.isLoggedIn) {
-		// 	setBtnText('Log In First')
-		// 	setBtnStyle('btn-warning disabled border m-3 text-white')
-		// }
-	}
+		if (!auth.isLoggedIn) {
+			setBtnText('Log In First')
+			setBtnStyle('btn-warning disabled border m-3 text-white')
+		}
+
+		if (auth.isLoggedIn && !auth.time) {
+			setBtnText('Select Time Slot')
+			setBtnStyle('btn-warning disabled border m-3 text-white')
+		}
+	}, [fields])
 
 	//Display RazorPay
 
@@ -135,7 +158,7 @@ const BookingPage = () => {
 
 	return (
 		<div className='container-fluid'>
-			<DT />
+			<DT timeFunction={timeSelected} />
 			{/* <DocCard doc={doctor} bookbtn={false}/> */}
 			<h3 className='text-center'>Bookin Details</h3>
 
@@ -146,6 +169,7 @@ const BookingPage = () => {
 					</label>
 					<div className='col-8'>
 						<input
+							autoComplete='off'
 							value={fields.name}
 							onChange={textChangeHandler}
 							type='text'
@@ -161,6 +185,7 @@ const BookingPage = () => {
 					</label>
 					<div className='col-8'>
 						<input
+							autoComplete='off'
 							value={fields.age}
 							onChange={textChangeHandler}
 							type='text'
@@ -205,6 +230,7 @@ const BookingPage = () => {
 					</label>
 					<div className='col-8'>
 						<input
+							autoComplete='off'
 							value={fields.address}
 							onChange={textChangeHandler}
 							type='text'
@@ -220,9 +246,9 @@ const BookingPage = () => {
 					</label>
 					<div className='col-8'>
 						<input
+							autoComplete='off'
 							value={fields.phone}
 							onChange={textChangeHandler}
-							type='text'
 							name='phone'
 							className='form-control'
 							id='phone'

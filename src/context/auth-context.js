@@ -5,6 +5,7 @@ export const AuthContext = createContext({
 	patientName: null,
 	userId: null,
 	referralId: null,
+	name: null,
 	token: null,
 	location: null,
 	specialisation: null,

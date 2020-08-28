@@ -12,6 +12,7 @@ const SearchPage = () => {
 	auth.specialisation = searchFilter.specailisation
 	auth.city = searchFilter.city
 	auth.hospitalId = searchFilter.hospitalId
+	auth.time = null
 
 	useEffect(() => {
 		console.log(`${auth.city}  ${auth.specialisation} ${auth.hospitalId}`)
@@ -20,6 +21,7 @@ const SearchPage = () => {
 		if (auth.specialisation)
 			queryStr = queryStr + `specailisation=${encodeURI(auth.specialisation)}`
 		if (auth.city) queryStr = queryStr + `&city=${auth.city}`
+		if (auth.name) queryStr = queryStr + `&name=${auth.name}`
 		if (auth.docName) queryStr = queryStr + `&name=${auth.docName}`
 		if (auth.hospitalId) queryStr = queryStr + `&hospital=${auth.hospitalId}`
 		console.log(queryStr)

@@ -32,12 +32,7 @@ const Appointment = (props) => {
 				{/* <h6 className=''>{moment(props.appointment.time).format('LT')}</h6> */}
 			</div>
 			<div className='d-flex flex-column justify-content-around '>
-				{props.appointment.status === 'confirmed' ? (
-					<React.Fragment>
-						<button className='btn rounded btn-danger m-0'>Cancel</button>
-						<button className='btn rounded btn-primary m-0'>Reschedule</button>
-					</React.Fragment>
-				) : (
+				{props.appointment.status !== 'confirmed' && (
 					<button className='btn rounded btn-danger m-0'>Failed</button>
 				)}
 			</div>
