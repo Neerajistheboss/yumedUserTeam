@@ -3,11 +3,13 @@ import DateDayGroup from '../Components/DateDayGroup'
 import axios from 'axios'
 import TimeSlot from '../Components/TimeSlot'
 import { AuthContext } from '../context/auth-context'
-const DT = (props) => {
+const DT = () => {
 	const auth = useContext(AuthContext)
 	const [day, setDay] = useState(new Date().getDay())
 	const [time, setTime] = useState(null)
 	const [ds, setDs] = useState(new Array())
+
+	console.log(`ds${ds}`)
 
 	const onDayChangeHandler = (event) => {
 		console.log(event.target)
@@ -37,11 +39,13 @@ const DT = (props) => {
 		document.getElementById(event.target.id).classList.add('activeTime')
 	}
 
-	// fetch day-slots using docId passed from props
+	// fetch day-slots using docId passed from
 
 	useEffect(() => {
 		axios
-			.get(`http://13.233.58.33:5000/api/v1/doctors/${auth.docId}`)
+			.get(
+				`http://${process.env.REACT_APP_YUVER_IP}/api/v1/doctors/${auth.docId}`
+			)
 			.then(function (response) {
 				setDs(response.data.data.ds)
 				console.log(`ds ${ds}`)
@@ -101,20 +105,22 @@ const DT = (props) => {
 	// ]
 
 	return (
-		<div className='p-3 border shadow-sm m-1'>
-			<DateDayGroup onChangee={onDayChangeHandler} />
-			{ds.length > 0 && (
-				<div className='d-flex flex-wrap'>
-					{ds[day].timeSlots.map((slot) => (
-						<Fragment>
-							{slot.status && (
-								<TimeSlot time={slot.time} onChangee={onTimeChangeHandler} />
-							)}
-						</Fragment>
-					))}
-				</div>
-			)}
-		</div>
+		ds.length > 0 && (
+			<div className='p-3 border shadow-sm m-1'>
+				<DateDayGroup onChangee={onDayChangeHandler} />
+				{
+					<div className='d-flex flex-wrap'>
+						{ds[day].timeSlots.map((slot) => (
+							<Fragment>
+								{slot.status && (
+									<TimeSlot time={slot.time} onChangee={onTimeChangeHandler} />
+								)}
+							</Fragment>
+						))}
+					</div>
+				}
+			</div>
+		)
 	)
 }
 

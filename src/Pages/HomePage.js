@@ -36,16 +36,32 @@ function HomePage(props) {
 		console.log(error)
 	}
 
+	let searchFilter = {
+		docId: null,
+		hospitalId: null,
+		city: null,
+		specailisation: null,
+	}
+	localStorage.setItem('filter', JSON.stringify(searchFilter))
+
+	const cart = localStorage.getItem
+
 	const setSpecialisation = (event) => {
 		auth.specialisation = event.target.name
 		auth.hospitalId = null
 		console.log(auth.specialisation)
+		searchFilter.hospitalId = null
+		searchFilter.specailisation = event.target.name
+		localStorage.setItem('filter', JSON.stringify(searchFilter))
 	}
 
 	const setHospital = (event) => {
 		auth.hospitalId = event.target.id
 		console.log(auth.hospitalId)
 		auth.specialisation = null
+		searchFilter.specailisation = null
+		searchFilter.hospitalId = event.target.name
+		localStorage.setItem('filter', JSON.stringify(searchFilter))
 	}
 
 	const styleSpecialities = {
@@ -77,14 +93,14 @@ function HomePage(props) {
 			<br />
 			<Container style={styleSpecialities}>
 				<Row className='justify-content-center'>
-					<div className='text-center' name='GeneralPhysician'>
+					<div className='text-center' name='General Physician'>
 						<NavLink
 							className='text-decoration-none'
 							to='/search'
 							onClick={setSpecialisation}
-							name='GeneralPhysician'>
+							name='General Physician'>
 							<Specialities
-								name='GeneralPhysician'
+								name='General Physician'
 								spe='General Physician'
 								img={Physician}
 							/>
@@ -103,92 +119,104 @@ function HomePage(props) {
 							/>
 						</NavLink>
 					</div>
-					<div className='text-center' name='ChildSpecialist'>
+					<div className='text-center' name='Child Specialist'>
 						<NavLink
 							className='text-decoration-none'
 							to='/search'
 							onClick={setSpecialisation}
-							name='ChildSpecialist'>
+							name='Child Specialist'>
 							<Specialities
-								name='ChildSpecialist'
+								name='Child Specialist'
 								spe='Child Specialist'
 								img={Child}
 							/>
 						</NavLink>
 					</div>
-					<div className='text-center' name='Surgeon'>
+					<div className='text-center' name='GENERAL SURGEON'>
 						<NavLink
 							className='text-decoration-none'
 							to='/search'
 							onClick={setSpecialisation}
-							name='Surgeon'>
-							<Specialities name='Surgeon' spe='Surgeon' img={Surgeon} />
-						</NavLink>
-					</div>
-					<div className='text-center' name='Dentist'>
-						<NavLink
-							className='text-decoration-none'
-							to='/search'
-							onClick={setSpecialisation}
-							name='Dentist'>
-							<Specialities name='Dentist' spe='Dental' img={Dental} />
-						</NavLink>
-					</div>
-					<div className='text-center' name='Neurologist'>
-						<NavLink
-							className='text-decoration-none'
-							to='/search'
-							onClick={setSpecialisation}
-							name='Neurologist'>
+							name='GENERAL SURGEON'>
 							<Specialities
-								name='Neurologist'
-								spe='Neurologist'
+								name='PLASTIC GENERAL SURGEON'
+								spe='GENERAL SURGEON'
+								img={Surgeon}
+							/>
+						</NavLink>
+					</div>
+					<div className='text-center' name='Dental'>
+						<NavLink
+							className='text-decoration-none'
+							to='/search'
+							onClick={setSpecialisation}
+							name='Dental'>
+							<Specialities name='Dental' spe='Dental' img={Dental} />
+						</NavLink>
+					</div>
+					<div className='text-center' name='Nephrology'>
+						<NavLink
+							className='text-decoration-none'
+							to='/search'
+							onClick={setSpecialisation}
+							name='Nephrology'>
+							<Specialities
+								name='Nephrology'
+								spe='Nephrology'
 								img={Neurology}
 							/>
 						</NavLink>
 					</div>
-					<div className='text-center' name='Gynocologist'>
+					<div className='text-center' name='Gynaecologist'>
 						<NavLink
 							className='text-decoration-none'
 							to='/search'
 							onClick={setSpecialisation}
-							name='Gynocologist'>
+							name='Gynaecologist'>
 							<Specialities
-								name='Gynocologist'
-								spe='Gynocologist'
+								name='Gynaecologist'
+								spe='Gynaecologist'
 								img={Gynae}
 							/>
 						</NavLink>
 					</div>
-					<div className='text-center' name='SkinAndHair'>
+					<div className='text-center' name='Skin and Hair'>
 						<NavLink
 							className='text-decoration-none'
 							to='/search'
 							onClick={setSpecialisation}
-							name='SkinAndHair'>
-							<Specialities name='SkinAndHair' spe='Skin and Hair' img={Skin} />
+							name='Skin and Hair'>
+							<Specialities
+								name='Skin and Hair'
+								spe='Skin and Hair'
+								img={Skin}
+							/>
 						</NavLink>
 					</div>
-					<div className='text-center' name='Orthopedic'>
+					<div className='text-center' name='Bones and Joints'>
 						<NavLink
 							className='text-decoration-none'
 							to='/search'
 							onClick={setSpecialisation}
-							name='Orthopedic'>
+							name='Bones and Joints'>
 							<Specialities
-								name='Orthopedic'
+								name='Bones and Joints'
 								spe='Bones and Joints'
 								img={Bones}
 							/>
 						</NavLink>
 					</div>
-					<div className='text-center' name='Eye'>
+					<div className='text-center' name='Eye Specialist'>
 						<NavLink
 							className='text-decoration-none'
 							to='/search'
 							onClick={setSpecialisation}
-							name='Eye'>
-							<Specialities name='Eye' spe='Eye Specialist' img={Eye} />
+							name='Eye Specialist'>
+							<Specialities
+								name='Eye Specialist'
+								spe='Eye Specialist'
+								img={Eye}
+							/>
 						</NavLink>
 					</div>
 				</Row>
@@ -219,7 +247,11 @@ function HomePage(props) {
 						to='/search'
 						onClick={setHospital}
 						name=''>
-						<Hospitals name='PatliPutra Hospital' img={Skin} />
+						<Hospitals
+							id='5f43f5a86e2fc1623cda5cf1'
+							name='PatliPutra Hospital'
+							img={Skin}
+						/>
 					</NavLink>
 				</div>
 				<div className='text-center' name=''>

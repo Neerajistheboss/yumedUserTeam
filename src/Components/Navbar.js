@@ -115,7 +115,7 @@ const Navbar = () => {
 
 	const content = (
 		<nav
-			className='fixed navbar navbar-expand-md navbar-light bg-light text-dark p-1 d-flex align-items-center justify-content-between'
+			className='fixed navbar navbar-expand-md navbar-light bg-light p-1 d-flex align-items-center justify-content-between'
 			style={{ height: '65px' }}>
 			<NavLink className='navbar-brand' to='/' onClick={closeDrawer}>
 				<img src={Logo} style={{ width: '150px' }} alt='Logo' />
@@ -152,7 +152,7 @@ const Navbar = () => {
 				</li>
 				<li>
 					{!auth.isLoggedIn && (
-						<NavItem className='mx-3'>
+						<NavItem className='mx-3 text-dark'>
 							<NavLink to='/register' style={{ fontWeight: 'bold' }}>
 								SignUp
 							</NavLink>

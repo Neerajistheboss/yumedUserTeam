@@ -7,24 +7,18 @@ import Booking from '../Components/Booking'
 const SearchPage = () => {
 	const auth = useContext(AuthContext)
 
-	let [doctors, setDoctors] = useState([
-		{
-			docId: 'saidohaspdja',
-			name: 'abc',
-			specailisation: 'sdajpdsoa',
-			education: 'sdaopjodsa',
-			experience: 10,
-			normalFee: 300,
-			hospital: { _id: '12123234234', name: 'xyz' },
-		},
-	])
+	let [doctors, setDoctors] = useState([])
+	let searchFilter = JSON.parse(localStorage.getItem('filter'))
+	auth.specialisation = searchFilter.specailisation
+	auth.city = searchFilter.city
+	auth.hospitalId = searchFilter.hospitalId
 
 	useEffect(() => {
 		console.log(`${auth.city}  ${auth.specialisation} ${auth.hospitalId}`)
 		console.log(process.env.REACT_APP_YUVER_IP)
 		let queryStr = `http://${process.env.REACT_APP_YUVER_IP}/api/v1/doctors?`
 		if (auth.specialisation)
-			queryStr = queryStr + `specailisation=${auth.specialisation}`
+			queryStr = queryStr + `specailisation=${encodeURI(auth.specialisation)}`
 		if (auth.city) queryStr = queryStr + `&city=${auth.city}`
 		if (auth.docName) queryStr = queryStr + `&name=${auth.docName}`
 		if (auth.hospitalId) queryStr = queryStr + `&hospital=${auth.hospitalId}`
@@ -50,7 +44,7 @@ const SearchPage = () => {
 	// const doctorList //use axios to search for list of doctors base in parameters in auth context
 
 	return (
-		doctors && (
+		doctors.length > 0 && (
 			<div style={{ backgroundColor: '#eee' }}>
 				{' '}
 				{doctors.map((doctor) => (

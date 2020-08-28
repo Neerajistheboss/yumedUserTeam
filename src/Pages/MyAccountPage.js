@@ -9,7 +9,9 @@ const MyAccountPage = () => {
 	const [refId, setRefId] = useState(auth.referralId)
 	useEffect(() => {
 		axios
-			.get(`http://13.233.58.33:5000/api/v1/users/${auth.userId}`)
+			.get(
+				`http://${process.env.REACT_APP_YUVER_IP}/api/v1/users/${auth.userId}`
+			)
 			.then(function (response) {
 				setRefId(response.data.data.referral.code)
 				auth.refferalID = response.data.data.referral.code

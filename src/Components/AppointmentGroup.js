@@ -16,15 +16,14 @@ const AppointmentGroup = (props) => {
 			}
 			axios
 				.get(
-					`http://13.233.58.33:5000/api/v1/appointments`,
+					`http://${process.env.REACT_APP_YUVER_IP}/api/v1/appointments`,
 					{
 						params: {
 							user: auth.userId,
 
-							maxD: Date.parse(
-								moment(Date.now()).add(10, 'days').format('MM-DD-YYYY')
-							),
-							minD: Date.now(),
+							maxD: moment(Date.now()).add(10, 'days').format('MM-DD-YYYY'),
+
+							minD: moment(Date.now()).format('MM-DD-YYYY'),
 						},
 					},
 					config
@@ -40,7 +39,7 @@ const AppointmentGroup = (props) => {
 			}
 			axios
 				.get(
-					`http://13.233.58.33:5000/api/v1/appointments`,
+					`http://${process.env.REACT_APP_YUVER_IP}/api/v1/appointments`,
 					{
 						params: {
 							user: auth.userId,

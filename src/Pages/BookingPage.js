@@ -95,12 +95,12 @@ const BookingPage = () => {
 				//req.body
 				body: JSON.stringify({
 					//not sending shortid here //add it in the server side
-					user: '5f452bc56fa0dd45cce14d4c',
-					patientName: '123141',
+					user: auth.userId,
+					patientName: fields.patientName,
 					doctor: auth.docId,
 					hospital: auth.hospitalId,
 					cost: 123,
-					dateTime: { date: '123', time: '1232' },
+					dateTime: { date: auth.date, time: auth.time },
 				}),
 
 				// Adding headers to the request

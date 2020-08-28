@@ -67,7 +67,7 @@ function SubmitBtn(props) {
 		}
 		axios
 			.post(
-				'http://${process.env.REACT_APP_YUVER_IP}/api/v1/appointments',
+				`http://${process.env.REACT_APP_YUVER_IP}/api/v1/appointments`,
 				{
 					appointment: {
 						user: auth.userId,

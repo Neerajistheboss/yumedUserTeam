@@ -20,7 +20,9 @@ const Appointment = (props) => {
 							Status:{props.appointment.status}
 						</h6>
 						<h6 className='my-1 m-0'>
-							{moment(props.appointment.time).calendar()}
+							{moment(
+								`${props.appointment.dateTime.date} ${props.appointment.dateTime.time}`
+							).calendar()}
 						</h6>
 					</React.Fragment>
 				) : (
