@@ -19,7 +19,7 @@ const SearchPage = () => {
 		console.log(process.env.REACT_APP_YUVER_IP)
 		let queryStr = `http://${process.env.REACT_APP_YUVER_IP}/api/v1/doctors?`
 		if (auth.specialisation)
-			queryStr = queryStr + `specailisation=${encodeURI(auth.specialisation)}`
+			queryStr = queryStr + `specialisation=${encodeURI(auth.specialisation)}`
 		if (auth.city) queryStr = queryStr + `&city=${auth.city}`
 		if (auth.name) queryStr = queryStr + `&name=${auth.name}`
 		if (auth.docName) queryStr = queryStr + `&name=${auth.docName}`
@@ -35,7 +35,7 @@ const SearchPage = () => {
 	// let doctors=[{}];
 
 	// useEffect(()=>{
-	//     axios.get("http://localhost:8080/api/doctors/search?specialization=ENT")
+	//     axios.get("http://localhost:8080/api/doctors/search?specialisation=ENT")
 	//      .then(function(response){
 	//        doctors=response.data.doctors
 	//        console.log(doctors)
@@ -51,7 +51,7 @@ const SearchPage = () => {
 				<Booking
 					photo={'https://i.ibb.co/hFJnBtL/download.jpg'}
 					dName={doctor.name}
-					speciality={doctor.specailisation}
+					speciality={doctor.specialisation}
 					hospitalName={doctor.hospital.name}
 					city={doctor.city}
 					docId={doctor._id}

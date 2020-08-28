@@ -15,7 +15,7 @@ export const AuthContext = createContext({
 	time: null,
 	docName: null,
 	docId: null,
-	hospitalId: '5ed4d26c7004f434b8f8d34e',
+	hospitalId: null,
 	cost: 300,
 	login: () => {},
 	logout: () => {},
