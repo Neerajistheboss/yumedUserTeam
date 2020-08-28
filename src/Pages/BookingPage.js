@@ -42,13 +42,6 @@ const BookingPage = () => {
 		setBtnStyle('btn-warning disabled border m-3 text-white')
 	}, [auth.isLoggedIn])
 
-	const doctor = {
-		specailisation: 'Medicine',
-		education: 'MBBS',
-		experience: 10,
-		normalFee: 300,
-	}
-
 	const timeSelected = (timeValue) => {
 		console.log('function ran')
 		fields.time = timeValue

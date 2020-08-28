@@ -48,7 +48,7 @@ function HomePage(props) {
 		docId: null,
 		hospitalId: null,
 		city: null,
-		specailisation: null,
+		specialisation: null,
 		name: null,
 	}
 	localStorage.setItem('filter', JSON.stringify(searchFilter))
@@ -60,7 +60,7 @@ function HomePage(props) {
 		auth.hospitalId = null
 		console.log(auth.specialisation)
 		searchFilter.hospitalId = null
-		searchFilter.specailisation = event.target.name
+		searchFilter.specialisation = event.target.name
 		localStorage.setItem('filter', JSON.stringify(searchFilter))
 	}
 
@@ -68,7 +68,7 @@ function HomePage(props) {
 		auth.hospitalId = event.target.name
 		console.log(auth.hospitalId)
 		auth.specialisation = null
-		searchFilter.specailisation = null
+		searchFilter.specialisation = null
 		searchFilter.hospitalId = event.target.id
 		localStorage.setItem('filter', JSON.stringify(searchFilter))
 	}

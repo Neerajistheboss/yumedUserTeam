@@ -9,7 +9,7 @@ const SearchPage = () => {
 
 	let [doctors, setDoctors] = useState([])
 	let searchFilter = JSON.parse(localStorage.getItem('filter'))
-	auth.specialisation = searchFilter.specailisation
+	auth.specialisation = searchFilter.specialisation
 	auth.city = searchFilter.city
 	auth.hospitalId = searchFilter.hospitalId
 	auth.time = null
