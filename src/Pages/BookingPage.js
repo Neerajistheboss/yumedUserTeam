@@ -99,7 +99,7 @@ const BookingPage = () => {
 					patientName: fields.patientName,
 					doctor: auth.docId,
 					hospital: auth.hospitalId,
-					cost: 123,
+					cost: auth.cost,
 					dateTime: { date: auth.date, time: auth.time },
 				}),
 
