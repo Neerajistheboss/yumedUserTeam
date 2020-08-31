@@ -10,7 +10,7 @@ const DT = (props) => {
 	const [time, setTime] = useState(null)
 	const [ds, setDs] = useState(new Array())
 
-	console.log(`ds${ds}`)
+	console.log(`auth.date ${auth.date}`)
 
 	const onDayChangeHandler = (event) => {
 		console.log(event.target)

@@ -1,8 +1,6 @@
 import React from 'react'
 const DateDay = (props) => {
-	console.log(props.dateDay)
-	console.log(props.day)
-	console.log(`index ${props.index}`)
+	console.log(`date selected ${props.dateDay.mdy}`)
 	return (
 		<div
 			onClick={props.onChangee}

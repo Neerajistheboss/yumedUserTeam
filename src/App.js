@@ -21,6 +21,7 @@ import ContactPage from './Pages/ContactPage'
 import FaqPage from './Pages/FAQPage'
 import RefundPage from './Pages/RefundPage'
 import TermsPage from './Pages/TermsPage'
+import moment from 'moment'
 
 // import Path2 from './images/path2.png';
 
@@ -46,6 +47,7 @@ function App() {
 		setToken(token)
 		setUserId(uid)
 		login(uid, token)
+		console.log(`date in app ${moment().format('YYYY/MM/DD')}`)
 	}, [])
 
 	const container = useRef(null)
@@ -148,6 +150,7 @@ function App() {
 				userId: userId,
 				login: login,
 				logout: logout,
+				date: moment().format('YYYY/MM/DD'),
 			}}>
 			<Router>
 				<div></div>

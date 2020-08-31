@@ -21,6 +21,7 @@ function loadScript(src) {
 const BookingPage = () => {
 	let history = useHistory()
 	const auth = useContext(AuthContext)
+	console.log('booking page' + auth.date)
 
 	const doctorSelected = JSON.parse(localStorage.getItem('docSelected'))
 
@@ -99,6 +100,8 @@ const BookingPage = () => {
 	const [name, setName] = useState('userName')
 
 	async function displayRazorpay() {
+		console.log('RazrorPay' + auth.date)
+		console.log('userID' + auth.userId)
 		const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
 
 		if (!res) {
@@ -115,6 +118,9 @@ const BookingPage = () => {
 					//not sending shortid here //add it in the server side
 					user: auth.userId,
 					patientName: fields.patientName,
+					patientAge: fields.age,
+					patientAdress: fields.address,
+					phone: fields.phone,
 					doctor: doctorSelected.docId,
 					hospital: doctorSelected.hospitalId,
 					cost: doctorSelected.cost,
@@ -131,7 +137,7 @@ const BookingPage = () => {
 		console.log(data)
 
 		const options = {
-			key: 'rzp_test_pnLwxm5qF9vlbs',
+			key: 'rzp_live_A8fHsK5kq7rgBv',
 			currency: data.currency,
 			amount: data.amount.toString(),
 			order_id: data.id,

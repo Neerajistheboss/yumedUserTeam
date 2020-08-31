@@ -1,5 +1,5 @@
 import { createContext } from 'react'
-import moment from 'moment'
+
 export const AuthContext = createContext({
 	isLoggedIn: false,
 	patientName: null,
@@ -11,7 +11,7 @@ export const AuthContext = createContext({
 	specialisation: null,
 	city: null,
 	showNodal: false,
-	date: moment().format('YYYY/MM/DD'),
+	date: {},
 	time: null,
 	docName: null,
 	docId: null,

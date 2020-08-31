@@ -3,9 +3,6 @@ import { Container, Col, Row, Button } from 'reactstrap'
 import MobileStoreButton from 'react-mobile-store-button'
 import moment from 'moment'
 const footer = () => {
-	console.log(moment(Date.now()).unix())
-	console.log(moment(Date.now()).valueOf())
-	console.log(moment(1597342135640).calendar())
 	const buttons = {
 		height: '50px',
 	}

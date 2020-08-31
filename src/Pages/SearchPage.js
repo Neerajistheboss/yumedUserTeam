@@ -3,7 +3,7 @@ import axios from 'axios'
 // import DocCard from '../components/DocCard'
 import { AuthContext } from '../context/auth-context'
 import Booking from '../Components/Booking'
-
+import moment from 'moment'
 const SearchPage = () => {
 	const auth = useContext(AuthContext)
 
@@ -13,6 +13,9 @@ const SearchPage = () => {
 	auth.city = searchFilter.city
 	auth.hospitalId = searchFilter.hospitalId
 	auth.time = null
+	const [divText, setDivText] = useState('Searching Doctors')
+
+	auth.date = moment().format('YYYY/MM/DD')
 
 	useEffect(() => {
 		console.log(`${auth.city}  ${auth.specialisation} ${auth.hospitalId}`)
@@ -27,8 +30,9 @@ const SearchPage = () => {
 		console.log(queryStr)
 		axios.get(`${queryStr}`).then(function (response) {
 			const doctorList = response.data.data
-			console.log(doctorList[0])
+			console.log('doctorList' + doctorList.length)
 			setDoctors(doctorList)
+			if (doctorList.length == 0) setDivText('Sorry No Doctors Found')
 		})
 	}, [])
 
@@ -47,21 +51,29 @@ const SearchPage = () => {
 
 	return (
 		<div style={{ backgroundColor: '#eee', minHeight: '85vh' }}>
-			{doctors.map((doctor) => (
-				<Booking
-					photo={'https://i.ibb.co/hFJnBtL/download.jpg'}
-					dName={doctor.name}
-					speciality={doctor.specialisation}
-					hospitalName={doctor.hospital.name}
-					city={doctor.city}
-					docId={doctor._id}
-					hospitalId={doctor.hospital._id}
-					avgReviews='2.5'
-					numberReviews='Number of Reviews'
-					description='Description'
-					fee={doctor.normalFee}
-				/>
-			))}
+			{doctors.length > 0 ? (
+				doctors.map((doctor) => (
+					<Booking
+						photo={'https://i.ibb.co/hFJnBtL/download.jpg'}
+						dName={doctor.name}
+						speciality={doctor.specialisation}
+						hospitalName={doctor.hospital.name}
+						city={doctor.city}
+						docId={doctor._id}
+						hospitalId={doctor.hospital._id}
+						avgReviews='2.5'
+						numberReviews='Number of Reviews'
+						description='Description'
+						fee={doctor.normalFee}
+					/>
+				))
+			) : (
+				<div
+					className='shadow m-3 bg-white '
+					style={{ width: '100%', marginTop: '10vh', height: '10vh' }}>
+					<h1 className='text-center'>{divText}</h1>
+				</div>
+			)}
 			{/* <Appointment dName="Name Surname" speciality="Speciality" locality="Locality" city="City" zCode="Zip Code" avgReviews="2.5" numberReviews="Number of Reviews" description="Description" />
                       <Appointment dName="Name Surname" speciality="Speciality" locality="Locality" city="City" zCode="Zip Code" avgReviews="2.5" numberReviews="Number of Reviews" description="Description" />
                       <Appointment dName="Name Surname" speciality="Speciality" locality="Locality" city="City" zCode="Zip Code" avgReviews="2.5" numberReviews="Number of Reviews" description="Description" />

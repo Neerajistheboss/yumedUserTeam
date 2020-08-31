@@ -11,6 +11,7 @@ const AppointmentGroup = (props) => {
 	useEffect(() => {
 		if (props.type === 'Upcoming') {
 			console.log('Upcoming')
+			console.log(`userId ${auth.userId}`)
 			const config = {
 				headers: { Authorization: `Bearer ${auth.token}` },
 			}

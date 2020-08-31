@@ -126,6 +126,13 @@ const Navbar = () => {
 
 			<ul className='d-none d-md-flex list-unstyled m-0 align-items-center'>
 				<li>
+					<NavItem className='mx-3'>
+						<NavLink to='/' style={{ fontWeight: 'bold' }}>
+							Home
+						</NavLink>
+					</NavItem>
+				</li>
+				<li>
 					{auth.isLoggedIn && (
 						<NavItem className='mx-3'>
 							<NavLink to='/account' style={{ fontWeight: 'bold' }}>
@@ -133,6 +140,13 @@ const Navbar = () => {
 							</NavLink>
 						</NavItem>
 					)}
+				</li>
+				<li>
+					<NavItem className='mx-3'>
+						<NavLink to='/about' style={{ fontWeight: 'bold' }}>
+							AboutUs
+						</NavLink>
+					</NavItem>
 				</li>
 				<li>
 					<NavItem className='mx-3'>
