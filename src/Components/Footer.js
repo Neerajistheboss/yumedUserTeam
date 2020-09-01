@@ -3,6 +3,14 @@ import { Container, Col, Row, Button } from 'reactstrap'
 import MobileStoreButton from 'react-mobile-store-button'
 import moment from 'moment'
 const footer = () => {
+	const setSpecialisation = (event) => {
+		auth.specialisation = event.target.name
+		auth.hospitalId = null
+		console.log(auth.specialisation)
+		searchFilter.hospitalId = null
+		searchFilter.specialisation = event.target.name
+		localStorage.setItem('filter', JSON.stringify(searchFilter))
+	}
 	const buttons = {
 		height: '50px',
 	}
@@ -29,11 +37,16 @@ const footer = () => {
 							<li>
 								<h5 style={{ fontWeight: 'bold' }}>YuMedic</h5>
 							</li>
-							<li>Home</li>
-							<li>About Us</li>
-							<li>Careers</li>
-							<li>Contact Us</li>
-							<li>Help</li>
+							<li>
+								<NavLink to='/'>Home</NavLink>
+							</li>
+							<li>
+								<NavLink to='/about'>About Us</NavLink>
+							</li>
+
+							<li>
+								<NavLink to='/contact'>Contact Us</NavLink>
+							</li>
 						</ul>
 					</Col>
 					<Col className='p-0'>
@@ -41,13 +54,36 @@ const footer = () => {
 							<li>
 								<h5 style={{ fontWeight: 'bold' }}>Top Specialities</h5>
 							</li>
-							<li>General Physician</li>
-							<li>Cardiology</li>
-							<li>Child Specialities</li>
-							<li>Surgeon</li>
-							<li>Dental</li>
-							<li>Neurology</li>
-							<li>View All</li>
+							<li>
+								<NavLink to='search' onClick={setSpecialisation}>
+									General Physician
+								</NavLink>
+							</li>
+							<li>
+								<NavLink to='search' onClick={setSpecialisation}>
+									Cardiology
+								</NavLink>
+							</li>
+							<li>
+								<NavLink to='search' onClick={setSpecialisation}>
+									Child Specialities
+								</NavLink>
+							</li>
+							<li>
+								<NavLink to='search' onClick={setSpecialisation}>
+									Surgeon
+								</NavLink>
+							</li>
+							<li>
+								<NavLink to='search' onClick={setSpecialisation}>
+									Dental
+								</NavLink>
+							</li>
+							<li>
+								<NavLink to='search' onClick={setSpecialisation}>
+									Neurology
+								</NavLink>
+							</li>
 						</ul>
 					</Col>
 					<Col className='p-0'>
