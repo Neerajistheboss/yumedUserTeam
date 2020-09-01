@@ -1,8 +1,22 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Container, Col, Row, Button } from 'reactstrap'
 import MobileStoreButton from 'react-mobile-store-button'
 import moment from 'moment'
-const footer = () => {
+import { AuthContext } from '../context/auth-context'
+
+import { NavLink } from 'react-router-dom'
+const Footer = () => {
+	const auth = useContext(AuthContext)
+
+	let searchFilter = {
+		docId: null,
+		hospitalId: null,
+		city: null,
+		specialisation: null,
+		name: null,
+	}
+	localStorage.setItem('filter', JSON.stringify(searchFilter))
+
 	const setSpecialisation = (event) => {
 		auth.specialisation = event.target.name
 		auth.hospitalId = null
@@ -55,33 +69,48 @@ const footer = () => {
 								<h5 style={{ fontWeight: 'bold' }}>Top Specialities</h5>
 							</li>
 							<li>
-								<NavLink to='search' onClick={setSpecialisation}>
+								<NavLink
+									to='search'
+									onClick={setSpecialisation}
+									name='General Physician'>
 									General Physician
 								</NavLink>
 							</li>
 							<li>
-								<NavLink to='search' onClick={setSpecialisation}>
+								<NavLink
+									to='search'
+									onClick={setSpecialisation}
+									name='Cardiology'>
 									Cardiology
 								</NavLink>
 							</li>
 							<li>
-								<NavLink to='search' onClick={setSpecialisation}>
+								<NavLink
+									to='search'
+									onClick={setSpecialisation}
+									name='Child Specialist'>
 									Child Specialities
 								</NavLink>
 							</li>
 							<li>
-								<NavLink to='search' onClick={setSpecialisation}>
+								<NavLink
+									to='search'
+									onClick={setSpecialisation}
+									name='General Surgeon'>
 									Surgeon
 								</NavLink>
 							</li>
 							<li>
-								<NavLink to='search' onClick={setSpecialisation}>
+								<NavLink to='search' onClick={setSpecialisation} name='Dental'>
 									Dental
 								</NavLink>
 							</li>
 							<li>
-								<NavLink to='search' onClick={setSpecialisation}>
-									Neurology
+								<NavLink
+									to='search'
+									onClick={setSpecialisation}
+									name='Gynaecologist'>
+									Gynaecologist
 								</NavLink>
 							</li>
 						</ul>
@@ -134,4 +163,4 @@ const footer = () => {
 	)
 }
 
-export default footer
+export default Footer

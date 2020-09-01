@@ -53,8 +53,6 @@ function HomePage(props) {
 	}
 	localStorage.setItem('filter', JSON.stringify(searchFilter))
 
-	const cart = localStorage.getItem
-
 	const setSpecialisation = (event) => {
 		auth.specialisation = event.target.name
 		auth.hospitalId = null
