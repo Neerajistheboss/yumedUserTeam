@@ -21,7 +21,7 @@ function loadScript(src) {
 const BookingPage = () => {
 	let history = useHistory()
 	const auth = useContext(AuthContext)
-	console.log('booking page' + auth.date)
+	console.log('booking page' + auth.fromHospital)
 
 	const doctorSelected = JSON.parse(localStorage.getItem('docSelected'))
 
@@ -84,7 +84,7 @@ const BookingPage = () => {
 			setBtnText('Fill Details to Proceed')
 		}
 
-		if (!auth.isLoggedIn) {
+		if (!auth.isLoggedIn && !auth.fromHospital) {
 			setBtnText('Log In First')
 			setBtnStyle('btn-warning disabled border m-3 text-white')
 		}
@@ -92,6 +92,21 @@ const BookingPage = () => {
 		if (auth.isLoggedIn && !auth.time) {
 			setBtnText('Select Time Slot')
 			setBtnStyle('btn-warning disabled border m-3 text-white')
+		}
+
+		if (
+			auth.fromHospital &&
+			fields.patientName.length > 1 &&
+			fields.age.length > 1 &&
+			fields.gender.length > 1 &&
+			fields.address.length > 1 &&
+			fields.phone.length > 1 &&
+			auth.time
+		) {
+			setFormCompleted(true)
+			auth.patientName = fields.patientName
+			setBtnStyle('btn-primary m-3 ')
+			setBtnText('Make Payment')
 		}
 	}, [fields])
 

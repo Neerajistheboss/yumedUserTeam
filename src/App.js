@@ -111,6 +111,7 @@ function App() {
 				<Route path='/register'>
 					<RegisterPage />
 				</Route>
+				<Route path='/search/:id' component={SearchPage} />
 				<Route path='/search'>
 					<SearchPage />
 				</Route>

@@ -4,29 +4,51 @@ import axios from 'axios'
 import { AuthContext } from '../context/auth-context'
 import Booking from '../Components/Booking'
 import moment from 'moment'
-const SearchPage = () => {
+const SearchPage = (props) => {
 	const auth = useContext(AuthContext)
+	let fromhospital = false
+	let hospital
+	try {
+		console.log('inside try')
+		const hid = props.match.params.id
+		auth.hospitalId = hid
+		if (hid) {
+			fromhospital = true
+			hospital = hid
+			console.log(hospital)
+		}
+		auth.fromHospital = true
+		auth.specialisation = null
+		auth.city = null
+	} catch (error) {
+		console.log(error)
+	}
+	console.log('auth.hospitalId' + hospital)
 
 	let [doctors, setDoctors] = useState([])
-	let searchFilter = JSON.parse(localStorage.getItem('filter'))
-	auth.specialisation = searchFilter.specialisation
-	auth.city = searchFilter.city
-	auth.hospitalId = searchFilter.hospitalId
-	auth.time = null
+
 	const [divText, setDivText] = useState('Searching Doctors')
 
 	auth.date = moment().format('YYYY/MM/DD')
 
 	useEffect(() => {
-		console.log(`${auth.city}  ${auth.specialisation} ${auth.hospitalId}`)
-		console.log(process.env.REACT_APP_YUVER_IP)
+		if (!fromhospital) {
+			console.log(auth.fromHospital)
+			let searchFilter = JSON.parse(localStorage.getItem('filter'))
+
+			auth.specialisation = searchFilter.specialisation
+			auth.city = searchFilter.city
+			auth.hospitalId = searchFilter.hospitalId
+			auth.time = null
+			hospital = searchFilter.hospitalId
+		}
+
 		let queryStr = `http://${process.env.REACT_APP_YUVER_IP}/api/v1/doctors?`
 		if (auth.specialisation)
 			queryStr = queryStr + `specialisation=${encodeURI(auth.specialisation)}`
 		if (auth.city) queryStr = queryStr + `&city=${auth.city}`
-		if (auth.name) queryStr = queryStr + `&name=${auth.name}`
 		if (auth.docName) queryStr = queryStr + `&name=${auth.docName}`
-		if (auth.hospitalId) queryStr = queryStr + `&hospital=${auth.hospitalId}`
+		if (auth.hospitalId) queryStr = queryStr + `&hospital=${hospital}`
 		console.log(queryStr)
 		axios.get(`${queryStr}`).then(function (response) {
 			const doctorList = response.data.data
