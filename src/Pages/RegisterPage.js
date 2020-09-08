@@ -5,11 +5,12 @@ import { NavLink } from 'react-router-dom'
 class RegisterPage extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = { name: '', email: '', phone: '', password: '' }
+		this.state = { name: '', email: '', phone: '', password: '', referral: '' }
 		this.handleNameChange = this.handleNameChange.bind(this)
 		this.handlePhoneChange = this.handlePhoneChange.bind(this)
 		this.handleEmailChange = this.handleEmailChange.bind(this)
 		this.handlePasswordChange = this.handlePasswordChange.bind(this)
+		this.handleReferralChange = this.handleReferralChange.bind(this)
 	}
 
 	handleNameChange(event) {
@@ -23,6 +24,9 @@ class RegisterPage extends React.Component {
 	}
 	handlePasswordChange(event) {
 		this.setState({ password: event.target.value })
+	}
+	handleReferralChange(event) {
+		this.setState({ referral: event.target.value })
 	}
 
 	render() {
@@ -89,6 +93,19 @@ class RegisterPage extends React.Component {
 												placeholder='Enter Password'></input>
 										</div>
 										<div className='form-group'>
+											<label htmlFor='exampleInputEmail1'>Referral Code (optional)</label>
+											<input
+												value={this.state.referral}
+												onChange={this.handleReferralChange}
+												style={{ backgroundColor: "#f0f0c9" }}
+												type='text'
+												name='referral'
+												id='referral'
+												className='form-control'
+												aria-describedby='emailHelp'
+												placeholder='Referral Code'></input>
+										</div>
+										<div className='form-group'>
 											<p className='text-center'>
 												By signing up you accept our{' '}
 												<a href='#'>Terms Of Use</a>
@@ -103,6 +120,7 @@ class RegisterPage extends React.Component {
 												email={this.state.email}
 												phone={this.state.phone}
 												password={this.state.password}
+												referral={this.state.referral}
 											/>
 										</div>
 										<div className='col-md-12 '>

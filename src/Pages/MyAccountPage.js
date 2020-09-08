@@ -8,10 +8,15 @@ const MyAccountPage = () => {
 	const auth = useContext(AuthContext)
 	auth.time = null
 	const [refId, setRefId] = useState(auth.referralId)
+
+
+
 	useEffect(() => {
+
+		console.log(auth.values)
 		axios
 			.get(
-				`http://${process.env.REACT_APP_YUVER_IP}/api/v1/users/${auth.userId}`
+				`http://${process.env.REACT_APP_YUVER_IP}/api/v1/users/${auth.values.userId}`
 			)
 			.then(function (response) {
 				setRefId(response.data.data.referral.code)

@@ -1,96 +1,3 @@
-// import React, { useState, useContext } from 'react'
-// import {
-// 	Nav,
-// 	NavItem,
-// 	NavLink,
-// 	NavbarBrand,
-// 	Navbar,
-// 	ButtonDropdown,
-// 	DropdownMenu,
-// 	DropdownToggle,
-// 	DropdownItem,
-// 	Button,
-// 	Container,
-// 	NavbarToggler,
-// 	Collapse,
-// } from 'reactstrap'
-// import Path2 from '../images/headerPath.png'
-// import { AuthContext } from '../context/auth-context'
-// import Logo from '../images/Logo.png'
-
-// const Header = () => {
-// 	const auth = useContext(AuthContext)
-// 	const [isOpen] = useState(false)
-
-// 	const navbar = {
-// 		paddingBottom: '20px',
-// 		backgroundImage: `url(${Path2})`,
-// 		backgroundSize: 'contain',
-// 		backgroundPosition: 'right top',
-// 		backgroundRepeat: 'no-repeat',
-// 		flexDirection: 'row',
-// 		justifyContent: 'space-between',
-// 	}
-
-// 	const [dropdownOpen, setOpen] = useState(false)
-// 	const toggle = () => setOpen(!dropdownOpen)
-
-// 	const [NavdropdownOpen, NavsetOpen] = useState(false)
-// 	const Navtoggle = () => NavsetOpen(!NavdropdownOpen)
-
-// 	return (
-// 		<div style={navbar}>
-// 			<Navbar light expand='md '>
-// 				<NavbarBrand
-// 					href='/'
-// 					style={{ display: 'flex', justifyContent: 'space-between' }}>
-// 					<img src={Logo} style={{ width: '50%' }} alt='Logo' />
-// 				</NavbarBrand>
-// 				<NavbarToggler onClick={Navtoggle} style={{ justifyItems: 'end' }} />
-// 				<Collapse isOpen={isOpen} navbar>
-// 					<Nav className='ml-auto' navbar style={{ justifyContent: 'end' }}>
-// 						{auth.isLoggedIn && (
-// 							<NavItem>
-// 								<NavLink href='/account' style={{ fontWeight: 'bold' }}>
-// 									My Account
-// 								</NavLink>
-// 							</NavItem>
-// 						)}
-// 						<NavItem>
-// 							<NavLink href='/contact' style={{ fontWeight: 'bold' }}>
-// 								ContactUs
-// 							</NavLink>
-// 						</NavItem>
-// 						{!auth.isLoggedIn && (
-// 							<NavItem>
-// 								<NavLink href='/login' style={{ fontWeight: 'bold' }}>
-// 									Login
-// 								</NavLink>
-// 							</NavItem>
-// 						)}
-// 						{!auth.isLoggedIn && (
-// 							<NavItem>
-// 								<NavLink href='/register' style={{ fontWeight: 'bold' }}>
-// 									SignUp
-// 								</NavLink>
-// 							</NavItem>
-// 						)}
-// 						{auth.isLoggedIn && (
-// 							<NavItem>
-// 								<NavLink href='/logout' style={{ fontWeight: 'bold' }}>
-// 									Logout
-// 								</NavLink>
-// 							</NavItem>
-// 						)}
-// 					</Nav>
-// 				</Collapse>
-// 			</Navbar>
-// 		</div>
-// 	)
-// }
-
-// export default Header
-
 import React, { useState, useContext } from 'react'
 import ReactDOM from 'react-dom'
 import { NavbarBrand, NavItem } from 'reactstrap'
@@ -101,17 +8,21 @@ import { AuthContext } from '../context/auth-context'
 import Logo from '../images/Logo.png'
 import Nodal from './Nodal'
 const Navbar = () => {
+
 	const [drawerIsOpen, setDrawerIsOpen] = useState(false)
 	const auth = useContext(AuthContext)
+
 	const openDrawer = () => {
-		console.log('menu opening')
+
 		setDrawerIsOpen(!drawerIsOpen)
 	}
 
 	const closeDrawer = () => {
-		console.log('menu closing')
+
 		setDrawerIsOpen(false)
 	}
+
+	const token = localStorage.getItem("token")
 
 	const content = (
 		<nav
@@ -133,7 +44,7 @@ const Navbar = () => {
 					</NavItem>
 				</li>
 				<li>
-					{auth.isLoggedIn && (
+					{(token != null) && (
 						<NavItem className='mx-3'>
 							<NavLink to='/account' style={{ fontWeight: 'bold' }}>
 								My Account
@@ -156,7 +67,7 @@ const Navbar = () => {
 					</NavItem>
 				</li>
 				<li>
-					{!auth.isLoggedIn && (
+					{!(token != null) && (
 						<NavItem className='mx-3'>
 							<NavLink to='/login' style={{ fontWeight: 'bold' }}>
 								Login
@@ -165,7 +76,7 @@ const Navbar = () => {
 					)}
 				</li>
 				<li>
-					{!auth.isLoggedIn && (
+					{!(token != null) && (
 						<NavItem className='mx-3 text-dark'>
 							<NavLink to='/register' style={{ fontWeight: 'bold' }}>
 								SignUp
@@ -173,7 +84,7 @@ const Navbar = () => {
 						</NavItem>
 					)}
 				</li>
-				{auth.isLoggedIn && <Nodal />}
+				{(token != null) && <Nodal />}
 			</ul>
 
 			{drawerIsOpen && <Menu onLinkClick={closeDrawer} drawer={openDrawer} />}

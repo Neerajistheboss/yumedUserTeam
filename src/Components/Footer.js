@@ -8,23 +8,26 @@ import { NavLink } from 'react-router-dom'
 const Footer = () => {
 	const auth = useContext(AuthContext)
 
-	let searchFilter = {
-		docId: null,
-		hospitalId: null,
-		city: null,
-		specialisation: null,
-		name: null,
-	}
-	localStorage.setItem('filter', JSON.stringify(searchFilter))
+	let searchFilter = JSON.parse(localStorage.getItem("filter"))
+	if (searchFilter == null)
+		searchFilter = {}
+
+
 
 	const setSpecialisation = (event) => {
-		auth.specialisation = event.target.name
-		auth.hospitalId = null
-		console.log(auth.specialisation)
+		auth.setValueFunc("specialisation", event.target.name)
 		searchFilter.hospitalId = null
 		searchFilter.specialisation = event.target.name
+		console.log(searchFilter)
 		localStorage.setItem('filter', JSON.stringify(searchFilter))
 	}
+
+
+
+
+
+
+
 	const buttons = {
 		height: '50px',
 	}
@@ -70,7 +73,7 @@ const Footer = () => {
 							</li>
 							<li>
 								<NavLink
-									to='search'
+									to='/search'
 									onClick={setSpecialisation}
 									name='General Physician'>
 									General Physician
@@ -78,7 +81,7 @@ const Footer = () => {
 							</li>
 							<li>
 								<NavLink
-									to='search'
+									to='/search'
 									onClick={setSpecialisation}
 									name='Cardiology'>
 									Cardiology
@@ -86,7 +89,7 @@ const Footer = () => {
 							</li>
 							<li>
 								<NavLink
-									to='search'
+									to='/search'
 									onClick={setSpecialisation}
 									name='Child Specialist'>
 									Child Specialities
@@ -94,20 +97,20 @@ const Footer = () => {
 							</li>
 							<li>
 								<NavLink
-									to='search'
+									to='/search'
 									onClick={setSpecialisation}
 									name='General Surgeon'>
 									Surgeon
 								</NavLink>
 							</li>
 							<li>
-								<NavLink to='search' onClick={setSpecialisation} name='Dental'>
+								<NavLink to='/search' onClick={setSpecialisation} name='Dental'>
 									Dental
 								</NavLink>
 							</li>
 							<li>
 								<NavLink
-									to='search'
+									to='/search'
 									onClick={setSpecialisation}
 									name='Gynaecologist'>
 									Gynaecologist
@@ -155,7 +158,13 @@ const Footer = () => {
 				Copyright YuMedic 2020
 			</div>
 			<div>
-				<a href='https://www.facebook.com/yumedic1/'>
+				<a href='https://www.facebook.com/yumedic1/' style={{ fontSize: "28px" }}>
+					<i class='fab fa-facebook'></i>
+				</a>
+				<a href='https://www.facebook.com/yumedic1/' style={{ fontSize: "28px" }}>
+					<i class='fab fa-facebook'></i>
+				</a>
+				<a href='https://www.facebook.com/yumedic1/' style={{ fontSize: "28px" }}>
 					<i class='fab fa-facebook'></i>
 				</a>
 			</div>

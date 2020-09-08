@@ -15,15 +15,15 @@ function SubmitBtn(props) {
 				password: props.password,
 			})
 			.then(function (response) {
-				console.log(response.data.success)
+				console.log(response)
 				if (!response.data.success) {
-					//do nothing
+					alert("Email and Password not correct!")
 				} else {
 					//save token in local storage
 					let token = response.data.token
 					let uid = response.data.userId
-					localStorage.setItem('token', token)
-					localStorage.setItem('uid', uid)
+					localStorage.setItem('token', JSON.stringify(token))
+					localStorage.setItem('uid', JSON.stringify(uid))
 
 					//         //load homepage
 					auth.login(uid, token)
@@ -34,6 +34,7 @@ function SubmitBtn(props) {
 
 	function register() {
 		// console.log("register")
+		console.log(props)
 
 		axios
 			.post(`http://${process.env.REACT_APP_YUVER_IP}/api/v1/auth/register`, {
@@ -42,6 +43,7 @@ function SubmitBtn(props) {
 				password: props.password,
 				phone: props.phone,
 				role: 'user',
+				referral: props.referral
 			})
 			.then(function (response) {
 				console.log(response.data.success)

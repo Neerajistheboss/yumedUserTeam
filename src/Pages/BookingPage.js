@@ -3,7 +3,7 @@ import React, { useState, useContext, useEffect } from 'react'
 import { AuthContext } from '../context/auth-context'
 import SubmitBtn from '../Components/submitBtn'
 import DT from '../Components/DT'
-import { useHistory } from 'react-router-dom'
+import { useHistory, NavLink } from 'react-router-dom'
 function loadScript(src) {
 	return new Promise((resolve) => {
 		const script = document.createElement('script')
@@ -19,6 +19,7 @@ function loadScript(src) {
 }
 
 const BookingPage = () => {
+	const [toUrl, setToUrl] = useState("#")
 	let history = useHistory()
 	const auth = useContext(AuthContext)
 	console.log('booking page' + auth.fromHospital)
@@ -86,7 +87,8 @@ const BookingPage = () => {
 
 		if (!auth.isLoggedIn && !auth.fromHospital) {
 			setBtnText('Log In First')
-			setBtnStyle('btn-warning disabled border m-3 text-white')
+			setBtnStyle('btn-warning  border m-3 text-white')
+			setToUrl("/login")
 		}
 
 		if (auth.isLoggedIn && !auth.time) {
@@ -109,6 +111,12 @@ const BookingPage = () => {
 			setBtnText('Make Payment')
 		}
 	}, [fields])
+
+	const onClickFunction = () => {
+		console.log(toUrl)
+		if (toUrl == "#")
+			displayRazorpay()
+	}
 
 	//Display RazorPay
 
@@ -301,13 +309,12 @@ const BookingPage = () => {
 			<hr class='my-4' />
 			<div className='text-center'>
 				{/* <SubmitBtn fun='payment' className={btnStyle} text={btnText} /> */}
-				<a
+				<NavLink
 					className={`App-link btn ${btnStyle}`}
-					onClick={displayRazorpay}
-					target='_blank'
-					rel='noopener noreferrer'>
+					to={toUrl}
+					onClick={onClickFunction}>
 					{btnText}
-				</a>
+				</NavLink>
 			</div>
 			{/* {!formCompleted&&<h3>Fill the form to continue</h3>} */}
 		</div>

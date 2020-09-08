@@ -25,6 +25,7 @@ import { AuthContext } from '../context/auth-context'
 
 function HomePage(props) {
 	const auth = useContext(AuthContext)
+	console.log(auth)
 	try {
 		const token = props.match.params.token
 		const uid = props.match.params.id
@@ -44,28 +45,22 @@ function HomePage(props) {
 	auth.date = moment().format('MM/DD/YYYY')
 	auth.time = null
 
-	let searchFilter = {
-		docId: null,
-		hospitalId: null,
-		city: null,
-		specialisation: null,
-		name: null,
-	}
-	localStorage.setItem('filter', JSON.stringify(searchFilter))
+
+	let searchFilter = JSON.parse(localStorage.getItem("filter"))
+	if (searchFilter == null)
+		searchFilter = {}
 
 	const setSpecialisation = (event) => {
-		auth.specialisation = event.target.name
-		auth.hospitalId = null
-		console.log(auth.specialisation)
+		auth.setValueFunc("specialisation", event.target.name)
+		auth.setValueFunc("hospitalId", null)
 		searchFilter.hospitalId = null
 		searchFilter.specialisation = event.target.name
 		localStorage.setItem('filter', JSON.stringify(searchFilter))
 	}
 
 	const setHospital = (event) => {
-		auth.hospitalId = event.target.name
-		console.log(auth.hospitalId)
-		auth.specialisation = null
+		auth.values.hospitalId = event.target.name
+		auth.values.specialisation = null
 		searchFilter.specialisation = null
 		searchFilter.hospitalId = event.target.id
 		localStorage.setItem('filter', JSON.stringify(searchFilter))
@@ -261,13 +256,17 @@ function HomePage(props) {
 						/>
 					</NavLink>
 				</div>
-				<div className='text-center' name=''>
+				<div className='text-center' id='5f43f5a86e2fc1623cda5cf2'>
 					<NavLink
 						className='text-decoration-none'
 						to='/search'
 						onClick={setHospital}
-						name=''>
-						<Hospitals name='Medica SuperSpeciality Hospital' img={Gynae} />
+						id='5f43f5a86e2fc1623cda5cf2'>
+						<Hospitals
+							id='5f43f5a86e2fc1623cda5cf2'
+							name='Pragati Hospital'
+							img={Skin}
+						/>
 					</NavLink>
 				</div>
 				<div className='text-center' name=''>

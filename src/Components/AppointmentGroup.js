@@ -11,7 +11,7 @@ const AppointmentGroup = (props) => {
 	useEffect(() => {
 		if (props.type === 'Upcoming') {
 			console.log('Upcoming')
-			console.log(`userId ${auth.userId}`)
+			console.log(`userId ${auth.values.userId}`)
 			const config = {
 				headers: { Authorization: `Bearer ${auth.token}` },
 			}
@@ -20,7 +20,7 @@ const AppointmentGroup = (props) => {
 					`http://${process.env.REACT_APP_YUVER_IP}/api/v1/appointments`,
 					{
 						params: {
-							user: auth.userId,
+							user: auth.values.userId,
 
 							maxD: moment(Date.now()).add(10, 'days').format('YYYY/MM/DD'),
 
@@ -43,7 +43,7 @@ const AppointmentGroup = (props) => {
 					`http://${process.env.REACT_APP_YUVER_IP}/api/v1/appointments`,
 					{
 						params: {
-							user: auth.userId,
+							user: auth.values.userId,
 
 							minD: moment(Date.now())
 								.subtract(180, 'days')
@@ -67,10 +67,10 @@ const AppointmentGroup = (props) => {
 					<Appointment appointment={appointment} />
 				))
 			) : (
-				<div className='m-1 p-3 bg-light  text-center'>
-					<p>None</p>
-				</div>
-			)}
+					<div className='m-1 p-3 bg-light  text-center'>
+						<p>None</p>
+					</div>
+				)}
 		</div>
 	)
 }
