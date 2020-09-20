@@ -63,7 +63,7 @@ const Menu = (props) => {
 						to='/about'
 						onClick={props.onLinkClick}
 						style={{ fontWeight: 'bold' }}>
-						AboutUs and ContactUs
+						About Us
 					</NavLink>
 				</NavItem>
 				<NavItem>

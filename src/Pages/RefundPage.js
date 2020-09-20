@@ -4,7 +4,7 @@ const RefundPage = () => {
 	const auth = useContext(AuthContext)
 	auth.time = null
 	return (
-		<div>
+		<div className="p-4">
 			<h2>Refund and Cancellation Policy</h2>
 			<p>
 				Our focus is complete customer satisfaction. In the event, if you are

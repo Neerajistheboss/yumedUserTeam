@@ -28,7 +28,7 @@ const Booking = (props) => {
 		localStorage.setItem('docSelected', JSON.stringify(doctorSelected))
 	}
 
-
+	console.log(props)
 	return (
 		<Fragment>
 			<div className='d-flex align-items-center m-2 rounded p-2 bg-white'>

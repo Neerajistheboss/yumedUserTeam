@@ -13,13 +13,13 @@ const Specialities = (props) => {
 	// }
 
 	const images = {
-		height: '150px',
+		height: '130px',
 		textAlign: 'center',
 		justifyContent: 'center',
 	}
 
 	return (
-		<div name={props.name} style={{ padding: '0px', margin: '10px' }}>
+		<div name={props.name} style={{ padding: '16px', display: 'inline-block', color: 'rgb(71,123,117)', textAlign: 'center' }}>
 			<div style={{ width: 'fit-content' }} name={props.name}>
 				<img src={props.img} name={props.name} style={images} />
 				<div>{props.spe}</div>

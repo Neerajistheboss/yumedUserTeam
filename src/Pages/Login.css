@@ -1,0 +1,78 @@
+
+.login {
+    background: linear-gradient(rgba(0,0,0,0.2),rgba(255,255,255,0.8),#C4FFF8) !important;
+}
+
+#first {
+    margin: 1.5rem 0;
+    padding: 1rem 3rem;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px 2px #95a5a6;
+    background: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5),#C4FFF8) !important;
+}
+
+.myform {
+    padding: 3rem 0;
+}
+
+.myform label {
+    font-size: 1.2rem !important;
+}
+
+.myform input {
+    border-radius: 10px;
+    /* box-shadow: 0 0 5px #95a5a6; */
+    background-color: #0000000F !important;
+}
+
+.myform p {
+    font-size: 1.1rem !important;
+}
+
+
+.login_btn{
+    margin: 0 0 0 8rem;
+    width: 25% !important;
+}
+
+/* .login-or img {
+    width: 2rem !important;
+    height: 2rem !important;
+} */
+
+@media (max-width:768px){
+
+    /* .myform {
+        justify-content: center;
+        align-items: center;
+    } */
+
+    #first {
+        padding: 0 !important;
+        margin: 0.5rem 0 !important;
+    }
+
+    .login-or a {
+        margin: 0 2rem;
+        width: 80% !important;
+    }
+
+    .myform p {
+        font-size: 1rem !important;
+    }
+
+    .myform label {
+        margin: 0.2rem 2rem;
+        font-size: 1rem !important;
+    }
+
+    .myform input {
+        margin: 0 2rem;
+        width: 80%;
+        border-radius: 0.5rem;
+    }
+
+    /* .login_btn{
+        margin: 0 2rem;
+    } */
+}

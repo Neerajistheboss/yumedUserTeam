@@ -1,4 +1,5 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext, useEffect } from 'react';
+import SearchIcon from '@material-ui/icons/Search';
 import {
 	Nav,
 	NavItem,
@@ -63,11 +64,13 @@ const SearchOptions = () => {
 		//         <Button color="primary">Search</Button>
 		//     </Container>
 
-		<div class='section'>
+		<div className='section'>
 			<div></div>
-			<div class='form-container jumbotron  '>
-				<div class='row align-items-center justify-content-center'>
-					<div class=' mb-1 searchLocName'>
+			<div className="searchDoctor container">
+				<h3> Search for Doctors </h3>
+				<div class='row'>
+					<div class='form form-inline'>
+						{/* <div class=' mb-1 searchLocName'>
 						<select
 							name='city'
 							onChange={textChangeHandler}
@@ -82,38 +85,40 @@ const SearchOptions = () => {
 							<option value='giridih'> Giridih </option>
 							<option value='hazaribagh'> Hazaribagh </option>
 						</select>
-					</div>
-					<div className=' mb-1 searchLocName'>
-						<input
-							name='name'
-							onChange={textChangeHandler}
-							type='text'
-							class='form-control form-control-lg'
-							placeholder='Doctor Name'
-						/>
-					</div>
-					<div className=' mb-1 searchSpe'>
-						<select
-							name='specialisation'
-							onChange={textChangeHandler}
-							class='form-control form-control-lg'>
-							<option value=''>Specialist</option>
-							<option value='General Physician'>General Physician</option>
-							<option value='Cardiology'>Cardiology</option>
-							<option value='Child Specialist'>Child Specialist</option>
-							<option value='General Surgeon'>General Surgeon</option>
-							<option value='Dental'>Dental</option>
-							<option value='Nephrology'>Nephrology</option>
-							<option value='Gynaecologist'>Gynaecologist</option>
-							<option value='Skin and Hair'>Skin and Hair</option>
-							<option value='Bones and Joints'>Bones and Joints</option>
-							<option value='Eye Specialist'>Eye Specialist</option>
-						</select>
-					</div>
-					<div className='mb-1 searchbtn  btn-info form-control-lg '>
-						<NavLink to='search' className='text-white text-decoration-none'>
-							Search
-						</NavLink>
+					</div> */}
+						<div className=' mb-1 searchLocName'>
+							<input
+								name='name'
+								onChange={textChangeHandler}
+								type='text'
+								class='form-control form-control-lg'
+								placeholder='Type Something'
+								required
+							/>
+						</div>
+						<div className=' mb-1 searchSpe'>
+							<select
+								name='specialisation'
+								onChange={textChangeHandler}
+								class='form-control form-control-lg'>
+								<option value=''>Specialist</option>
+								<option value='General Physician'>General Physician</option>
+								<option value='Cardiology'>Cardiology</option>
+								<option value='Child Specialist'>Child Specialist</option>
+								<option value='General Surgeon'>General Surgeon</option>
+								<option value='Dental'>Dental</option>
+								<option value='Nephrology'>Nephrology</option>
+								<option value='Gynaecologist'>Gynaecologist</option>
+								<option value='Skin and Hair'>Skin and Hair</option>
+								<option value='Bones and Joints'>Bones and Joints</option>
+								<option value='Eye Specialist'>Eye Specialist</option>
+							</select>
+						</div>
+						<div className='searchbtn  btn-info form-control-lg '>
+							<NavLink to='search' className='text-decoration-none'>
+								<SearchIcon style={{ color: '#008A80', fontSize: '25px' }} />
+							</NavLink>
+						</div>
 					</div>
 				</div>
 			</div>

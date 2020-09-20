@@ -4,7 +4,7 @@ const FAQPage = () => {
 	const auth = useContext(AuthContext)
 	auth.time = null
 	return (
-		<div>
+		<div className="p-4">
 			<h2>Frequently Asked Questions</h2>
 			<p>
 				<b>What does yuMedic do?</b>

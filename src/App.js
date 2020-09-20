@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom'
 import Header from './Components/Navbar'
 import HomePage from './Pages/HomePage'
-import { AuthContextProvider } from './context/auth-context'
+import { AuthContext } from './context/auth-context'
 import LoginPage from './Pages/LoginPage'
 import RegisterPage from './Pages/RegisterPage'
 import BookingPage from './Pages/BookingPage'
@@ -22,23 +22,42 @@ import FaqPage from './Pages/FAQPage'
 import RefundPage from './Pages/RefundPage'
 import TermsPage from './Pages/TermsPage'
 import moment from 'moment'
+import { TinyButton as ScrollUpButton } from "react-scroll-up-button";
 
 // import Path2 from './images/path2.png';
 
 function App() {
+	const [token, setToken] = useState(localStorage.getItem('token'))
+	const [userId, setUserId] = useState(localStorage.getItem('uid'))
 
-	const [token, setToken] = useState(localStorage.getItem("token"))
+	const login = useCallback((uid, token) => {
+		setToken(token)
+		setUserId(uid)
+	}, [])
+
+	const logout = useCallback(() => {
+		setToken(null)
+		setUserId(null)
+		localStorage.removeItem('token')
+		localStorage.removeItem('uid')
+	}, [])
+
+	useEffect(() => {
+		const token = localStorage.getItem('token')
+		const uid = localStorage.getItem('uid')
+		setToken(token)
+		setUserId(uid)
+		login(uid, token)
+		console.log(`date in app ${moment().format('YYYY/MM/DD')}`)
+	}, [])
+
 	const container = useRef(null)
-	console.log("TOKEN" + token + (token != "null"))
-	let routes
-	if (token == null) {
-		console.log("HAS TOKEN")
-	}
-	if (token) {
 
+	let routes
+	if (token) {
+		console.log('has token')
 		routes = (
 			<Switch>
-				<Route path='/search/:id' component={SearchPage} />
 				<Route path='/search'>
 					<SearchPage />
 				</Route>
@@ -126,13 +145,22 @@ function App() {
 	}
 
 	return (
-		<AuthContextProvider>
+		<AuthContext.Provider
+			value={{
+				isLoggedIn: !!token,
+				token: token,
+				userId: userId,
+				login: login,
+				logout: logout,
+				date: moment().format('YYYY/MM/DD'),
+			}}>
 			<Router>
 				<div></div>
 				<Header />
 				<Switch> {routes} </Switch> <Footer />
+				<ScrollUpButton />
 			</Router>
-		</AuthContextProvider>
+		</AuthContext.Provider>
 	)
 }
 

@@ -1,0 +1,45 @@
+.path{
+    background-image: url('../images/path2.png');
+    background-size: 18% 25%;
+    background-repeat: no-repeat;
+    background-position-y: 40rem;
+    font-size: 1.5rem !important;
+}
+
+h3 {
+    font-size: 2.5rem !important;
+}
+
+
+
+@media (max-width:991px) {
+    .path{
+        background-image: url('../images/path2.png');
+        background-size: 15% 30%;
+        background-repeat: no-repeat;
+        background-position-y: 65rem;
+    }
+}
+
+@media (max-width:768px) {
+    .path{
+        background-image: url('../images/path2.png');
+        background-size: 15% 25%;
+        background-repeat: no-repeat;
+        background-position-y: 80rem;
+    }
+
+} 
+
+@media (max-width:540px) {
+    .path{
+        background-image: url('../images/path2.png');
+        background-size: 15% 25%;
+        background-repeat: no-repeat;
+        background-position-y: 75rem;
+    }
+
+    h3 {
+        font-size: 1.5rem !important;
+    }
+}

@@ -5,25 +5,24 @@ import Path3 from '../images/Path3.png';
 const Doctor = () => {
 
     const style = {
-        paddingTop: '50px',
-        paddingBottom: '50px',
+        paddingTop: '10px',
         backgroundImage: `url(${Path3})`,
-        backgroundSize: 'contain',
+        backgroundSize: '80% 80%',
         // backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
     }
 
     return (
         <div style={style} >
-            <Container>
-                <h1>Are You a Doctor ?</h1>
+            <Container className="p-4">
+                <h2 className="font-weight-bold">Are You a Doctor ?</h2>
                 <h4>Get on Board with us!</h4><br />
-                <ul style={{ marginBottom: '10px', fontSize: '1.3rem' }}>
+                <ul style={{ marginTop: '0.5rem', fontSize: '1.3rem', color: '#008A80', fontWeight: 'bold' }}>
                     <li>Increase your reach</li>
                     <li>Organise your system</li>
                     <li>Strengthen your Online Reputation</li>
                 </ul>
-                <Button color="primary" style={{ marginLeft:'50px', marginBottom:'100px', marginTop:'16px' }}>Join Now</Button>
+                <Button color="dark" style={{ marginLeft: '50px', marginBottom: '20px', marginTop: '16px' }}>Join Now</Button>
             </Container>
         </div>
     );
