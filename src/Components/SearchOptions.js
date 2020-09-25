@@ -100,7 +100,7 @@ const SearchOptions = () => {
 							<select
 								name='specialisation'
 								onChange={textChangeHandler}
-								class='form-control form-control-lg'>
+								className='form-control form-control-lg'>
 								<option value=''>Specialist</option>
 								<option value='General Physician'>General Physician</option>
 								<option value='Cardiology'>Cardiology</option>

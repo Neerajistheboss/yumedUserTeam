@@ -18,6 +18,7 @@ import SuccessPage from './Pages/SuccessPage'
 import MyAccountPage from './Pages/MyAccountPage'
 import AboutPage from './Pages/AboutPage'
 import ContactPage from './Pages/ContactPage'
+import Ambulance from './Pages/Ambulance'
 import FaqPage from './Pages/FAQPage'
 import RefundPage from './Pages/RefundPage'
 import TermsPage from './Pages/TermsPage'
@@ -85,6 +86,9 @@ function App() {
 				<Route path='/contact'>
 					<ContactPage />
 				</Route>
+				<Route path='/ambulance'>
+					<Ambulance />
+				</Route>
 				<Route path='/terms'>
 					<TermsPage />
 				</Route>
@@ -134,6 +138,9 @@ function App() {
 				</Route>
 				<Route path='/success'>
 					<SuccessPage />
+				</Route>
+				<Route path='/ambulance'>
+					<Ambulance />
 				</Route>
 
 				<Route exact path='/'>

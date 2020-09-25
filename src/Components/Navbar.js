@@ -178,6 +178,15 @@ const Navbar = () => {
 								</NavItem>
 							)}
 						</li>
+
+						<li>
+							<NavItem className='mx-3'>
+								<NavLink activeClassName="menu_active" to='/ambulance' style={{ fontWeight: 'bold' }}>
+									Emergency
+						</NavLink>
+							</NavItem>
+						</li>
+
 						{auth.isLoggedIn && <Nodal />}
 					</ul>
 

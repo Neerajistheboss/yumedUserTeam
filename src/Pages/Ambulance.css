@@ -1,0 +1,38 @@
+.ambulance h1{
+    font-size: 2.5rem;
+    padding: 2rem 0 !important;
+}
+.ambulance h5{
+    padding: 0.5rem 1rem;
+}
+
+.ambulance h5 button{
+    font-size: 1rem;
+}
+
+.ambulance h5 button .fa:hover{
+    transition: all 0.5s ease;
+    transform: scale(1.7);
+}
+
+
+.feedback h4 {
+    text-decoration: underline;
+    color: #000 !important;
+}
+
+.feedback h4:hover {
+    text-decoration: underline;
+    color: #0B6760 !important;
+}
+
+@media (max-width:768px) {
+    .ambulance h1{
+        font-size: 2rem;
+        padding: 0.8rem !important;
+    }
+    .feedback h4 {
+        font-size: 1.1rem;
+    }
+
+}

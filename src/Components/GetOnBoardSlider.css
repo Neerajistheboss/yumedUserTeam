@@ -1,0 +1,30 @@
+.getslider{
+    padding: 7rem 0 8rem 0 !important;
+}
+.getslider img {
+    width: 80% !important;
+    height: 25rem;
+}
+
+.getslider h1,h4,button {
+    margin: 1.3rem 0 !important;
+}
+
+@media (max-width:768px) {
+    .getslider {
+        padding: 1rem 0 !important;
+    }
+    .getslider h1{
+        font-size: 1.2rem;
+    }
+
+    .getslider h4{
+        font-size: 1rem;
+    }
+
+    .getslider img {
+        width: 40%;
+        height: 17rem;
+        margin-left: 0rem !important;
+    }
+}

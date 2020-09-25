@@ -66,6 +66,22 @@ const Footer = () => {
 							<li>
 								<NavLink to='/contact'>Contact Us</NavLink>
 							</li>
+							<li>
+								{/* <NavItem> */}
+								<NavLink
+									to='/faqs'>
+									FAQs
+					</NavLink>
+								{/* </NavItem> */}
+							</li>
+							<li>
+								{/* <NavItem> */}
+								<NavLink
+									to='/refunds' >
+									Refunds & Cancellations
+					</NavLink>
+								{/* </NavItem> */}
+							</li>
 						</ul>
 					</Col>
 					<Col className='p-1'>

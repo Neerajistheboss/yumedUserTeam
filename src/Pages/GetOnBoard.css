@@ -1,0 +1,53 @@
+.getonboard {
+    width: 100%;
+    background-image: url('../images/vector\ 1.png') !important;
+    background-size: 25% 55% !important;
+    background-repeat: no-repeat !important;
+    background-position-x: 75rem !important;
+    background-position-y: 2rem !important;
+}
+
+.getonslider {
+    width: 100% !important;
+    background-image: url('../images/vector\ 2.png');
+    background-size: 15% 100%;
+    background-repeat: no-repeat;
+    background-position-x: -1.5rem;
+}
+
+
+.getonboard img {
+    width: 60%;
+    height: 20rem;
+}
+
+.ndoctor {
+    width: 100%;
+}
+
+.ndoctor img {
+    width: 100%;
+    height: 90vh;
+}
+
+@media (max-width:768px) {
+    .getonboard img {
+        margin-left: 3rem;
+    }
+    .getonboard h1{
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .getonboard h4{
+        font-size: 1.3rem;
+    }
+    .getonslider {
+        background-image: none;
+    }
+
+    .ndoctor img {
+        width: 100%;
+        height: auto;
+    }
+}

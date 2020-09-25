@@ -30,14 +30,7 @@ const Menu = (props) => {
 						</NavLink>
 					</NavItem>
 				)}
-				<NavItem>
-					<NavLink
-						to='/contact'
-						onClick={props.onLinkClick}
-						style={{ fontWeight: 'bold' }}>
-						ContactUs
-					</NavLink>
-				</NavItem>
+
 				{!auth.isLoggedIn && (
 					<NavItem>
 						<NavLink
@@ -60,6 +53,14 @@ const Menu = (props) => {
 				)}
 				<NavItem>
 					<NavLink
+						to='/contact'
+						onClick={props.onLinkClick}
+						style={{ fontWeight: 'bold' }}>
+						ContactUs
+					</NavLink>
+				</NavItem>
+				<NavItem>
+					<NavLink
 						to='/about'
 						onClick={props.onLinkClick}
 						style={{ fontWeight: 'bold' }}>
@@ -67,6 +68,14 @@ const Menu = (props) => {
 					</NavLink>
 				</NavItem>
 				<NavItem>
+					<NavLink
+						to='/ambulance'
+						onClick={props.onLinkClick}
+						style={{ fontWeight: 'bold' }}>
+						Emergency
+					</NavLink>
+				</NavItem>
+				{/* <NavItem>
 					<NavLink
 						to='/faqs'
 						onClick={props.onLinkClick}
@@ -81,7 +90,7 @@ const Menu = (props) => {
 						style={{ fontWeight: 'bold' }}>
 						Refunds & Cancellations
 					</NavLink>
-				</NavItem>
+				</NavItem> */}
 
 				{auth.isLoggedIn && <Nodal onLinkClick={props.onLinkClick} />}
 			</ul>

@@ -1,0 +1,27 @@
+
+.doctorReview{
+    margin: 2rem 0;
+}
+
+
+
+.doctorReview img {
+    width: 50% !important;
+    height: 10rem;
+}
+
+.doctorReview .card {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+box-shadow: 3px 3px 6px #000000B4;
+border: 1px solid #7070702C;
+border-radius: 21px;
+margin: 2rem 0rem;
+/* width: 16rem; */
+}
+
+@media (max-width:768px) {
+    .doctorReview h1{
+        font-size: 1.5rem;
+        padding: 0 !important;
+    }
+}
