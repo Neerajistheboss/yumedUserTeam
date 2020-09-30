@@ -18,7 +18,7 @@ const GetOnDemo = () => {
                     <div className="col-lg-6 col-md-6 col-10 mx-auto">
                         <h1 className=" font-weight-bold text-dark mb-5 mt-5"> Get a YuMedic Demo </h1>
                         {/* <form onSubmit={this.handleSubmit.bind(this)}> */}
-                        <form >
+                        <form method="POST" action={`http://localhost:5001/api/v1/onBoard`} >
 
                             <div className="mb-3">
 
@@ -31,7 +31,7 @@ const GetOnDemo = () => {
                                     type="text"
                                     className="form-control"
                                     id="exampleFormControlInput1"
-                                    name="fullname"
+                                    name="name"
                                     // value={this.state.fullname}
                                     // onChange={this.handleChange.bind(this, 'fullname')}
                                     placeholder="Enter Name"
@@ -43,7 +43,7 @@ const GetOnDemo = () => {
                                     Your Speciality:
                     </label>
                                 <select
-                                    name='specialisation'
+                                    name='speciality'
                                     // onChange={textChangeHandler}
                                     className='form-control'>
                                     <option value=''>Specialist</option>
@@ -79,7 +79,7 @@ const GetOnDemo = () => {
                                     Phone:
                     </label>
                                 <input
-                                    type="Number"
+                                    type="text"
                                     className="form-control"
                                     id="exampleFormControlInput1"
                                     name="phone"
@@ -88,7 +88,7 @@ const GetOnDemo = () => {
                                     placeholder="Enter Mobile Number"
                                 />
                                 <div className="justify-content-center align-items-center">
-                                    <button className="btn btn-dark" type="submit">Get Started</button>
+                                    <button className="btn btn-dark" type="submit">Submit</button>
                                 </div>
                             </div>
                         </form>

@@ -10,23 +10,24 @@ import { NavLink } from 'react-router-dom'
 const Footer = () => {
 	const auth = useContext(AuthContext)
 
-	let searchFilter = {
-		docId: null,
-		hospitalId: null,
-		city: null,
-		specialisation: null,
-		name: null,
-	}
-	localStorage.setItem('filter', JSON.stringify(searchFilter))
+
+	let searchFilter = JSON.parse(localStorage.getItem("filter"))
+	if (searchFilter == null)
+		searchFilter = {}
+
 
 	const setSpecialisation = (event) => {
-		auth.specialisation = event.target.name
-		auth.hospitalId = null
-		console.log(auth.specialisation)
+		console.log("setSpecialisation clicked ****************************************")
+		console.log(event.target.name)
+		auth.setValueFunc("specialisation", event.target.name)
+		auth.setValueFunc("hospitalId", null)
 		searchFilter.hospitalId = null
 		searchFilter.specialisation = event.target.name
 		localStorage.setItem('filter', JSON.stringify(searchFilter))
+		auth.setValues({ ...auth.values, filter: searchFilter })
 	}
+
+
 	const buttons = {
 		height: '50px',
 	}
@@ -91,7 +92,7 @@ const Footer = () => {
 							</li>
 							<li>
 								<NavLink
-									to='search'
+									to='/search'
 									onClick={setSpecialisation}
 									name='General Physician'>
 									General Physician
@@ -99,7 +100,7 @@ const Footer = () => {
 							</li>
 							<li>
 								<NavLink
-									to='search'
+									to='/search'
 									onClick={setSpecialisation}
 									name='Cardiology'>
 									Cardiology
@@ -107,7 +108,7 @@ const Footer = () => {
 							</li>
 							<li>
 								<NavLink
-									to='search'
+									to='/search'
 									onClick={setSpecialisation}
 									name='Child Specialist'>
 									Child Specialities
@@ -115,20 +116,20 @@ const Footer = () => {
 							</li>
 							<li>
 								<NavLink
-									to='search'
+									to='/search'
 									onClick={setSpecialisation}
 									name='General Surgeon'>
 									Surgeon
 								</NavLink>
 							</li>
 							<li>
-								<NavLink to='search' onClick={setSpecialisation} name='Dental'>
+								<NavLink to='/search' onClick={setSpecialisation} name='Dental'>
 									Dental
 								</NavLink>
 							</li>
 							<li>
 								<NavLink
-									to='search'
+									to='/search'
 									onClick={setSpecialisation}
 									name='Gynaecologist'>
 									Gynaecologist

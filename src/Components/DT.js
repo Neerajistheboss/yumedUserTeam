@@ -10,13 +10,13 @@ const DT = (props) => {
 	const [time, setTime] = useState(null)
 	const [ds, setDs] = useState(new Array())
 
-	console.log(`auth.date ${auth.date}`)
+	console.log(`auth.date ${auth.values.date}`)
 
 	const onDayChangeHandler = (event) => {
 		console.log(event.target)
 		setDay(event.target.getAttribute('value'))
 		console.log(`date ${event.target.getAttribute('date')}`)
-		auth.date = event.target.getAttribute('date')
+		auth.setValueFunc("date", event.target.getAttribute('date'))
 		console.log('dateChanged' + day)
 		const pre = document.getElementsByClassName('activeDate')
 		console.log(pre)
@@ -30,9 +30,9 @@ const DT = (props) => {
 
 	const onTimeChangeHandler = (event) => {
 		setTime(event.target.getAttribute('value'))
-		auth.time = event.target.getAttribute('value')
+		auth.setValueFunc("time", event.target.getAttribute('value'))
 		props.timeFunction(event.target.getAttribute('value'))
-		console.log(`time ${auth.time}`)
+		console.log(`time ${auth.values.time}`)
 		console.log('timechanged' + event.target.getAttribute('value'))
 		const pre = document.getElementsByClassName('activeTime')
 		if (pre.length > 0) {
@@ -49,6 +49,7 @@ const DT = (props) => {
 				`http://${process.env.REACT_APP_YUVER_IP}/api/v1/doctors/${props.docId}`
 			)
 			.then(function (response) {
+				console.log(response.data)
 				setDs(response.data.data.ds)
 				console.log(`ds ${ds}`)
 			})

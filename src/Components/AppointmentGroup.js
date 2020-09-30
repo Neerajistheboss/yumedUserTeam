@@ -9,56 +9,58 @@ const AppointmentGroup = (props) => {
 	const [appointments, setAppointments] = useState([])
 
 	useEffect(() => {
-		if (props.type === 'Upcoming') {
-			console.log('Upcoming')
-			console.log(`userId ${auth.userId}`)
-			const config = {
-				headers: { Authorization: `Bearer ${auth.token}` },
-			}
-			axios
-				.get(
-					`http://${process.env.REACT_APP_YUVER_IP}/api/v1/appointments`,
-					{
-						params: {
-							user: auth.userId,
+		if (auth.values.userId) {
+			if (props.type === 'Upcoming') {
+				console.log('Upcoming')
+				console.log(`userId ${auth.values.userId}`)
+				const config = {
+					headers: { Authorization: `Bearer ${auth.values.token}` },
+				}
+				axios
+					.get(
+						`http://${process.env.REACT_APP_YUVER_IP}/api/v1/appointments`,
+						{
+							params: {
+								user: auth.values.userId,
 
-							maxD: moment(Date.now()).add(10, 'days').format('YYYY/MM/DD'),
+								maxD: moment(Date.now()).add(10, 'days').format('YYYY/MM/DD'),
 
-							minD: moment(Date.now()).format('YYYY/MM/DD'),
+								minD: moment(Date.now()).format('YYYY/MM/DD'),
+							},
 						},
-					},
-					config
-				)
-				.then(function (response) {
-					setAppointments(response.data.data)
-					console.log(response.data.data)
-				})
-		} else if (props.type === 'Past') {
-			console.log('Past')
-			const config = {
-				headers: { Authorization: `Bearer ${auth.token}` },
-			}
-			axios
-				.get(
-					`http://${process.env.REACT_APP_YUVER_IP}/api/v1/appointments`,
-					{
-						params: {
-							user: auth.userId,
+						config
+					)
+					.then(function (response) {
+						setAppointments(response.data.data)
+						console.log(response.data.data)
+					})
+			} else if (props.type === 'Past') {
+				console.log('Past')
+				const config = {
+					headers: { Authorization: `Bearer ${auth.values.token}` },
+				}
+				axios
+					.get(
+						`http://${process.env.REACT_APP_YUVER_IP}/api/v1/appointments`,
+						{
+							params: {
+								user: auth.values.userId,
 
-							minD: moment(Date.now())
-								.subtract(180, 'days')
-								.format('YYYY/MM/DD'),
-							maxD: moment(Date.now()).format('YYYY/MM/DD'),
+								minD: moment(Date.now())
+									.subtract(180, 'days')
+									.format('YYYY/MM/DD'),
+								maxD: moment(Date.now()).format('YYYY/MM/DD'),
+							},
 						},
-					},
-					config
-				)
-				.then(function (response) {
-					setAppointments(response.data.data)
-					console.log(response.data.data)
-				})
+						config
+					)
+					.then(function (response) {
+						setAppointments(response.data.data)
+						console.log(response.data.data)
+					})
+			}
 		}
-	}, [])
+	}, [auth.values.userId])
 
 	return (
 		<div>

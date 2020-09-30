@@ -25,7 +25,7 @@ const GetOnBoard = () => {
                         <div className="col-12 col-md-12 col-lg-7 my-lg-5 p-2 text-center">
                             <h1> Get OnBoard With Us </h1>
                             <h4> YuMedic have helped thousands of doctors increase there reach among lakhs of people. </h4>
-                            <button className="btn btn-dark"> Get OnBoard </button>
+
                         </div>
                     </div>
                 </div>

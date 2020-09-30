@@ -8,11 +8,12 @@ import './RegisterPage.css'
 class RegisterPage extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = { name: '', email: '', phone: '', password: '' }
+		this.state = { name: '', email: '', phone: '', password: '', code: '' }
 		this.handleNameChange = this.handleNameChange.bind(this)
 		this.handlePhoneChange = this.handlePhoneChange.bind(this)
 		this.handleEmailChange = this.handleEmailChange.bind(this)
 		this.handlePasswordChange = this.handlePasswordChange.bind(this)
+		this.handleReferralCodeChange = this.handleReferralCodeChange.bind(this)
 	}
 
 	handleNameChange(event) {
@@ -26,6 +27,9 @@ class RegisterPage extends React.Component {
 	}
 	handlePasswordChange(event) {
 		this.setState({ password: event.target.value })
+	}
+	handleReferralCodeChange(event) {
+		this.setState({ code: event.target.value })
 	}
 
 	render() {
@@ -98,10 +102,10 @@ class RegisterPage extends React.Component {
 										<div className='form-group'>
 											<label htmlFor='exampleInputEmail1'>If Refferal Code:</label>
 											<input
-												// value={this.state.name}
-												// onChange={this.handleNameChange}
+												value={this.state.code}
+												onChange={this.handleReferralCodeChange}
 												type='text'
-												// name='name'
+												name='referralCode'
 												className='form-control'
 												// id='name'
 												// aria-describedby='nameHelp'
@@ -122,6 +126,7 @@ class RegisterPage extends React.Component {
 												email={this.state.email}
 												phone={this.state.phone}
 												password={this.state.password}
+												referralCode={this.state.code}
 											/>
 										</div>
 										<div className='col-md-12 '>

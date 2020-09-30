@@ -7,18 +7,24 @@ import { AuthContext } from '../context/auth-context'
 const MyAccountPage = () => {
 	const auth = useContext(AuthContext)
 	auth.time = null
-	const [refId, setRefId] = useState(auth.referralId)
+	const [refId, setRefId] = useState(auth.values.referralId)
 	useEffect(() => {
-		axios
-			.get(
-				`http://${process.env.REACT_APP_YUVER_IP}/api/v1/users/${auth.userId}`
-			)
-			.then(function (response) {
-				setRefId(response.data.data.referral.code)
-				auth.refferalID = response.data.data.referral.code
-				console.log(response.data.data.referral.code)
-			})
-	}, [])
+		if (auth.values.userId) {
+
+
+			axios
+				.get(
+					`http://${process.env.REACT_APP_YUVER_IP}/api/v1/users/${auth.values.userId}`
+				)
+				.then(function (response) {
+					setRefId(response.data.data.referral.code)
+					auth.setValues({ ...auth.values, refferalID: response.data.data.referral.code })
+					console.log(response.data.data.referral.code)
+				})
+
+			console.log("userId" + auth.values.userId)
+		}
+	}, [auth.values.userId])
 	return (
 		<div className="mt-5">
 			<h3>Upcoming Appointments</h3>

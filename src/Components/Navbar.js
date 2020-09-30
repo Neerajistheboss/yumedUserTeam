@@ -138,7 +138,7 @@ const Navbar = () => {
 							</NavItem>
 						</li>
 						<li>
-							{auth.isLoggedIn && (
+							{auth.values.isLoggedIn && (
 								<NavItem className='mx-3'>
 									<NavLink activeClassName="menu_active" to='/account' style={{ fontWeight: 'bold' }}>
 										My Account
@@ -161,7 +161,7 @@ const Navbar = () => {
 							</NavItem>
 						</li>
 						<li>
-							{!auth.isLoggedIn && (
+							{!auth.values.isLoggedIn && (
 								<NavItem className='mx-3'>
 									<NavLink activeClassName="menu_active" to='/login' style={{ fontWeight: 'bold' }}>
 										Login
@@ -170,7 +170,7 @@ const Navbar = () => {
 							)}
 						</li>
 						<li>
-							{!auth.isLoggedIn && (
+							{!auth.values.isLoggedIn && (
 								<NavItem className='mx-3 text-dark'>
 									<NavLink activeClassName="menu_active" to='/register' style={{ fontWeight: 'bold' }}>
 										SignUp
@@ -187,7 +187,7 @@ const Navbar = () => {
 							</NavItem>
 						</li>
 
-						{auth.isLoggedIn && <Nodal />}
+						{auth.values.isLoggedIn && <Nodal />}
 					</ul>
 
 					{drawerIsOpen && <Menu onLinkClick={closeDrawer} drawer={openDrawer} />}

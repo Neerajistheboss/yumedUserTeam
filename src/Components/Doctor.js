@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Button } from 'reactstrap';
 import Path3 from '../images/Path3.png';
 
+import { NavLink } from 'react-router-dom'
 const Doctor = () => {
 
     const style = {
@@ -22,7 +23,7 @@ const Doctor = () => {
                     <li>Organise your system</li>
                     <li>Strengthen your Online Reputation</li>
                 </ul>
-                <Button color="dark" style={{ marginLeft: '50px', marginBottom: '20px', marginTop: '16px' }}>Join Now</Button>
+                <NavLink to="/getonboard" color="dark" style={{ marginLeft: '50px', marginBottom: '20px', marginTop: '16px' }}>Join Now</NavLink>
             </Container>
         </div>
     );

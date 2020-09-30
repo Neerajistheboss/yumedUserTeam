@@ -20,18 +20,15 @@ const Menu = (props) => {
 			<ul
 				className='navbar-nav ml-auto mr-auto justify-content-between text-center align-items-stretch'
 				style={{ minHeight: '100%' }}>
-				{auth.isLoggedIn && (
-					<NavItem>
-						<NavLink
-							to='/account'
-							onClick={props.onLinkClick}
-							style={{ fontWeight: 'bold' }}>
+				{auth.values.isLoggedIn && (
+					<NavItem className='mx-3'>
+						<NavLink activeClassName="menu_active" to='/account' style={{ fontWeight: 'bold' }}>
 							My Account
-						</NavLink>
+							</NavLink>
 					</NavItem>
 				)}
 
-				{!auth.isLoggedIn && (
+				{!auth.values.isLoggedIn && (
 					<NavItem>
 						<NavLink
 							to='/login'
@@ -41,7 +38,7 @@ const Menu = (props) => {
 						</NavLink>
 					</NavItem>
 				)}
-				{!auth.isLoggedIn && (
+				{!auth.values.isLoggedIn && (
 					<NavItem>
 						<NavLink
 							to='/register'
@@ -92,7 +89,7 @@ const Menu = (props) => {
 					</NavLink>
 				</NavItem> */}
 
-				{auth.isLoggedIn && <Nodal onLinkClick={props.onLinkClick} />}
+				{auth.values.isLoggedIn && <Nodal onLinkClick={props.onLinkClick} />}
 			</ul>
 		</div>
 	)

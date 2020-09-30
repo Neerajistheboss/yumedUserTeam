@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom'
 import Header from './Components/Navbar'
 import HomePage from './Pages/HomePage'
-import { AuthContext } from './context/auth-context'
+import { AuthContextProvider } from './context/auth-context'
 import LoginPage from './Pages/LoginPage'
 import RegisterPage from './Pages/RegisterPage'
 import BookingPage from './Pages/BookingPage'
@@ -18,47 +18,29 @@ import SuccessPage from './Pages/SuccessPage'
 import MyAccountPage from './Pages/MyAccountPage'
 import AboutPage from './Pages/AboutPage'
 import ContactPage from './Pages/ContactPage'
-import Ambulance from './Pages/Ambulance'
 import FaqPage from './Pages/FAQPage'
 import RefundPage from './Pages/RefundPage'
 import TermsPage from './Pages/TermsPage'
+import AmbulancePage from './Pages/Ambulance'
+import GetOnBoardPage from './Pages/GetOnBoard'
 import moment from 'moment'
-import { TinyButton as ScrollUpButton } from "react-scroll-up-button";
 
 // import Path2 from './images/path2.png';
 
 function App() {
-	const [token, setToken] = useState(localStorage.getItem('token'))
-	const [userId, setUserId] = useState(localStorage.getItem('uid'))
 
-	const login = useCallback((uid, token) => {
-		setToken(token)
-		setUserId(uid)
-	}, [])
-
-	const logout = useCallback(() => {
-		setToken(null)
-		setUserId(null)
-		localStorage.removeItem('token')
-		localStorage.removeItem('uid')
-	}, [])
-
-	useEffect(() => {
-		const token = localStorage.getItem('token')
-		const uid = localStorage.getItem('uid')
-		setToken(token)
-		setUserId(uid)
-		login(uid, token)
-		console.log(`date in app ${moment().format('YYYY/MM/DD')}`)
-	}, [])
-
+	const [token, setToken] = useState(localStorage.getItem("token"))
 	const container = useRef(null)
-
+	console.log("TOKEN" + token + (token != "null"))
 	let routes
+	if (token == null) {
+		console.log("HAS TOKEN")
+	}
 	if (token) {
-		console.log('has token')
+
 		routes = (
 			<Switch>
+				<Route path='/search/:id' component={SearchPage} />
 				<Route path='/search'>
 					<SearchPage />
 				</Route>
@@ -86,12 +68,13 @@ function App() {
 				<Route path='/contact'>
 					<ContactPage />
 				</Route>
-				<Route path='/ambulance'>
-					<Ambulance />
-				</Route>
 				<Route path='/terms'>
 					<TermsPage />
 				</Route>
+				<Route path='/ambulance'>
+					<AmbulancePage />
+				</Route>
+				<Route path="/getonboard"><GetOnBoardPage /></Route>
 				<Route path='/'>
 					<HomePage />
 				</Route>
@@ -140,7 +123,7 @@ function App() {
 					<SuccessPage />
 				</Route>
 				<Route path='/ambulance'>
-					<Ambulance />
+					<AmbulancePage />
 				</Route>
 
 				<Route exact path='/'>
@@ -152,22 +135,13 @@ function App() {
 	}
 
 	return (
-		<AuthContext.Provider
-			value={{
-				isLoggedIn: !!token,
-				token: token,
-				userId: userId,
-				login: login,
-				logout: logout,
-				date: moment().format('YYYY/MM/DD'),
-			}}>
+		<AuthContextProvider>
 			<Router>
 				<div></div>
 				<Header />
 				<Switch> {routes} </Switch> <Footer />
-				<ScrollUpButton />
 			</Router>
-		</AuthContext.Provider>
+		</AuthContextProvider>
 	)
 }
 

@@ -15,7 +15,7 @@ const GetOnBoardSlider = () => {
                             <div className="col-12 col-md-12 col-lg-7 my-lg-5 mb-3 text-center">
                                 <h1> Appointment Scheduling </h1>
                                 <h4> We connect you to your Patients and help you Organize your appoitment Scheduling System. </h4>
-                                <button className="btn btn-dark"> Get OnBoard </button>
+
                             </div>
                             <div className="col-12 col-md-12 col-lg-5 p-3">
                                 <img src={logo1} alt="asset" />
@@ -28,7 +28,7 @@ const GetOnBoardSlider = () => {
                             <div className="col-12 col-md-12 col-lg-7 my-lg-5 mb-3 text-center">
                                 <h1> Appointment Scheduling </h1>
                                 <h4> We connect you to your Patients and help you Organize your appoitment Scheduling System. </h4>
-                                <button className="btn btn-dark"> Get OnBoard </button>
+
                             </div>
 
                             <div className="col-12 col-md-12 col-lg-5 p-3">
@@ -43,7 +43,7 @@ const GetOnBoardSlider = () => {
                             <div className="col-12 col-md-12 col-lg-7 my-lg-5 mb-3 text-center">
                                 <h1> Appointment Scheduling </h1>
                                 <h4> We connect you to your Patients and help you Organize your appoitment Scheduling System. </h4>
-                                <button className="btn btn-dark"> Get OnBoard </button>
+
                             </div>
 
                             <div className="col-12 col-md-12 col-lg-5 p-3">

@@ -18,7 +18,7 @@ const Nodal = (props) => {
 		console.log('Works')
 	}
 	const handleLogout = () => {
-		auth.isLoggedIn = false
+		auth.logout()
 		localStorage.clear()
 		setShow(false)
 		history.push('/')

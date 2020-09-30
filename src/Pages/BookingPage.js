@@ -3,7 +3,7 @@ import React, { useState, useContext, useEffect } from 'react'
 import { AuthContext } from '../context/auth-context'
 import SubmitBtn from '../Components/submitBtn'
 import DT from '../Components/DT'
-import { useHistory } from 'react-router-dom'
+import { useHistory, NavLink } from 'react-router-dom'
 function loadScript(src) {
 	return new Promise((resolve) => {
 		const script = document.createElement('script')
@@ -19,10 +19,9 @@ function loadScript(src) {
 }
 
 const BookingPage = () => {
+	const [toUrl, setToUrl] = useState("#")
 	let history = useHistory()
 	const auth = useContext(AuthContext)
-	console.log('booking page' + auth.fromHospital)
-
 	const doctorSelected = JSON.parse(localStorage.getItem('docSelected'))
 
 	const [formCompleted, setFormCompleted] = useState(false)
@@ -34,14 +33,14 @@ const BookingPage = () => {
 		gender: '',
 		address: '',
 		phone: '',
-		time: auth.timeSlot,
+		time: auth.values.time,
 	})
 
 	useEffect(() => {
 		// if (!auth.isLoggedIn) setBtnText('Log In First')
-		if (!auth.isLoggedIn) console.log('NOT LOGGED IN')
+		if (!auth.values.isLoggedIn) console.log('NOT LOGGED IN')
 		setBtnStyle('btn-warning disabled border m-3 text-white')
-	}, [auth.isLoggedIn])
+	}, [auth.values.isLoggedIn])
 
 	const timeSelected = (timeValue) => {
 		console.log('function ran')
@@ -62,9 +61,7 @@ const BookingPage = () => {
 		})
 	}
 
-	console.log(
-		`rerendering||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||`
-	)
+
 
 	useEffect(() => {
 		if (
@@ -75,7 +72,7 @@ const BookingPage = () => {
 			fields.phone.length > 1
 		) {
 			setFormCompleted(true)
-			auth.patientName = fields.patientName
+			auth.values.patientName = fields.patientName
 			setBtnStyle('btn-primary m-3 ')
 			setBtnText('Make Payment')
 		} else {
@@ -84,39 +81,45 @@ const BookingPage = () => {
 			setBtnText('Fill Details to Proceed')
 		}
 
-		if (!auth.isLoggedIn && !auth.fromHospital) {
+		if (!auth.values.isLoggedIn) {
 			setBtnText('Log In First')
-			setBtnStyle('btn-warning disabled border m-3 text-white')
+			setBtnStyle('btn-warning  border m-3 text-white')
+			setToUrl("/login")
 		}
 
-		if (auth.isLoggedIn && !auth.time) {
+		if (auth.values.isLoggedIn && !auth.values.time) {
 			setBtnText('Select Time Slot')
 			setBtnStyle('btn-warning disabled border m-3 text-white')
 		}
 
 		if (
-			auth.fromHospital &&
 			fields.patientName.length > 1 &&
 			fields.age.length > 1 &&
 			fields.gender.length > 1 &&
 			fields.address.length > 1 &&
 			fields.phone.length > 1 &&
-			auth.time
+			auth.values.time
 		) {
 			setFormCompleted(true)
-			auth.patientName = fields.patientName
+			auth.setValues({ ...auth.values, patientName: fields.patientName })
 			setBtnStyle('btn-primary m-3 ')
 			setBtnText('Make Payment')
 		}
-	}, [fields])
+	}, [fields, auth.values.isLoggedIn])
+
+	const onClickFunction = () => {
+		console.log(toUrl)
+		if (toUrl == "#")
+			displayRazorpay()
+	}
 
 	//Display RazorPay
 
 	const [name, setName] = useState('userName')
 
 	async function displayRazorpay() {
-		console.log('RazrorPay' + auth.date)
-		console.log('userID' + auth.userId)
+		console.log('RazrorPay' + auth.values.date)
+		console.log('userID' + auth.values.userId)
 		const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
 
 		if (!res) {
@@ -131,7 +134,7 @@ const BookingPage = () => {
 				//req.body
 				body: JSON.stringify({
 					//not sending shortid here //add it in the server side
-					user: auth.userId,
+					user: auth.values.userId,
 					patientName: fields.patientName,
 					patientAge: fields.age,
 					patientAdress: fields.address,
@@ -139,7 +142,7 @@ const BookingPage = () => {
 					doctor: doctorSelected.docId,
 					hospital: doctorSelected.hospitalId,
 					cost: doctorSelected.cost,
-					dateTime: { date: auth.date, time: auth.time },
+					dateTime: { date: auth.values.date, time: auth.values.time },
 				}),
 
 				// Adding headers to the request
@@ -173,7 +176,7 @@ const BookingPage = () => {
 	}
 
 	return (
-		<div className='container-fluid'>
+		<div className='container-fluid py-5'>
 			<DT timeFunction={timeSelected} docId={doctorSelected.docId} />
 			{/* <DocCard doc={doctor} bookbtn={false}/> */}
 			<h3 className='text-center'>
@@ -301,13 +304,12 @@ const BookingPage = () => {
 			<hr class='my-4' />
 			<div className='text-center'>
 				{/* <SubmitBtn fun='payment' className={btnStyle} text={btnText} /> */}
-				<a
+				<NavLink
 					className={`App-link btn ${btnStyle}`}
-					onClick={displayRazorpay}
-					target='_blank'
-					rel='noopener noreferrer'>
+					to={toUrl}
+					onClick={onClickFunction}>
 					{btnText}
-				</a>
+				</NavLink>
 			</div>
 			{/* {!formCompleted&&<h3>Fill the form to continue</h3>} */}
 		</div>

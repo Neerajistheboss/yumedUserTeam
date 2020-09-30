@@ -42,6 +42,7 @@ function SubmitBtn(props) {
 				password: props.password,
 				phone: props.phone,
 				role: 'user',
+				referralCode: props.referralCode
 			})
 			.then(function (response) {
 				console.log(response.data.success)
