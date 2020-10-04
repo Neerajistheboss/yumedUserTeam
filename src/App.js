@@ -23,6 +23,7 @@ import RefundPage from './Pages/RefundPage'
 import TermsPage from './Pages/TermsPage'
 import AmbulancePage from './Pages/Ambulance'
 import GetOnBoardPage from './Pages/GetOnBoard'
+import TeamPage from './Pages/TeamPage'
 import moment from 'moment'
 
 // import Path2 from './images/path2.png';
@@ -71,6 +72,9 @@ function App() {
 				<Route path='/terms'>
 					<TermsPage />
 				</Route>
+				<Route path='/team'>
+					<TeamPage />
+				</Route>
 				<Route path='/ambulance'>
 					<AmbulancePage />
 				</Route>
@@ -118,6 +122,9 @@ function App() {
 				</Route>
 				<Route path='/terms'>
 					<TermsPage />
+				</Route>
+				<Route path='/team'>
+					<TeamPage />
 				</Route>
 				<Route path='/success'>
 					<SuccessPage />

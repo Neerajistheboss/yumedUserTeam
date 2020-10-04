@@ -161,6 +161,13 @@ const Navbar = () => {
 							</NavItem>
 						</li>
 						<li>
+							<NavItem className='mx-3'>
+								<NavLink activeClassName="menu_active" to='/team' style={{ fontWeight: 'bold' }}>
+									Our Team
+						</NavLink>
+							</NavItem>
+						</li>
+						<li>
 							{!auth.values.isLoggedIn && (
 								<NavItem className='mx-3'>
 									<NavLink activeClassName="menu_active" to='/login' style={{ fontWeight: 'bold' }}>
