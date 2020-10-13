@@ -16,11 +16,19 @@ const Referral = (props) => {
 							{props.code}
 						</h5>
 
+
+
 						<CopyToClipboard text={props.code}>
 							<button className='rounded bg-dark p-2 text-light m-0'>
 								Copy Code
 							</button>
 						</CopyToClipboard>
+						<h5
+							className='d-inline-block rounded p-2 bg-white m-0'
+							value={props.point}
+							id='point'>
+							You have {props.point * 100} YuCoins
+						</h5>
 					</div>
 					<div className='mr-md-5 pr-md-5'>
 						<img src={RefImage} style={{ width: '45vw' }} />

@@ -8,6 +8,7 @@ const MyAccountPage = () => {
 	const auth = useContext(AuthContext)
 	auth.time = null
 	const [refId, setRefId] = useState(auth.values.referralId)
+	const [refPoint, setRefPoint] = useState(auth.values.refPoint)
 	useEffect(() => {
 		if (auth.values.userId) {
 
@@ -18,8 +19,9 @@ const MyAccountPage = () => {
 				)
 				.then(function (response) {
 					setRefId(response.data.data.referral.code)
+					setRefPoint(response.data.data.referral.count)
 					auth.setValues({ ...auth.values, refferalID: response.data.data.referral.code })
-					console.log(response.data.data.referral.code)
+					console.log(response.data.data)
 				})
 
 			console.log("userId" + auth.values.userId)
@@ -31,7 +33,7 @@ const MyAccountPage = () => {
 			<AppointmentGroup type='Upcoming' />
 			<h3>Past Appointments</h3>
 			<AppointmentGroup type='Past' />
-			{<Referral code={refId} />}
+			{<Referral code={refId} point={refPoint} />}
 			<Download />
 		</div>
 	)
