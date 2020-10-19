@@ -1,26 +1,32 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import moment from 'moment'
 const Appointment = (props) => {
-	let status, color
-	if (props.appointment.status == 'awaitingPayment') {
-		status = 'AwaitingPayment'
-		color = 'bg-warning'
-	} else if (props.appointment.status == 'confirmed') {
-		status = 'Confirmed'
-		color = 'bg-success'
-	} else {
-		status = 'Failed'
-		color = 'bg-danger'
-	}
-
+	const [status, setStatus] = useState(null)
+	const [color, setColor] = useState(null)
+	const [bg, setBg] = useState('#C4FFF8')
 	const isAfter = moment(
 		`${props.appointment.dateTime.date} ${props.appointment.dateTime.time}`
 	).isAfter(moment())
+	useEffect(() => {
+		if (props.appointment.status == "awaitingPayment") {
+			setStatus('AwaitingPayment')
+			setColor('bg-warning')
+		} else if (props.appointment.status == 'confirmed') {
+			setStatus('Confirmed')
+			setColor('bg-success')
+		} else {
+			setStatus('Failed')
+			setColor('bg-danger')
+		}
 
-	let bg = '#C4FFF8'
-	if (!isAfter) {
-		bg = '#d3d3d3'
-	}
+
+
+
+		if (!isAfter) {
+			setBg('#d3d3d3')
+		}
+
+	}, [props])
 
 	return (
 		<div
