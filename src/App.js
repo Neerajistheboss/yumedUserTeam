@@ -120,6 +120,7 @@ function App() {
 				<Route path='/contact'>
 					<ContactPage />
 				</Route>
+				<Route path="/getonboard"><GetOnBoardPage /></Route>
 				<Route path='/terms'>
 					<TermsPage />
 				</Route>

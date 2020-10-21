@@ -23,6 +23,11 @@ import { NavLink } from 'react-router-dom'
 import moment from 'moment'
 import { AuthContext } from '../context/auth-context'
 
+import AsarfiImage from '../images/asarfi.png'
+import PragatiImage from '../images/pragati.png'
+import PatliputraImage from '../images/patliputra.png'
+
+
 function HomePage(props) {
 	const auth = useContext(AuthContext)
 	console.log(auth)
@@ -234,7 +239,7 @@ function HomePage(props) {
 						<Hospitals
 							id='5f43f5a86e2fc1623cda5cf0'
 							name='Asarfi Hospital'
-							img={Physician}
+							img={AsarfiImage}
 						/>
 					</NavLink>
 				</div>
@@ -247,7 +252,7 @@ function HomePage(props) {
 						<Hospitals
 							id='5f43f5a86e2fc1623cda5cf1'
 							name='PatliPutra Hospital'
-							img={Skin}
+							img={PatliputraImage}
 						/>
 					</NavLink>
 				</div>
@@ -260,28 +265,11 @@ function HomePage(props) {
 						<Hospitals
 							id='5f43f5a86e2fc1623cda5cf2'
 							name='Pragati Hospital'
-							img={Skin}
+							img={PragatiImage}
 						/>
 					</NavLink>
 				</div>
-				<div className='text-center' name=''>
-					<NavLink
-						className='text-decoration-none'
-						to='/search'
-						onClick={setHospital}
-						name=''>
-						<Hospitals name='Alom Hospital' img={Bones} />
-					</NavLink>
-				</div>
-				<div className='text-center' name=''>
-					<NavLink
-						className='text-decoration-none'
-						to='/search'
-						onClick={setHospital}
-						name=''>
-						<Hospitals name='Contacare Eyes Hospital' img={Neurology} />
-					</NavLink>
-				</div>
+
 			</div>
 			<Testimonials />
 			<Doctor />

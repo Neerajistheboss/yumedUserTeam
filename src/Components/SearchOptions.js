@@ -20,6 +20,9 @@ import './SearchOptions.css'
 
 const SearchOptions = () => {
 	let searchFilter = JSON.parse(localStorage.getItem('filter'))
+	if (searchFilter == null) {
+		searchFilter = { city: null, docName: null, specialisation: null }
+	}
 	const auth = useContext(AuthContext)
 	const [isOpen] = useState(false)
 	const [dropdownOpen, setOpen] = useState(false)
@@ -40,7 +43,7 @@ const SearchOptions = () => {
 		// auth.docName = fields.docName
 		// auth.specialisation = fields.specialisation
 		const name = event.target.name
-		auth[name] = value
+		auth.values[name] = value
 		searchFilter[name] = value
 		localStorage.setItem('filter', JSON.stringify(searchFilter))
 	}
@@ -91,7 +94,7 @@ const SearchOptions = () => {
 								name='name'
 								onChange={textChangeHandler}
 								type='text'
-								class='form-control form-control-lg'
+								className='form-control form-control-lg'
 								placeholder='Type Something'
 								required
 							/>

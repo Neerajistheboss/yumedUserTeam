@@ -12,10 +12,10 @@ const Hospitals = (props) => {
 	}
 
 	const images = {
-		height: '130px',
+		height: '150px',
 		border: '2px solid #DAE0E2',
 		borderRadius: '1rem',
-		width: '130px',
+		width: '150px',
 		padding: '0.5rem',
 		boxShadow: '0 0 5px #b2bec3',
 	}
