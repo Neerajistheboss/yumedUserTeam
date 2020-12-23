@@ -62,7 +62,7 @@ const SearchOptions = () => {
 								onChange={textChangeHandler}
 								type='text'
 								className='searchoption'
-								placeholder='Type Something'
+								placeholder='Search Doctor by Name'
 								required
 							/>
 						</div>

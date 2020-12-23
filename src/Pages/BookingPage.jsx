@@ -29,7 +29,7 @@ const BookingPage = () => {
 	let history = useHistory()
 	const auth = useContext(AuthContext)
 	const doctorSelected = JSON.parse(localStorage.getItem('docSelected'))
-
+	let [styleBtn,setStyleBtn]=useState({})
 	const [formCompleted, setFormCompleted] = useState(false)
 	const [btnStyle, setBtnStyle] = useState('btn-light disabled border m-3')
 	const [btnText, setBtnText] = useState('Fill Details to Proceed')
@@ -108,7 +108,7 @@ const BookingPage = () => {
 		) {
 			setFormCompleted(true)
 			auth.setValues({ ...auth.values, patientName: fields.patientName })
-			setBtnStyle('btn-primary m-3 ')
+			setBtnStyle(' m-3 ')
 			setBtnText('Make Payment')
 		}
 	}, [fields, auth.values.isLoggedIn])
@@ -118,6 +118,16 @@ const BookingPage = () => {
 		if (toUrl == "#")
 			displayRazorpay()
 	}
+
+	useEffect(()=>{
+		if(formCompleted)
+	{setStyleBtn({backgroundColor:"#00cfbc",border:"1px solid #00cfbc",color:"#FFF"})
+	 setToUrl("#")	
+	 console.log("btn set")
+	}
+	},[formCompleted])
+
+
 
 	//Display RazorPay
 
@@ -215,7 +225,7 @@ const BookingPage = () => {
 							autoComplete='off'
 							value={fields.age}
 							onChange={textChangeHandler}
-							type='text'
+							type='number'
 							name='age'
 							className='form-control'
 							id='age'
@@ -276,6 +286,7 @@ const BookingPage = () => {
 							autoComplete='off'
 							value={fields.phone}
 							onChange={textChangeHandler}
+							type='number'
 							name='phone'
 							className='form-control'
 							id='phone'
@@ -311,6 +322,7 @@ const BookingPage = () => {
 			<div className='text-center'>
 				{/* <SubmitBtn fun='payment' className={btnStyle} text={btnText} /> */}
 				<NavLink
+					style={styleBtn}
 					className={`App-link btn ${btnStyle}`}
 					to={toUrl}
 					onClick={onClickFunction}>

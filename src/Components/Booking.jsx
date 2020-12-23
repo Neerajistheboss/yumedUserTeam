@@ -63,8 +63,8 @@ const Booking = (props) => {
 				<NavLink
 					to='/booking'
 					onClick={onBookingSelect}
-					className='bg-primary btn align-self-end m-0 text-light'
-					style={{ position: 'absolute', right: '15px' }}>
+					className='btn align-self-end m-0 text-light'
+					style={{ position: 'absolute', right: '15px' ,backgroundColor:"#00b8a7"}}>
 					Next
 				</NavLink>
 				{/* <DT /> */}
