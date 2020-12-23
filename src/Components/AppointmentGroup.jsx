@@ -18,7 +18,7 @@ const AppointmentGroup = (props) => {
 				}
 				axios
 					.get(
-						`http://${process.env.REACT_APP_YUVER_IP}/api/v1/appointments`,
+						`${process.env.REACT_APP_YUVER_IP}/api/v1/appointments`,
 						{
 							params: {
 								user: auth.values.userId,
@@ -41,7 +41,7 @@ const AppointmentGroup = (props) => {
 				}
 				axios
 					.get(
-						`http://${process.env.REACT_APP_YUVER_IP}/api/v1/appointments`,
+						`${process.env.REACT_APP_YUVER_IP}/api/v1/appointments`,
 						{
 							params: {
 								user: auth.values.userId,

@@ -39,9 +39,7 @@ const SearchOptions = () => {
 			...fields,
 			[event.target.name]: value,
 		})
-		// auth.city = fields.city
-		// auth.docName = fields.docName
-		// auth.specialisation = fields.specialisation
+
 		const name = event.target.name
 		auth.values[name] = value
 		searchFilter[name] = value
@@ -49,61 +47,31 @@ const SearchOptions = () => {
 	}
 
 	return (
-		// <Container>
-		//         <h2 style={{ color: 'rgb(71,123,117)', fontWeight: 'bold' }}>Search For Doctors</h2>
-		//         <input type='text' placeholder='Type Something' style={{ width: '50%' }} />
-		//         <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
-		//             <DropdownToggle caret color='success' style={{ marginLeft: '40px' }}>
-		//                 Specialities
-		//             </DropdownToggle>
-		//             <DropdownMenu>
-		//                 <DropdownItem>Surgeon</DropdownItem>
-		//                 <DropdownItem>Cardiologist</DropdownItem>
-		//                 <DropdownItem>Neurologist</DropdownItem>
-		//                 <DropdownItem>Orthopedics</DropdownItem>
-		//                 <DropdownItem>Radiologist</DropdownItem>
-		//             </DropdownMenu>
-		//         </ButtonDropdown>
-		//         <Button color="primary">Search</Button>
-		//     </Container>
-
+		
 		<div className='section'>
-			<div></div>
-			<div className="searchDoctor container">
-				<h3> Search for Doctors </h3>
-				<div class='row'>
+			
+			<div className="searchDoctor container my-5">
+				<h3 style={{color: '#008A80',fontWeight: 'bold' ,fontsize:'2.5rem !important'}}> Search for Doctors </h3>
+			
 					<div class='form form-inline'>
-						{/* <div class=' mb-1 searchLocName'>
-						<select
-							name='city'
-							onChange={textChangeHandler}
-							class='form-control form-control-lg'>
-							<option value=''> Location </option>
-							<option value='ranchi'> Ranchi </option>
-							<option value='dhanbad'> Dhanbad </option>
-							<option value='jamshedpur'> Jamshedpur </option>
-							<option value='bokaro'> Bokaro </option>
-							<option value='deogarh'> Deogarh </option>
-							<option value='ramgarh'> Ramgarh </option>
-							<option value='giridih'> Giridih </option>
-							<option value='hazaribagh'> Hazaribagh </option>
-						</select>
-					</div> */}
-						<div className=' mb-1 searchLocName'>
+					<div class='row justify-content-center w-100' id="form row" >
+						<div className=' mb-md-1  col-12 col-sm-4 px-5 px-sm-1'>
 							<input
+								style={{margin:"3px auto"}}
 								name='name'
 								onChange={textChangeHandler}
 								type='text'
-								className='form-control form-control-lg'
+								className='searchoption'
 								placeholder='Type Something'
 								required
 							/>
 						</div>
-						<div className=' mb-1 searchSpe'>
-							<select
+						<div className=' mb-md-1 col-12 col-sm-4 px-5 px-sm-1'>
+							<select 
+							 	style={{margin:"3px auto"}}
 								name='specialisation'
 								onChange={textChangeHandler}
-								className='form-control form-control-lg'>
+								className='searchoption'>
 								<option value=''>Specialist</option>
 								<option value='General Physician'>General Physician</option>
 								<option value='Cardiology'>Cardiology</option>
@@ -117,9 +85,10 @@ const SearchOptions = () => {
 								<option value='Eye Specialist'>Eye Specialist</option>
 							</select>
 						</div>
-						<div className='searchbtn  btn-info form-control-lg '>
-							<NavLink to='search' className='text-decoration-none'>
-								<SearchIcon style={{ color: '#008A80', fontSize: '25px' }} />
+						<div className=' col-5 col-sm-4 col-md-2' >
+							<NavLink to='search' className='text-decoration-none searchoption  text-center d-inline-block pt-2' style={{backgroundColor:'#008a80',color:"white",fontSize:'20px',margin:"3px auto"}}>
+								<SearchIcon className='d-none d-md-inline-block' style={{ color: 'white', fontSize: '25px' }} />
+								Search
 							</NavLink>
 						</div>
 					</div>

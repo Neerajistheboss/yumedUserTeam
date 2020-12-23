@@ -1,8 +1,15 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import '../App.css'
 import { NavLink } from 'react-router-dom'
 
 const SuccessPage = () => {
+	
+	//scrool to top on page load
+	useEffect(() =>{
+        window.scrollTo(0,0)
+	},[])
+
+	
 	return (
 		<div className='text-center'>
 			<h2> Thank you for Choosing Us! </h2>

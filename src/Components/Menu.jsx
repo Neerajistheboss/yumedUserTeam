@@ -22,9 +22,12 @@ const Menu = (props) => {
 				style={{ minHeight: '100%' }}>
 				{auth.values.isLoggedIn && (
 					<NavItem className='mx-3'>
-						<NavLink activeClassName="menu_active" to='/account' style={{ fontWeight: 'bold' }}>
-							My Account
-							</NavLink>
+						<NavLink 
+						onClick={props.onLinkClick} 
+						to='/account' 
+						style={{ fontWeight: 'bold' ,color: '#FFF'}}>
+						   My Account
+						</NavLink>
 					</NavItem>
 				)}
 
@@ -33,7 +36,7 @@ const Menu = (props) => {
 						<NavLink
 							to='/login'
 							onClick={props.onLinkClick}
-							style={{ fontWeight: 'bold' }}>
+							style={{ fontWeight: 'bold',color: '#FFF' }}>
 							Login
 						</NavLink>
 					</NavItem>
@@ -43,7 +46,7 @@ const Menu = (props) => {
 						<NavLink
 							to='/register'
 							onClick={props.onLinkClick}
-							style={{ fontWeight: 'bold' }}>
+							style={{ fontWeight: 'bold',color: '#FFF' }}>
 							SignUp
 						</NavLink>
 					</NavItem>
@@ -52,7 +55,7 @@ const Menu = (props) => {
 					<NavLink
 						to='/contact'
 						onClick={props.onLinkClick}
-						style={{ fontWeight: 'bold' }}>
+						style={{ fontWeight: 'bold',color: '#FFF' }}>
 						ContactUs
 					</NavLink>
 				</NavItem>
@@ -60,7 +63,7 @@ const Menu = (props) => {
 					<NavLink
 						to='/about'
 						onClick={props.onLinkClick}
-						style={{ fontWeight: 'bold' }}>
+						style={{ fontWeight: 'bold',color: '#FFF' }}>
 						About Us
 					</NavLink>
 				</NavItem>
@@ -68,26 +71,11 @@ const Menu = (props) => {
 					<NavLink
 						to='/ambulance'
 						onClick={props.onLinkClick}
-						style={{ fontWeight: 'bold' }}>
+						style={{ fontWeight: 'bold',color: '#FFF' }}>
 						Emergency
 					</NavLink>
 				</NavItem>
-				{/* <NavItem>
-					<NavLink
-						to='/faqs'
-						onClick={props.onLinkClick}
-						style={{ fontWeight: 'bold' }}>
-						FAQs
-					</NavLink>
-				</NavItem>
-				<NavItem>
-					<NavLink
-						to='/refunds'
-						onClick={props.onLinkClick}
-						style={{ fontWeight: 'bold' }}>
-						Refunds & Cancellations
-					</NavLink>
-				</NavItem> */}
+				
 
 				{auth.values.isLoggedIn && <Nodal onLinkClick={props.onLinkClick} />}
 			</ul>

@@ -19,6 +19,12 @@ function loadScript(src) {
 }
 
 const BookingPage = () => {
+	//scrool to top on page load
+	useEffect(() =>{
+        window.scrollTo(0,0)
+	},[])
+	
+
 	const [toUrl, setToUrl] = useState("#")
 	let history = useHistory()
 	const auth = useContext(AuthContext)
@@ -128,7 +134,7 @@ const BookingPage = () => {
 		}
 
 		const data = await fetch(
-			`http://${process.env.REACT_APP_YUVER_IP}/api/v1/payment/makePayment`,
+			`${process.env.REACT_APP_YUVER_IP}/api/v1/payment/makePayment`,
 			{
 				method: 'POST',
 				//req.body

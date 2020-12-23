@@ -1,7 +1,14 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import '../App.css'
 
 const FailedPage = () => {
+    
+	//scrool to top on page load
+	useEffect(() =>{
+        window.scrollTo(0,0)
+	},[])
+
+	
 
     return (
         <>

@@ -23,7 +23,7 @@ const Doctor = () => {
                     <li>Organise your system</li>
                     <li>Strengthen your Online Reputation</li>
                 </ul>
-                <NavLink to="/getonboard" color="dark" style={{ marginLeft: '50px', marginBottom: '20px', marginTop: '16px' }}>Join Now</NavLink>
+                <NavLink  style={{padding:"10px",borderRadius:"10px",backgroundColor: '#009c8f',color:"#FFF", marginLeft: '50px', marginBottom: '20px', marginTop: '16px'}} to="getonboard" >Join Now</NavLink>
             </Container>
         </div>
     );

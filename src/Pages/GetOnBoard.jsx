@@ -6,10 +6,19 @@ import logo2 from '../images/photo.png'
 import GetOnBoardSlider from '../Components/GetOnBoardSlider'
 import DoctorReview from '../Components/DoctorReview'
 import GetOnDemo from '../Components/GetOnDemo'
+import { useEffect } from 'react'
 
 const GetOnBoard = () => {
     const auth = useContext(AuthContext)
     auth.time = null
+
+   
+	//scrool to top on page load
+	useEffect(() =>{
+        window.scrollTo(0,0)
+	},[])
+
+	
 
 
     return (

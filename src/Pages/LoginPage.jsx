@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext,useEffect } from 'react'
 import SubmitBtn from '../Components/submitBtn'
 import { NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -14,6 +14,13 @@ import './Login.css'
 
 const LoginPage = (props) => {
 	const auth = useContext(AuthContext)
+
+	//scrool to top on page load
+	useEffect(() =>{
+        window.scrollTo(0,0)
+	},[])
+
+	
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 
@@ -124,14 +131,14 @@ const LoginPage = (props) => {
 									</div>
 									<div className='form-group' style={{ width: '350px' }}>
 										<p className='text-center'>
-											By signing up you accept our <a href='#'>Terms Of Use</a>
+											By signing up you accept our <NavLink to='terms' style={{color:"#00D0CC"}}>Terms Of Use</NavLink>
 										</p>
 									</div>
 									<div className=' text-center login_btn '>
 										<SubmitBtn
-											style={{ width: '350px' }}
+											style={{ width: '90px',margin:"0" ,backgroundColor:"#00D0CC"}}
 											fun='login'
-											className=' btn btn-block mybtn btn-primary tx-tfm'
+											className=' btn btn-block mybtn tx-tfm'
 											text='Login'
 											email={email}
 											password={password}
@@ -142,7 +149,7 @@ const LoginPage = (props) => {
 									<div className='form-group mt-4'>
 										<p className='text-center'>
 											New Here?{' '}
-											<NavLink to='/register' id='login'>
+											<NavLink to='/register' id='login'  style={{color:"#00D0CC"}}>
 												SignUp here
 													</NavLink>
 										</p>
@@ -150,7 +157,7 @@ const LoginPage = (props) => {
 									<div className='form-group mt-4'>
 										<p className='text-center'>
 											{/* Forgot Password?{' '} */}
-											<NavLink to='/forgotPassword' id='login'>
+											<NavLink to='/forgotPassword' id='login'  style={{color:"#00D0CC"}}>
 												Forgot Password?
 													</NavLink>
 										</p>

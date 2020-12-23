@@ -1,16 +1,72 @@
-import React, { useContext } from 'react'
+import React, { useContext,useEffect,useState } from 'react'
 import { AuthContext } from '../context/auth-context'
 import Doctor from '../Components/Doctor'
 import Download from '../Components/Download'
 import './ContactPage.css'
+import axios from 'axios'
 
 const ContactPage = () => {
 	const auth = useContext(AuthContext)
 	auth.time = null
+	const [messageSent,setMessageSent]=useState(0)
 
+	//scrool to top on page load
+	useEffect(() =>{
+        window.scrollTo(0,0)
+	},[])
+
+	const submitMessage=()=>{
+		const form=document.getElementById("form")
+		form.addEventListener('submit',function(e){
+			e.preventDefault()
+		})
+		const formData=Array.from(new Map(new FormData(form)))
+		console.log(formData)
+		let messageData={}
+		messageData.fullname=formData[0][1]
+		messageData.phone=formData[1][1]
+		messageData.email=formData[2][1]
+		messageData.msg=formData[3][1]
+		console.log(messageData)
+
+		axios.post(`${"http://localhost:5000"}/api/v1/messages`,messageData)
+			  .then(response =>{
+				  if(response.status===201)
+				  {
+						setMessageSent(1)
+				  }
+				  else setMessageSent(2)
+			  })
+
+
+
+	}
+	let btnText
+	let btnClass
+	let bgColor
+
+	if(messageSent==0) {
+	 btnText="Send Message"
+	 btnClass=""
+	 bgColor="#009c8f"
+	}
+
+
+	if(messageSent==1) {
+		btnText="Message Sent"
+		btnClass="disabled btn-warning"
+		bgColor="orange"
+	}
+
+
+	if(messageSent==2) {
+		btnText="Something Went Wrong"
+		btnClass=""
+		bgColor="red"
+	}
 
 	return (
-		<>
+		<React.Fragment>
 
 			<div className="container-fluid contact_div">
 				<div className="row">
@@ -18,14 +74,14 @@ const ContactPage = () => {
 					<div className="col-lg-6 col-md-6 col-10 mx-auto">
 						<h1 className=" text-dark mb-5 mt-5"> Contact Us </h1>
 						{/* <form onSubmit={this.handleSubmit.bind(this)}> */}
-						<form >
-
+						{/* <form method="POST" action={`${process.env.REACT_APP_YUVER_IP}/api/v1/messages`} > */}
+							<form id="form" >
 							{/* <div className="alert p-4">
 								<strong name="alert_message"></strong>
 							</div> */}
 
 							<div className="mb-3">
-
+							
 								<label
 									htmlFor="exampleFormControlInput1"
 									className="form-label">
@@ -47,7 +103,7 @@ const ContactPage = () => {
 									Phone:
                     </label>
 								<input
-									type="Number"
+									type="text"
 									className="form-control"
 									id="exampleFormControlInput1"
 									name="phone"
@@ -90,7 +146,7 @@ const ContactPage = () => {
 								</textarea>
 							</div>
 							<div className="">
-								<button className="btn btn-primary" type="submit">Send</button>
+								<button className={`${btnClass} btn`} style={{backgroundColor:bgColor,color:"#FFF"}} onClick={submitMessage}>{btnText}</button>
 							</div>
 						</form>
 					</div>
@@ -115,7 +171,7 @@ const ContactPage = () => {
 			<Doctor />
 			<Download />
 
-		</>
+		</React.Fragment>
 	)
 }
 export default ContactPage

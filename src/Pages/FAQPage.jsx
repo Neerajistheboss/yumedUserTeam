@@ -1,8 +1,15 @@
-import React, { useContext } from 'react'
+import React, { useContext,useEffect } from 'react'
 import { AuthContext } from '../context/auth-context'
 const FAQPage = () => {
 	const auth = useContext(AuthContext)
 	auth.time = null
+	
+	//scrool to top on page load
+	useEffect(() =>{
+        window.scrollTo(0,0)
+	},[])
+
+	
 	return (
 		<div className="p-4">
 			<h2>Frequently Asked Questions</h2>

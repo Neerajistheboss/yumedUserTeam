@@ -6,6 +6,13 @@ import Booking from '../Components/Booking'
 import moment from 'moment'
 const SearchPage = (props) => {
 	console.log("search page rendering ********")
+	
+	//scrool to top on page load
+	useEffect(() =>{
+        window.scrollTo(0,0)
+	},[])
+
+	
 
 	const auth = useContext(AuthContext)
 	let fromhospital = false
@@ -39,7 +46,7 @@ const SearchPage = (props) => {
 
 
 
-		let queryStr = `http://${process.env.REACT_APP_YUVER_IP}/api/v1/doctors?`
+		let queryStr = `${process.env.REACT_APP_YUVER_IP}/api/v1/doctors?`
 		if (searchFilter.specialisation) queryStr = queryStr + `specialisation=${encodeURI(searchFilter.specialisation)}`
 		if (searchFilter.city) queryStr = queryStr + `&city=${searchFilter.city}`
 		if (searchFilter.docName) queryStr = queryStr + `&name=${searchFilter.docName}`

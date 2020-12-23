@@ -15,6 +15,7 @@ class RegisterPage extends React.Component {
 		this.handlePasswordChange = this.handlePasswordChange.bind(this)
 		this.handleReferralCodeChange = this.handleReferralCodeChange.bind(this)
 	}
+	
 
 	handleNameChange(event) {
 		this.setState({ name: event.target.value })
@@ -114,7 +115,7 @@ class RegisterPage extends React.Component {
 										<div className='form-group'>
 											<p>
 												By signing up you accept our{' '}
-												<a href='#'>Terms Of Use</a>
+												<NavLink to='/terms' style={{color:"#00D0CC"}}>Terms Of Use</NavLink>
 											</p>
 										</div>
 										<div className='reg_btn text-center '>
@@ -141,7 +142,7 @@ class RegisterPage extends React.Component {
 										<div className='form-group'>
 											<p className='text-center'>
 												Already have account?{' '}
-												<NavLink to='/login' id='login'>
+												<NavLink to='/login' id='login' style={{color:"#00D0CC"}}>
 													Login here
 												</NavLink>
 											</p>

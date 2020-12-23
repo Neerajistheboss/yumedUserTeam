@@ -1,8 +1,10 @@
 .getDemo {
-    background: #38FFF098;;
+    background: #38FFF098;
+    ;
 }
 
-.getDemo input,select {
+.getDemo input,
+.getDemo select {
     width: 50% !important;
     color: #008A80 !important;
     background: #f5f6fa 0% 0% no-repeat padding-box;
@@ -13,11 +15,12 @@
     margin-left: 6rem !important;
 }
 
-@media (max-width:768px)  {
+@media (max-width:768px) {
     .getDemo h1 {
         font-size: 1.5rem;
     }
-    .getDemo input,select {
+    .getDemo input,
+    .getDemo select {
         width: 80% !important;
         color: #008A80 !important;
         background: #f5f6fa 0% 0% no-repeat padding-box;

@@ -1,143 +1,146 @@
-
 .menu_active {
-	font-weight: 700;
-	color: #00b894 !important;
-	/* border-bottom: 2px solid #00b894; */
+    font-weight: 700;
+    color: #00b894 !important;
+    /* border-bottom: 2px solid #00b894; */
 }
 
-li a{
+
+/* li a{
 	color: #001233 !important;
-}
+} */
 
 li a:hover {
-	color: #00b894 !important;
+    color: #00b894 !important;
 }
 
-
 .navbar {
-	width: 100%;
-	z-index: 1000;
-	/* position: fixed !important; */
-	height: 5rem !important;
-	/* margin-bottom: 1rem !important; */
-	box-shadow: 0 0 8px #95a5a6;
-	background: linear-gradient(rgba(255,255,255,1),rgba(255,255,255,1),#C4FFF8) !important;
+    width: 100%;
+    z-index: 1000;
+    /* position: fixed !important; */
+    height: 5rem !important;
+    /* margin-bottom: 1rem !important; */
+    box-shadow: 0 0 8px #95a5a6;
+    background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1), #C4FFF8) !important;
 }
 
 .navbar-brand {
-	width: 2px !important;
-	height: 2px !important;
-	margin-bottom: 2.5rem !important;
+    width: 2px !important;
+    height: 2px !important;
+    margin-bottom: 2.5rem !important;
 }
 
 .navbar .logo1 {
-	width: 4rem;
-	height: 4rem;
-	margin-left: 0.5rem;
-	animation: hbeat 3s linear infinite ;
+    width: 4rem;
+    height: 4rem;
+    margin-left: 0.5rem;
+    animation: hbeat 3s linear infinite;
 }
 
 @keyframes hbeat {
-	0%{ transform: scale(0.9); }
-	20%{ transform: scale(1.1); }
-	40%{ transform: scale(1); }
-	60%{ transform: scale(0.9); }
-	80%{ transform: scale(1.1); }
-	100%{ transform: scale(0.9); }
+    0% {
+        transform: scale(0.9);
+    }
+    20% {
+        transform: scale(1.1);
+    }
+    40% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(0.9);
+    }
+    80% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(0.9);
+    }
 }
 
 .navbar .logo2 {
-	width: 8rem;
-	height: 3rem;
+    width: 8rem;
+    height: 3rem;
 }
 
 .nav ul {
-	float: right !important;
+    float: right !important;
 }
-
 
 nav li a {
-	font-weight: 700;
-	color: #001233 !important;
-	letter-spacing: 4;
+    font-weight: 700;
+    color: #001233 !important;
+    letter-spacing: 4;
 }
+
 .nav-item :hover {
-	font-weight: 700;
-	color: #00b894 !important;
-	border: none t;
+    font-weight: 700;
+    color: #00b894 !important;
+    border: none t;
 }
 
 .background {
-	height: 25rem;
-	background-image: url('../images/headerPath.png');
-	background-size: 55% 75%;
-	background-repeat: no-repeat;
-	background-position-x: 60rem;
-	background-position-y: 4rem;
+    height: 25rem;
+    background-image: url('../images/headerPath.png');
+    background-size: 55% 75%;
+    background-repeat: no-repeat;
+    background-position-x: 60rem;
+    background-position-y: 4rem;
 }
 
-
 @media (max-width: 991px) {
-	.background {
-		height: 25rem;
-		background-image: url('../images/headerPath.png');
-		background-size: 25% 85%;
-		background-repeat: no-repeat;
-		background-position-x: 50rem;
-		background-position-y: 3rem;
-	}
+    .background {
+        height: 25rem;
+        background-image: url('../images/headerPath.png');
+        background-size: 25% 85%;
+        background-repeat: no-repeat;
+        background-position-x: 50rem;
+        background-position-y: 3rem;
+    }
 }
 
 @media (max-width:768px) {
-
-
-	.navbar {
-		position: fixed !important;
-		background-color: #dfe6e9 !important;
-		/* background: linear-gradient(rgba(255,255,255,1),rgba(255,255,255,1),#C4FFF8) !important; */
-		/* opacity: 0.9; */
-		box-shadow: 0 0 8px #95a5a6;
-		height: 4rem !important;
-	}
-	.navbar-brand{
-		margin-bottom: 1rem;
-	}
-	.navbar .logo1 {
-		width: 2rem;
-		height: 2rem;
-	}
-	
-	.navbar .logo2 {
-		width: 4rem;
-		height: 2rem;
-	}
-
-	nav li a {
-		font-weight: 700;
-		color: #001233 !important;
-		letter-spacing: 2;
-	}
-
-	.background {
-		height: 15rem;
-		background-image: url('../images/headerPath.png');
-		background-size: 50% 70%;
-		background-repeat: no-repeat;
-		background-position-x: 25rem;
-		background-position-y: 4rem;
-	}
-
+    .navbar {
+        position: fixed !important;
+        background-color: #dfe6e9 !important;
+        /* background: linear-gradient(rgba(255,255,255,1),rgba(255,255,255,1),#C4FFF8) !important; */
+        /* opacity: 0.9; */
+        box-shadow: 0 0 8px #95a5a6;
+        height: 4rem !important;
+    }
+    .navbar-brand {
+        margin-bottom: 1rem;
+    }
+    .navbar .logo1 {
+        width: 2rem;
+        height: 2rem;
+    }
+    .navbar .logo2 {
+        width: 4rem;
+        height: 2rem;
+    }
+    nav li a {
+        font-weight: 700;
+        color: #001233 !important;
+        letter-spacing: 2;
+    }
+    .background {
+        height: 15rem;
+        background-image: url('../images/headerPath.png');
+        background-size: 50% 70%;
+        background-repeat: no-repeat;
+        background-position-x: 25rem;
+        background-position-y: 4rem;
+    }
 }
 
 @media (max-width:544px) {
-	
-	.background {
-		width: 100% !important;
-		height: 10rem;
-		background-image: url('../images/headerPath.png');
-		background-size: 100% 50%;
-		background-repeat: no-repeat;
-		background-position-x: 15rem;
-		background-position-y: 4rem;
-	}
+    .background {
+        width: 100% !important;
+        height: 10rem;
+        background-image: url('../images/headerPath.png');
+        background-size: 100% 50%;
+        background-repeat: no-repeat;
+        background-position-x: 15rem;
+        background-position-y: 4rem;
+    }
 }

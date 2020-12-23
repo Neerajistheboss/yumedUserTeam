@@ -18,7 +18,7 @@ const GetOnDemo = () => {
                     <div className="col-lg-6 col-md-6 col-10 mx-auto">
                         <h1 className=" font-weight-bold text-dark mb-5 mt-5"> Get a YuMedic Demo </h1>
                         {/* <form onSubmit={this.handleSubmit.bind(this)}> */}
-                        <form method="POST" action={`http://localhost:5001/api/v1/onBoard`} >
+                        <form method="POST" action={`${process.env.REACT_APP_YUVER_IP}/api/v1/onBoard`} >
 
                             <div className="mb-3">
 

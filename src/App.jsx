@@ -38,7 +38,7 @@ function App() {
 		console.log("HAS TOKEN")
 	}
 	if (token) {
-
+		console.log("switching route with token")
 		routes = (
 			<Switch>
 				<Route path='/search/:id' component={SearchPage} />
@@ -78,7 +78,9 @@ function App() {
 				<Route path='/ambulance'>
 					<AmbulancePage />
 				</Route>
-				<Route path="/getonboard"><GetOnBoardPage /></Route>
+				<Route path="/getonboard">
+					<GetOnBoardPage />
+				</Route>
 				<Route path='/'>
 					<HomePage />
 				</Route>
@@ -86,7 +88,7 @@ function App() {
 			</Switch>
 		)
 	} else {
-		console.log('no token')
+		console.log('switching route without token')
 		routes = (
 			<Switch>
 				<Route path='/auth/google/:token/:id' component={HomePage} />

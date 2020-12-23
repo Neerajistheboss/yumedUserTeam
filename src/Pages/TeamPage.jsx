@@ -1,5 +1,12 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 const TeamPage = () => {
+    
+	//scrool to top on page load
+	useEffect(() =>{
+        window.scrollTo(0,0)
+	},[])
+
+	
     return (
         <div className="container-fluid">
             <div className="row d-flex justify-content-between">

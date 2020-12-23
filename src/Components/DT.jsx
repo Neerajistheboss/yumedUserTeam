@@ -46,7 +46,7 @@ const DT = (props) => {
 	useEffect(() => {
 		axios
 			.get(
-				`http://${process.env.REACT_APP_YUVER_IP}/api/v1/doctors/${props.docId}`
+				`${process.env.REACT_APP_YUVER_IP}/api/v1/doctors/${props.docId}`
 			)
 			.then(function (response) {
 				console.log(response.data)

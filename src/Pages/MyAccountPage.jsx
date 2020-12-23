@@ -7,6 +7,13 @@ import { AuthContext } from '../context/auth-context'
 const MyAccountPage = () => {
 	const auth = useContext(AuthContext)
 	auth.time = null
+
+	//scrool to top on page load
+	useEffect(() =>{
+        window.scrollTo(0,0)
+	},[])
+
+	
 	const [refId, setRefId] = useState(auth.values.referralId)
 	const [refPoint, setRefPoint] = useState(auth.values.refPoint)
 	useEffect(() => {
@@ -15,7 +22,7 @@ const MyAccountPage = () => {
 
 			axios
 				.get(
-					`http://${process.env.REACT_APP_YUVER_IP}/api/v1/users/${auth.values.userId}`
+					`${process.env.REACT_APP_YUVER_IP}/api/v1/users/${auth.values.userId}`
 				)
 				.then(function (response) {
 					setRefId(response.data.data.referral.code)

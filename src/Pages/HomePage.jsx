@@ -30,6 +30,13 @@ import PatliputraImage from '../images/patliputra.png'
 
 function HomePage(props) {
 	const auth = useContext(AuthContext)
+	
+	//scrool to top on page load
+	useEffect(() =>{
+        window.scrollTo(0,0)
+	},[])
+
+	
 	console.log(auth)
 	try {
 		const token = props.match.params.token

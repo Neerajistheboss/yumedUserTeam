@@ -16,6 +16,7 @@
 		"bootstrap": "^4.5.0",
 		"dotenv": "^8.2.0",
 		"env-cmd": "^8.0.2",
+		"formik": "^2.2.6",
 		"lottie-web": "^5.7.1",
 		"moment": "^2.27.0",
 		"react": "^16.13.1",
@@ -27,7 +28,9 @@
 		"react-router-dom": "^5.2.0",
 		"react-scripts": "^3.4.3",
 		"react-scroll-up-button": "^1.6.4",
-		"reactstrap": "^8.4.1"
+		"reactstrap": "^8.4.1",
+		"renamer": "^2.0.1",
+		"yup": "^0.32.8"
 	},
 	"scripts": {
 		"start": " env-cmd   dev react-scripts start",
