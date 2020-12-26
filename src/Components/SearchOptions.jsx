@@ -50,9 +50,12 @@ const SearchOptions = () => {
 			const name=event.target.innerText
 			console.log(name)
             setSearch(name)
-            auth.setDocName(name)
+			auth.setDocName(name)
+			auth.setValueFunc("hospitalId", null)
 			setClicked(true)
 			searchFilter.docName = event.target.innerText
+			searchFilter.hospitalId = null
+			
 			localStorage.setItem('filter', JSON.stringify(searchFilter))
 			setSearchFields(name)
 			setTimeout(function(){

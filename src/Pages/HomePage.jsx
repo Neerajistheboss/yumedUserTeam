@@ -68,9 +68,8 @@ function HomePage(props) {
 	}
 
 	const setHospital = (event) => {
-		auth.values.hospitalId = event.target.name
-		auth.values.specialisation = null
-		searchFilter.specialisation = null
+		auth.setValueFunc("hospitalId",event.target.name)
+		auth.setValueFunc("specialisation", null)
 		auth.setDocName(null)
 		searchFilter.hospitalId = event.target.id
 		searchFilter.docName=null
