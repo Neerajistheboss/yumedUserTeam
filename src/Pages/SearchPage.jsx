@@ -47,6 +47,7 @@ const SearchPage = (props) => {
 
 
 		let queryStr = `${process.env.REACT_APP_YUVER_IP}/api/v1/doctors?`
+		console.log(queryStr)
 		if (searchFilter.specialisation) queryStr = queryStr + `specialisation=${encodeURI(searchFilter.specialisation)}`
 		if (searchFilter.city) queryStr = queryStr + `&city=${searchFilter.city}`
 		if (searchFilter.docName) queryStr = queryStr + `&name=${searchFilter.docName}`

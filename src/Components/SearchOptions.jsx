@@ -17,13 +17,64 @@ import {
 import { NavLink } from 'react-router-dom'
 import { AuthContext } from '../context/auth-context'
 import './SearchOptions.css'
+import axios from 'axios'
 
 const SearchOptions = () => {
+
+	//setting doctor names
+	const auth=useContext(AuthContext)
+	const [search, setSearch] = useState("")
+	const [clicked, setClicked] = useState(false)
+	let [namesArray, setNamesArray] = useState(["ak singh","sk das"]);
+        // 
+        useEffect(() => {
+            axios.get("http://127.0.0.1:5000/api/v1/doctors/names")
+                .then(function(response) {
+                    setNamesArray([...new Set(response.data.data.map(obj => obj.name))])
+                }).catch(error => console.log(error))
+		}, [])
+		
+
+		let medArray = namesArray.filter(name => name.toLowerCase().includes(search.toLowerCase()))
+
+		const handleSearchChange = (event) => {
+            setClicked(false)
+            setSearch(event.target.value)
+			
+
+		}
+		
+
+		const medicineSearched = (event) => { 
+			console.log("name selected")
+			const name=event.target.innerText
+			console.log(name)
+            setSearch(name)
+            auth.setDocName(name)
+			setClicked(true)
+			searchFilter.docName = event.target.innerText
+			localStorage.setItem('filter', JSON.stringify(searchFilter))
+			setSearchFields(name)
+			setTimeout(function(){
+				document.getElementById('searchBtn').click()	
+			}, 500);
+                
+		}
+		
+		const setSearchFields=(name)=>{
+			auth.setDocName(name)
+			searchFilter.city=fields.city
+			searchFilter.docName=name
+			searchFilter.specialisation=fields.specialisation
+			localStorage.setItem('filter', JSON.stringify(searchFilter))
+
+		}
+
+
 	let searchFilter = JSON.parse(localStorage.getItem('filter'))
 	if (searchFilter == null) {
 		searchFilter = { city: null, docName: null, specialisation: null }
 	}
-	const auth = useContext(AuthContext)
 	const [isOpen] = useState(false)
 	const [dropdownOpen, setOpen] = useState(false)
 	const toggle = () => setOpen(!dropdownOpen)
@@ -55,16 +106,21 @@ const SearchOptions = () => {
 			
 					<div class='form form-inline'>
 					<div class='row justify-content-center w-100' id="form row" >
-						<div className=' mb-md-1  col-12 col-sm-4 px-5 px-sm-1'>
+						<div className=' mb-md-1  col-12 col-sm-4 px-5 px-sm-1 text-danger' style={{color: '#008A80'}}>
 							<input
-								style={{margin:"3px auto"}}
+								style={{margin:"3px auto",color: '#008A80'}}
 								name='name'
-								onChange={textChangeHandler}
+								onChange = { handleSearchChange }
+								value = { search }
 								type='text'
+								autocomplete="off"
 								className='searchoption'
 								placeholder='Search Doctor by Name'
 								required
 							/>
+							 <ul style = {{ listStyleType: "none", padding: "0", backgroundColor: "white",color: "black"}}>
+                         {search.length > 0 && !clicked && medArray.map(name => ( <li onClick = { medicineSearched } style = {{ padding: "3px" }}> { name } </li>))} 
+                        </ul >
 						</div>
 						<div className=' mb-md-1 col-12 col-sm-4 px-5 px-sm-1'>
 							<select 
@@ -86,7 +142,7 @@ const SearchOptions = () => {
 							</select>
 						</div>
 						<div className=' col-5 col-sm-4 col-md-2' >
-							<NavLink to='search' className='text-decoration-none searchoption  text-center d-inline-block pt-2' style={{backgroundColor:'#008a80',color:"white",fontSize:'20px',margin:"3px auto"}}>
+							<NavLink id="searchBtn" to='search' className='text-decoration-none searchoption  text-center d-inline-block pt-2' style={{backgroundColor:'#008a80',color:"white",fontSize:'20px',margin:"3px auto"}} onClick={()=>setSearchFields(search)}>
 								<SearchIcon className='d-none d-md-inline-block' style={{ color: 'white', fontSize: '25px' }} />
 								Search
 							</NavLink>

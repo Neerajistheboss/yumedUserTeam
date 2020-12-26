@@ -38,6 +38,10 @@ export const AuthContextProvider = ({ children }) => {
 		localStorage.setItem("uid", uid)
 	}
 
+	const setDocName=(value)=>{
+		setValues({ ...values,docName:value})
+	}
+
 
 	const log = () => {
 		console.log("log function called")
@@ -96,7 +100,7 @@ export const AuthContextProvider = ({ children }) => {
 
 
 	return (
-		<AuthContext.Provider value={{ values, login, logout, setValueFunc, setValues }}>
+		<AuthContext.Provider value={{ values, login, logout, setValueFunc, setValues,setDocName }}>
 			{children}
 		</AuthContext.Provider>
 	)

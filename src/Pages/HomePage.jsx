@@ -60,8 +60,10 @@ function HomePage(props) {
 	const setSpecialisation = (event) => {
 		auth.setValueFunc("specialisation", event.target.name)
 		auth.setValueFunc("hospitalId", null)
+		auth.setDocName(null)
 		searchFilter.hospitalId = null
 		searchFilter.specialisation = event.target.name
+		searchFilter.docName=null
 		localStorage.setItem('filter', JSON.stringify(searchFilter))
 	}
 
@@ -69,7 +71,9 @@ function HomePage(props) {
 		auth.values.hospitalId = event.target.name
 		auth.values.specialisation = null
 		searchFilter.specialisation = null
+		auth.setDocName(null)
 		searchFilter.hospitalId = event.target.id
+		searchFilter.docName=null
 		localStorage.setItem('filter', JSON.stringify(searchFilter))
 	}
 

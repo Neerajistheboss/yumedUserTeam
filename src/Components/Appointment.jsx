@@ -20,7 +20,7 @@ const Appointment = (props) => {
 		}
 
 
-
+  
 
 		if (!isAfter) {
 			setBg('#d3d3d3')

@@ -81,6 +81,10 @@ function App() {
 				<Route path="/getonboard">
 					<GetOnBoardPage />
 				</Route>
+				<Route path='/team'>
+					<TeamPage/>
+				</Route>
+
 				<Route path='/'>
 					<HomePage />
 				</Route>
