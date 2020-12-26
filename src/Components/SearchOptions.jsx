@@ -28,7 +28,7 @@ const SearchOptions = () => {
 	let [namesArray, setNamesArray] = useState(["ak singh","sk das"]);
         // 
         useEffect(() => {
-            axios.get("http://127.0.0.1:5000/api/v1/doctors/names")
+            axios.get(`${process.env.REACT_APP_YUVER_IP}/api/v1/doctors/names`)
                 .then(function(response) {
                     setNamesArray([...new Set(response.data.data.map(obj => obj.name))])
                 }).catch(error => console.log(error))
