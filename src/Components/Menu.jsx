@@ -69,6 +69,14 @@ const Menu = (props) => {
 				</NavItem>
 				<NavItem>
 					<NavLink
+						to='/team'
+						onClick={props.onLinkClick}
+						style={{ fontWeight: 'bold',color: '#FFF' }}>
+						Our Team
+					</NavLink>
+				</NavItem>
+				<NavItem>
+					<NavLink
 						to='/ambulance'
 						onClick={props.onLinkClick}
 						style={{ fontWeight: 'bold',color: '#FFF' }}>
