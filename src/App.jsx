@@ -26,7 +26,6 @@ import GetOnBoardPage from './Pages/GetOnBoard'
 import TeamPage from './Pages/TeamPage'
 import moment from 'moment'
 
-// import Path2 from './images/path2.png';
 
 function App() {
 
@@ -82,7 +81,7 @@ function App() {
 					<GetOnBoardPage />
 				</Route>
 				<Route path='/team'>
-					<TeamPage/>
+					<TeamPage />
 				</Route>
 
 				<Route path='/'>

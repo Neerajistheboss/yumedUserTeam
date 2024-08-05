@@ -3,12 +3,8 @@
     height: 50px;
     border-radius: 10px;
     border: #F3F3F3;
-    color: #008A80;
     background-color: #F3F3F3;
-    border: "none"
-}
-
-::placeholder {
-    color: #008A80;
-    padding-left: 3px;
+    border: "none";
+    color: '#BD0F40';
+    text-indent: 10px;
 }

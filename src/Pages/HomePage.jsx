@@ -9,16 +9,21 @@ import Doctor from '../Components/Doctor'
 import Download from '../Components/Download'
 import { Container, Row } from 'reactstrap'
 
-import Bones from '../images/Bones and Joints.png'
-import Cardiology from '../images/Cardilogy.png'
-import Child from '../images/Child Specialist.png'
-import Dental from '../images/Dental.png'
-import Eye from '../images/Eye Specialist.png'
-import Physician from '../images/General Physician.png'
-import Gynae from '../images/Gynaecologist.png'
-import Neurology from '../images/Neurology.png'
-import Skin from '../images/Skin and Hair.png'
-import Surgeon from '../images/Surgeon.png'
+import Bones from '../images/ortho.svg'
+import Cardiology from '../images/cardio.svg'
+import Child from '../images/chilld.svg'
+import Dental from '../images/Dental.svg'
+import Eye from '../images/ey.svg'
+import Physician from '../images/general.svg'
+import Gynae from '../images/gyno.svg'
+import Neurology from '../images/Neuro.svg'
+import Skin from '../images/dermatologist.svg'
+import Surgeon from '../images/surgeonsvg.svg'
+import Urologist from '../images/urologist.svg'
+import Gastro from '../images/gas.svg'
+
+
+
 import { NavLink } from 'react-router-dom'
 import moment from 'moment'
 import { AuthContext } from '../context/auth-context'
@@ -28,15 +33,16 @@ import PragatiImage from '../images/pragati.png'
 import PatliputraImage from '../images/patliputra.png'
 
 
+
 function HomePage(props) {
 	const auth = useContext(AuthContext)
-	
-	//scrool to top on page load
-	useEffect(() =>{
-        window.scrollTo(0,0)
-	},[])
 
-	
+	//scrool to top on page load
+	useEffect(() => {
+		window.scrollTo(0, 0)
+	}, [])
+
+
 	console.log(auth)
 	try {
 		const token = props.match.params.token
@@ -63,16 +69,16 @@ function HomePage(props) {
 		auth.setDocName(null)
 		searchFilter.hospitalId = null
 		searchFilter.specialisation = event.target.name
-		searchFilter.docName=null
+		searchFilter.docName = null
 		localStorage.setItem('filter', JSON.stringify(searchFilter))
 	}
 
 	const setHospital = (event) => {
-		auth.setValueFunc("hospitalId",event.target.name)
+		auth.setValueFunc("hospitalId", event.target.name)
 		auth.setValueFunc("specialisation", null)
 		auth.setDocName(null)
 		searchFilter.hospitalId = event.target.id
-		searchFilter.docName=null
+		searchFilter.docName = null
 		localStorage.setItem('filter', JSON.stringify(searchFilter))
 	}
 
@@ -89,7 +95,6 @@ function HomePage(props) {
 		display: 'flex',
 		flexDirection: 'row',
 		flexWrap: 'wrap',
-		justifyContent: 'center',
 		marginBottom: '34px',
 	}
 
@@ -98,13 +103,12 @@ function HomePage(props) {
 			<SearchOptions />
 
 			<Container>
-				<h3 style={{ color: 'rgb(71,123,117)', fontWeight: 'bold' }}>
+				<h3 style={{ fontWeight: 'bold' }}>
 					Search by Specialities
 				</h3>
 			</Container>
-			<br />
 			<Container style={styleSpecialities}>
-				<Row className='justify-content-center'>
+				<Row className='justify-content-center row-cols-6'>
 					<div className='text-center' name='General Physician'>
 						<NavLink
 							className='text-decoration-none'
@@ -231,56 +235,84 @@ function HomePage(props) {
 							/>
 						</NavLink>
 					</div>
+					<div className='text-center' name='Urologist'>
+						<NavLink
+							className='text-decoration-none'
+							to='/search'
+							onClick={setSpecialisation}
+							name='Urologist'>
+							<Specialities
+								name='Urologist'
+								spe='Urologist'
+								img={Urologist}
+							/>
+						</NavLink>
+					</div>
+					<div className='text-center' name='Gastrologist'>
+						<NavLink
+							className='text-decoration-none'
+							to='/search'
+							onClick={setSpecialisation}
+							name='Gastrologist'>
+							<Specialities
+								name='Gastrologist'
+								spe='Gastrologist'
+								img={Gastro}
+							/>
+						</NavLink>
+					</div>
 				</Row>
 			</Container>
 			<br />
 			<Container>
-				<h3 style={{ color: 'rgb(71,123,117)', fontWeight: 'bold' }}>
+				<h3 style={{ fontWeight: 'bold' }}>
 					Search by Hospitals
 				</h3>
 			</Container>
-			<div style={styleHospitals}>
-				<div className='text-center' id='5f43f5a86e2fc1623cda5cf0'>
-					<NavLink
-						className='text-decoration-none'
-						to='/search'
-						onClick={setHospital}
-						id='5f43f5a86e2fc1623cda5cf0'>
-						<Hospitals
-							id='5f43f5a86e2fc1623cda5cf0'
-							name='Asarfi Hospital'
-							img={AsarfiImage}
-						/>
-					</NavLink>
-				</div>
-				<div className='text-center' id='5f43f5a86e2fc1623cda5cf1'>
-					<NavLink
-						className='text-decoration-none'
-						to='/search'
-						onClick={setHospital}
-						id='5f43f5a86e2fc1623cda5cf1'>
-						<Hospitals
-							id='5f43f5a86e2fc1623cda5cf1'
-							name='PatliPutra Hospital'
-							img={PatliputraImage}
-						/>
-					</NavLink>
-				</div>
-				<div className='text-center' id='5f43f5a86e2fc1623cda5cf2'>
-					<NavLink
-						className='text-decoration-none'
-						to='/search'
-						onClick={setHospital}
-						id='5f43f5a86e2fc1623cda5cf2'>
-						<Hospitals
-							id='5f43f5a86e2fc1623cda5cf2'
-							name='Pragati Hospital'
-							img={PragatiImage}
-						/>
-					</NavLink>
-				</div>
+			<Container>
+				<div style={styleHospitals} className='mt-5'>
+					<div className='text-center' id='5f43f5a86e2fc1623cda5cf0'>
+						<NavLink
+							className='text-decoration-none'
+							to='/search'
+							onClick={setHospital}
+							id='5f43f5a86e2fc1623cda5cf0'>
+							<Hospitals
+								id='5f43f5a86e2fc1623cda5cf0'
+								name='Asarfi Hospital'
+								img={AsarfiImage}
+							/>
+						</NavLink>
+					</div>
+					<div className='text-center' id='5f43f5a86e2fc1623cda5cf1'>
+						<NavLink
+							className='text-decoration-none'
+							to='/search'
+							onClick={setHospital}
+							id='5f43f5a86e2fc1623cda5cf1'>
+							<Hospitals
+								id='5f43f5a86e2fc1623cda5cf1'
+								name='PatliPutra Hospital'
+								img={PatliputraImage}
+							/>
+						</NavLink>
+					</div>
+					<div className='text-center' id='5f43f5a86e2fc1623cda5cf2'>
+						<NavLink
+							className='text-decoration-none'
+							to='/search'
+							onClick={setHospital}
+							id='5f43f5a86e2fc1623cda5cf2'>
+							<Hospitals
+								id='5f43f5a86e2fc1623cda5cf2'
+								name='Pragati Hospital'
+								img={PragatiImage}
+							/>
+						</NavLink>
+					</div>
 
-			</div>
+				</div>
+			</Container>
 			<Testimonials />
 			<Doctor />
 			<Download />

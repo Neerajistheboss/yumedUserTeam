@@ -1,4 +1,4 @@
-import React, { useState, useContext,useEffect } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import SubmitBtn from '../Components/submitBtn'
 import { NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -16,11 +16,11 @@ const LoginPage = (props) => {
 	const auth = useContext(AuthContext)
 
 	//scrool to top on page load
-	useEffect(() =>{
-        window.scrollTo(0,0)
-	},[])
+	useEffect(() => {
+		window.scrollTo(0, 0)
+	}, [])
 
-	
+
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 
@@ -96,7 +96,7 @@ const LoginPage = (props) => {
 											<img src='google.png' style={{ width: '25px', margin: '0.3rem 0.8rem', height: '28px' }} />
 											<p className='d-inline-block m-0 align-self-center pl-1'>
 												Login with Google
-												</p>
+											</p>
 										</a>
 
 										<div className='span-or text-center font-weight-bold'>OR</div>
@@ -131,12 +131,12 @@ const LoginPage = (props) => {
 									</div>
 									<div className='form-group' style={{ width: '350px' }}>
 										<p className='text-center'>
-											By signing up you accept our <NavLink to='terms' style={{color:"#00D0CC"}}>Terms Of Use</NavLink>
+											By signing up you accept our <NavLink to='terms' style={{ color: "#00D0CC" }}>Terms Of Use</NavLink>
 										</p>
 									</div>
 									<div className=' text-center login_btn '>
 										<SubmitBtn
-											style={{ width: '90px',margin:"0" ,backgroundColor:"#00D0CC"}}
+											style={{ width: '90px', margin: "0", backgroundColor: "#00D0CC" }}
 											fun='login'
 											className=' btn btn-block mybtn tx-tfm'
 											text='Login'
@@ -149,17 +149,17 @@ const LoginPage = (props) => {
 									<div className='form-group mt-4'>
 										<p className='text-center'>
 											New Here?{' '}
-											<NavLink to='/register' id='login'  style={{color:"#00D0CC"}}>
+											<NavLink to='/register' id='login' style={{ color: "#00D0CC" }}>
 												SignUp here
-													</NavLink>
+											</NavLink>
 										</p>
 									</div>
 									<div className='form-group mt-4'>
 										<p className='text-center'>
 											{/* Forgot Password?{' '} */}
-											<NavLink to='/forgotPassword' id='login'  style={{color:"#00D0CC"}}>
+											<NavLink to='/forgotPassword' id='login' style={{ color: "#00D0CC" }}>
 												Forgot Password?
-													</NavLink>
+											</NavLink>
 										</p>
 									</div>
 

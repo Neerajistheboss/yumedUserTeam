@@ -50,21 +50,12 @@ const Booking = (props) => {
 					<p className='m-0'>
 						{props.hospitalName} {props.city}
 					</p>
-					{/* <p className='m-0'>
-						{props.avgReviews}({props.numberReviews})
-					</p> */}
-					{/* <p> {props.description} </p> */}
-					{/* <p
-						className='m-0'
-						style={{ color: 'rgb(71,123,117)', textAlign: 'center' }}>
-						View all Availability & emsp; & emsp; View Profile
-					</p> */}
 				</div>
 				<NavLink
 					to='/booking'
 					onClick={onBookingSelect}
 					className='btn align-self-end m-0 text-light'
-					style={{ position: 'absolute', right: '15px' ,backgroundColor:"#00b8a7"}}>
+					style={{ position: 'absolute', right: '15px', backgroundColor: "#00b8a7" }}>
 					Next
 				</NavLink>
 				{/* <DT /> */}

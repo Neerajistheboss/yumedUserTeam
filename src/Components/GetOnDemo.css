@@ -6,7 +6,6 @@
 .getDemo input,
 .getDemo select {
     width: 50% !important;
-    color: #008A80 !important;
     background: #f5f6fa 0% 0% no-repeat padding-box;
     border-radius: 0.5rem;
 }
@@ -19,13 +18,14 @@
     .getDemo h1 {
         font-size: 1.5rem;
     }
+
     .getDemo input,
     .getDemo select {
         width: 80% !important;
-        color: #008A80 !important;
         background: #f5f6fa 0% 0% no-repeat padding-box;
         border-radius: 0.5rem;
     }
+
     .getDemo button {
         margin-left: 3rem !important;
     }

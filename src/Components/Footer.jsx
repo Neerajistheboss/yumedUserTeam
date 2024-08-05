@@ -38,7 +38,7 @@ const Footer = () => {
 
 	const style = {
 		color: 'white',
-		backgroundColor: 'rgb(0,19,51)',
+		backgroundColor: '#970C34',
 		paddingTop: '30px',
 		paddingLeft: '10px',
 		width: '100%'
@@ -72,7 +72,7 @@ const Footer = () => {
 								<NavLink
 									to='/faqs'>
 									FAQs
-					</NavLink>
+								</NavLink>
 								{/* </NavItem> */}
 							</li>
 							<li>
@@ -80,7 +80,7 @@ const Footer = () => {
 								<NavLink
 									to='/refunds' >
 									Refunds & Cancellations
-					</NavLink>
+								</NavLink>
 								{/* </NavItem> */}
 							</li>
 						</ul>

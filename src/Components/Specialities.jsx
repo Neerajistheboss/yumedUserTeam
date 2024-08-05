@@ -3,14 +3,6 @@ import React from 'react'
 import { Col } from 'reactstrap'
 
 const Specialities = (props) => {
-	// const styles = {
-	//     display: 'inline-block',
-	//     marginRight: '16px',
-	//     marginLeft: '20px',
-	//     marginBottom: '10px',
-	//     borderRadius: '10px',
-	//     textAlign: 'center'
-	// }
 
 	const images = {
 		height: '130px',
@@ -19,10 +11,10 @@ const Specialities = (props) => {
 	}
 
 	return (
-		<div name={props.name} style={{ padding: '16px', display: 'inline-block', color: 'rgb(71,123,117)', textAlign: 'center' }}>
+		<div name={props.name} style={{ padding: '16px', margin: '16px', display: 'inline-block', textAlign: 'center' }}>
 			<div style={{ width: 'fit-content' }} name={props.name}>
 				<img src={props.img} name={props.name} style={images} />
-				<div>{props.spe}</div>
+				<div style={{ color: "#191716", fontWeight: 'lighter' }}>{props.spe}</div>
 			</div>
 		</div>
 	)

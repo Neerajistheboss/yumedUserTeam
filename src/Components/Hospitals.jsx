@@ -8,7 +8,6 @@ const Hospitals = (props) => {
 		// textAlign: 'center',
 		margin: '0.5rem 0.5rem',
 		padding: '0rem',
-		color: 'rgb(71,123,117)',
 	}
 
 	const images = {
