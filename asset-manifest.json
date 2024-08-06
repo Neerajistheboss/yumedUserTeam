@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/yumedUserTeam/static/css/main.4551e8d5.css",
-    "main.js": "/yumedUserTeam/static/js/main.804e96cd.js",
+    "main.js": "/yumedUserTeam/static/js/main.5e2d7c0b.js",
     "static/media/photo.png": "/yumedUserTeam/static/media/photo.5cf0b8779c218c87f54e.png",
     "static/media/asarfi.png": "/yumedUserTeam/static/media/asarfi.f0e7d4e46ee82cb7d12d.png",
     "static/media/patliputra.png": "/yumedUserTeam/static/media/patliputra.fb56904724c3d66c5378.png",
@@ -31,10 +31,10 @@
     "static/media/Dental.svg": "/yumedUserTeam/static/media/Dental.acd82134d9bb085d8e006f2442527e73.svg",
     "static/media/gas.svg": "/yumedUserTeam/static/media/gas.bae515b40541f2962ef90f3f7650065f.svg",
     "main.4551e8d5.css.map": "/yumedUserTeam/static/css/main.4551e8d5.css.map",
-    "main.804e96cd.js.map": "/yumedUserTeam/static/js/main.804e96cd.js.map"
+    "main.5e2d7c0b.js.map": "/yumedUserTeam/static/js/main.5e2d7c0b.js.map"
   },
   "entrypoints": [
     "static/css/main.4551e8d5.css",
-    "static/js/main.804e96cd.js"
+    "static/js/main.5e2d7c0b.js"
   ]
 }
