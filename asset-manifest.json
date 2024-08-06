@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/yumedUserTeam/static/css/main.4551e8d5.css",
+    "main.js": "/yumedUserTeam/static/js/main.804e96cd.js",
+    "static/media/photo.png": "/yumedUserTeam/static/media/photo.5cf0b8779c218c87f54e.png",
+    "static/media/asarfi.png": "/yumedUserTeam/static/media/asarfi.f0e7d4e46ee82cb7d12d.png",
+    "static/media/patliputra.png": "/yumedUserTeam/static/media/patliputra.fb56904724c3d66c5378.png",
+    "static/media/pragati.png": "/yumedUserTeam/static/media/pragati.c2c17bdc695243c1be6b.png",
+    "static/media/App Reprsentation.png": "/yumedUserTeam/static/media/App Reprsentation.f245919542cf12b79b85.png",
+    "static/media/girl.png": "/yumedUserTeam/static/media/girl.353f4d3b735915231eb7.png",
+    "static/media/Referral.png": "/yumedUserTeam/static/media/Referral.41154afddf5b150f80f1.png",
+    "static/media/google.png": "/yumedUserTeam/static/media/google.6bc7d49355c4e25579a0.png",
+    "static/media/user-4.jpg": "/yumedUserTeam/static/media/user-4.f940ac28fe65a9d293fa.jpg",
+    "static/media/user3.jpeg": "/yumedUserTeam/static/media/user3.35b355faf374676ac237.jpeg",
+    "static/media/Doctor.png": "/yumedUserTeam/static/media/Doctor.8b69d6a5499e70e8b216.png",
+    "static/media/Skin and Hair.png": "/yumedUserTeam/static/media/Skin and Hair.8b69d6a5499e70e8b216.png",
+    "static/media/Logo (2).png": "/yumedUserTeam/static/media/Logo (2).55f2e4c8cb1218e76611.png",
+    "static/media/vsvPrasad.jpeg": "/yumedUserTeam/static/media/vsvPrasad.7621b749df8b69497020.jpeg",
+    "static/media/urologist.svg": "/yumedUserTeam/static/media/urologist.92e41a748a9bc2b0d46f8152103732b5.svg",
+    "static/media/skdas.jpeg": "/yumedUserTeam/static/media/skdas.bc1d1abf1df07a1e4356.jpeg",
+    "static/media/general.svg": "/yumedUserTeam/static/media/general.e5e3db884b64d6687bcf8f2e86aa8044.svg",
+    "static/media/surgeonsvg.svg": "/yumedUserTeam/static/media/surgeonsvg.b8db2226c5f96938f770406d9bdd81df.svg",
+    "static/media/dermatologist.svg": "/yumedUserTeam/static/media/dermatologist.a48d4c374279672a2a1eed36615ade6b.svg",
+    "static/media/Neuro.svg": "/yumedUserTeam/static/media/Neuro.6f860b8c67e68f73fdf42079e036cf2c.svg",
+    "index.html": "/yumedUserTeam/index.html",
+    "static/media/cardio.svg": "/yumedUserTeam/static/media/cardio.1d46ecc67ee3c2f3b488e9f9430bbcfb.svg",
+    "static/media/ey.svg": "/yumedUserTeam/static/media/ey.e0c874dca40d5aa99a30c279472bfd0b.svg",
+    "static/media/ortho.svg": "/yumedUserTeam/static/media/ortho.67ed614b88de782ade95f60a78cf4e32.svg",
+    "static/media/chilld.svg": "/yumedUserTeam/static/media/chilld.c83b3346b92380b4a685ec93631d55f0.svg",
+    "static/media/gyno.svg": "/yumedUserTeam/static/media/gyno.1550c858fb9c2835f586269cb7efd434.svg",
+    "static/media/Dental.svg": "/yumedUserTeam/static/media/Dental.acd82134d9bb085d8e006f2442527e73.svg",
+    "static/media/gas.svg": "/yumedUserTeam/static/media/gas.bae515b40541f2962ef90f3f7650065f.svg",
+    "main.4551e8d5.css.map": "/yumedUserTeam/static/css/main.4551e8d5.css.map",
+    "main.804e96cd.js.map": "/yumedUserTeam/static/js/main.804e96cd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4551e8d5.css",
+    "static/js/main.804e96cd.js"
+  ]
+}
